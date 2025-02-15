@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Airline Simulator Dashboard (FIFO)</title>
+    <title>Airline Simulator Dashboard (FIFO, sans Deboarding) - Tri Statuts</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -124,7 +124,7 @@
 <body>
     <!-- Barre d'horloge -->
     <div class="header">
-        Airline Simulator FIFO | Heure simulée : <span id="simClock">Chargement...</span>
+        Airline Simulator FIFO (sans Deboarding) | Heure simulée : <span id="simClock">Chargement...</span>
     </div>
 
     <!-- Contrôles de vitesse -->
@@ -218,18 +218,26 @@
             }
         }
 
-        // 🎯 Couleurs de statut
+        // 🎯 Couleurs de statut (sans Deboarding)
         function getStatusColor(status) {
             switch (status) {
-                case "On-Time": return "#d4edda";
-                case "Boarding": return "#fff3cd";
-                case "In-Flight": return "#cce5ff";
                 case "Approaching": return "#f8d7da";
-                case "Deboarding": return "#d1ecf1";
+                case "In-Flight": return "#cce5ff";
+                case "Boarding": return "#fff3cd";
+                case "On-Time": return "#d4edda";
                 case "Completed": return "#e2e3e5";
                 default: return "#ffffff";
             }
         }
+
+        // 🎯 Priorité de tri pour chaque statut
+        const STATUS_PRIORITY = {
+            "Approaching": 1,
+            "In-Flight": 2,
+            "Boarding": 3,
+            "On-Time": 4,
+            "Completed": 99  // s'il apparaît
+        };
 
         // 🎯 Mise à jour du tableau des vols
         async function updateFlights() {
@@ -237,25 +245,49 @@
                 const response = await fetch("/api/flights");
                 if (!response.ok) throw new Error("HTTP " + response.status);
                 let flights = await response.json();
-                // Trie par date décroissante
+
+                // Tri principal par statut (Approaching > In-Flight > Boarding > On-Time)
+                // En cas d'égalité, on trie par heure de départ ascendante
                 flights.sort((a, b) => {
-                    const dtA = new Date(a.Date + "T" + a.Departure_Time);
-                    const dtB = new Date(b.Date + "T" + b.Departure_Time);
-                    return dtB - dtA;
+                    const priorityA = STATUS_PRIORITY[a.Status] || 9999;
+                    const priorityB = STATUS_PRIORITY[b.Status] || 9999;
+
+                    if (priorityA !== priorityB) {
+                        return priorityA - priorityB;
+                    } else {
+                        // Si même statut, on compare l'heure de départ
+                        const dtA = new Date(a.Date + "T" + a.Departure_Time);
+                        const dtB = new Date(b.Date + "T" + b.Departure_Time);
+                        return dtA - dtB;
+                    }
                 });
+
                 const tbody = document.querySelector("#flightsTable tbody");
                 tbody.innerHTML = "";
+
                 flights.forEach((f) => {
                     const row = document.createElement("tr");
                     row.classList.add("clickable");
                     row.addEventListener("click", () => showFlightDetails(f));
                     row.innerHTML = `
-            <td style="background-color: ${getStatusColor(f.Status)};">${f.Airplane_Registration || "N/A"}</td>
-            <td style="background-color: ${getStatusColor(f.Status)};"><b>${f.Status}</b></td>
-            <td style="background-color: ${getStatusColor(f.Status)};">${f.Departure_City} / ${f.Arrival_City}</td>
-            <td style="background-color: ${getStatusColor(f.Status)};">${f.Date || "N/A"}</td>
-            <td style="background-color: ${getStatusColor(f.Status)};">${f.Departure_Time}</td>
-            <td style="background-color: ${getStatusColor(f.Status)};">${f.Arrival_Time}</td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Airplane_Registration || "N/A"}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              <b>${f.Status}</b>
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Departure_City} / ${f.Arrival_City}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Date || "N/A"}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Departure_Time}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Arrival_Time}
+            </td>
           `;
                     tbody.appendChild(row);
                 });
@@ -283,8 +315,10 @@
                 const response = await fetch("/api/airplanes-status");
                 if (!response.ok) throw new Error("HTTP " + response.status);
                 const airplanes = await response.json();
+
                 const tbody = document.querySelector("#airplanesTable tbody");
                 tbody.innerHTML = "";
+
                 airplanes.forEach((a) => {
                     const row = document.createElement("tr");
                     const pilotIcons = a.Available_Pilots ? "👨‍✈️".repeat(a.Available_Pilots) : "N/A";
@@ -305,16 +339,18 @@
             }
         }
 
-        // 🎯 Tri générique d'un tableau
+        // 🎯 Tri générique d'un tableau (colonnes "sortable")
         function sortTable(tableId, colIndex, type = "string") {
             const table = document.getElementById(tableId);
             if (!table) return;
             const tbody = table.tBodies[0];
             const rowsArray = Array.from(tbody.querySelectorAll("tr"));
+
             rowsArray.sort((a, b) => {
                 const aText = a.children[colIndex].textContent.trim();
                 const bText = b.children[colIndex].textContent.trim();
                 let aValue, bValue;
+
                 if (type === "number") {
                     aValue = parseFloat(aText) || 0;
                     bValue = parseFloat(bText) || 0;
@@ -325,10 +361,12 @@
                     aValue = aText.toLowerCase();
                     bValue = bText.toLowerCase();
                 }
+
                 if (aValue > bValue) return 1;
                 if (aValue < bValue) return -1;
                 return 0;
             });
+
             while (tbody.firstChild) {
                 tbody.removeChild(tbody.firstChild);
             }

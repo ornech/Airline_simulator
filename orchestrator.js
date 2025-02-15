@@ -1,5 +1,5 @@
 /***************************************************************
- * orchestrator.js - Gestion de la simulation de vols aériens
+ * orchestrator.js - Gestion de la simulation de vols aériens (FIFO)
  ***************************************************************/
 
 const express = require("express");
@@ -16,7 +16,7 @@ const dbConfig = {
   database: "airline_DB_V3",
 };
 
-const SIM_INTERVAL = 10000; // (Non utilisé dans la nouvelle approche)
+// On ne se sert pas de SIM_INTERVAL dans l'approche événementielle
 let timeStep = 10; // Avancer de 10 minutes simulées par événement
 const PORT = 3000;
 let isPaused = false;
@@ -24,10 +24,9 @@ let isPaused = false;
 // Heure simulée initiale
 let simulatedTime = new Date("2025-02-15T07:00:00");
 
-// Définition de seuils pour la mise à jour des statuts (en minutes)
+// Seuils pour le statut (sans Deboarding)
 const BOARDING_THRESHOLD = 20; // Avant le départ
 const APPROACHING_THRESHOLD = 15; // Avant l'arrivée
-const DEBOARDING_THRESHOLD = 15; // Après l'arrivée
 
 const app = express();
 
@@ -35,20 +34,20 @@ const app = express();
 app.use(express.static(path.join(__dirname)));
 
 /***************************************************************
- * API: Divers endpoints (flights, simulated-time, etc.)
+ * 📌 API: Divers endpoints (flights, simulated-time, etc.)
  ***************************************************************/
 app.get("/api/flights", async (req, res) => {
   try {
     const conn = await mysql.createConnection(dbConfig);
     const [rows] = await conn.execute(`
       SELECT 
-        f.Flight_ID, 
-        f.Flight_Number, 
+        f.Flight_ID,
+        f.Flight_Number,
         f.Status,
         DATE_FORMAT(f.Departure_Time, '%Y-%m-%d') AS Date,
-        TIME_FORMAT(f.Departure_Time, '%H:%i') AS Departure_Time, 
-        TIME_FORMAT(f.Arrival_Time, '%H:%i')   AS Arrival_Time, 
-        a1.City AS Departure_City, 
+        TIME_FORMAT(f.Departure_Time, '%H:%i') AS Departure_Time,
+        TIME_FORMAT(f.Arrival_Time, '%H:%i')   AS Arrival_Time,
+        a1.City AS Departure_City,
         a2.City AS Arrival_City,
         ap.Registration AS Airplane_Registration
       FROM Flights f
@@ -79,45 +78,47 @@ app.get("/api/airplanes-status", async (req, res) => {
       .toISOString()
       .slice(0, 19)
       .replace("T", " ");
+
     const [rows] = await conn.execute(
       `
-      SELECT 
+      SELECT
         a.Airplane_ID,
         a.Registration,
         a.Model,
         ap.City AS Location_City,
         (
-          SELECT f.Status 
-          FROM Flights f 
-          WHERE f.Airplane_ID = a.Airplane_ID 
+          SELECT f.Status
+          FROM Flights f
+          WHERE f.Airplane_ID = a.Airplane_ID
           ORDER BY f.Arrival_Time DESC
           LIMIT 1
         ) AS Last_Status,
         (
           SELECT DATE_FORMAT(f.Departure_Time, '%Y-%m-%d %H:%i')
-          FROM Flights f 
-          WHERE f.Airplane_ID = a.Airplane_ID 
+          FROM Flights f
+          WHERE f.Airplane_ID = a.Airplane_ID
             AND f.Departure_Time > ?
           ORDER BY f.Departure_Time ASC
           LIMIT 1
         ) AS Next_Departure,
         (
           SELECT DATE_FORMAT(f.Arrival_Time, '%Y-%m-%d %H:%i')
-          FROM Flights f 
-          WHERE f.Airplane_ID = a.Airplane_ID 
+          FROM Flights f
+          WHERE f.Airplane_ID = a.Airplane_ID
             AND f.Departure_Time > ?
           ORDER BY f.Departure_Time ASC
           LIMIT 1
         ) AS Next_Arrival,
         (
-          SELECT COUNT(*) 
-          FROM Employees e 
+          SELECT COUNT(*)
+          FROM Employees e
           WHERE e.Role = 'Pilot'
             AND e.Location = a.Current_Location
             AND NOT EXISTS (
-              SELECT 1 FROM Flights f2
+              SELECT 1
+              FROM Flights f2
               WHERE (f2.CDB = e.Employee_ID OR f2.OPL = e.Employee_ID)
-                AND f2.Status IN ('On-Time','Boarding','In-Flight','Approaching','Deboarding')
+                AND f2.Status IN ('On-Time','Boarding','In-Flight','Approaching')
             )
         ) AS Available_Pilots
       FROM Airplanes a
@@ -125,6 +126,7 @@ app.get("/api/airplanes-status", async (req, res) => {
     `,
       [simTimeStr, simTimeStr]
     );
+
     await conn.end();
     res.json(rows);
   } catch (err) {
@@ -136,40 +138,46 @@ app.get("/api/airplanes-status", async (req, res) => {
 app.get("/api/dashboard-stats", async (req, res) => {
   try {
     const conn = await mysql.createConnection(dbConfig);
+
+    // Retirer toute référence à "Deboarding"
     const [availablePlanes] = await conn.execute(`
       SELECT COUNT(*) AS count
       FROM Airplanes A
       WHERE NOT EXISTS (
-        SELECT 1 
-        FROM Flights F 
-        WHERE F.Airplane_ID = A.Airplane_ID 
-          AND F.Status IN ('On-Time', 'Boarding', 'In-Flight', 'Approaching', 'Deboarding')
+        SELECT 1
+        FROM Flights F
+        WHERE F.Airplane_ID = A.Airplane_ID
+          AND F.Status IN ('On-Time','Boarding','In-Flight','Approaching')
       )
     `);
+
     const [engagedPlanes] = await conn.execute(`
       SELECT COUNT(DISTINCT Airplane_ID) AS count
       FROM Flights
-      WHERE Status IN ('On-Time', 'Boarding', 'In-Flight', 'Approaching', 'Deboarding')
+      WHERE Status IN ('On-Time','Boarding','In-Flight','Approaching')
     `);
+
     const [availablePilots] = await conn.execute(`
       SELECT COUNT(*) AS count
       FROM Employees E
       WHERE E.Role = 'Pilot'
       AND NOT EXISTS (
-        SELECT 1 
-        FROM Flights F 
+        SELECT 1
+        FROM Flights F
         WHERE (F.CDB = E.Employee_ID OR F.OPL = E.Employee_ID)
-          AND F.Status IN ('On-Time', 'Boarding', 'In-Flight', 'Approaching', 'Deboarding')
+          AND F.Status IN ('On-Time','Boarding','In-Flight','Approaching')
       )
     `);
+
     const [engagedPilots] = await conn.execute(`
       SELECT COUNT(DISTINCT Employee_ID) AS count
       FROM (
-        SELECT CDB AS Employee_ID FROM Flights WHERE Status IN ('On-Time', 'Boarding', 'In-Flight', 'Approaching', 'Deboarding')
+        SELECT CDB AS Employee_ID FROM Flights WHERE Status IN ('On-Time','Boarding','In-Flight','Approaching')
         UNION
-        SELECT OPL AS Employee_ID FROM Flights WHERE Status IN ('On-Time', 'Boarding', 'In-Flight', 'Approaching', 'Deboarding')
+        SELECT OPL AS Employee_ID FROM Flights WHERE Status IN ('On-Time','Boarding','In-Flight','Approaching')
       ) AS Engaged
     `);
+
     await conn.end();
     res.json({
       availablePlanes: availablePlanes[0].count,
@@ -184,50 +192,42 @@ app.get("/api/dashboard-stats", async (req, res) => {
 });
 
 /***************************************************************
- * PLANIFICATION DES VOLS (enchaînés, 1 avion par événement)
+ * PLANIFICATION DES VOLS (1 avion par événement)
  ***************************************************************/
-
-// File d'événements : chaque événement possède une propriété "time" (Date simulée) et "action" (fonction asynchrone à exécuter)
 let eventQueue = [];
 
-// Fonction pour planifier un événement
+// ⚙️ Ajout d'un événement dans la file
 function scheduleEvent(eventTime, action) {
   eventQueue.push({ time: eventTime, action });
-  // On trie la file par ordre chronologique (plus petit en premier)
   eventQueue.sort((a, b) => a.time - b.time);
 }
 
-// Fonction pour traiter le prochain événement de la file
+// ⚙️ Traitement du prochain événement
 function processNextEvent() {
   if (eventQueue.length === 0) {
     console.log("Plus d'événements planifiés.");
     return;
   }
   const nextEvent = eventQueue.shift();
-  // Met à jour l'heure simulée pour correspondre à l'événement
   simulatedTime = nextEvent.time;
   console.log(`🕒 Simulated time avancée à: ${simulatedTime.toISOString()}`);
-  // Exécute l'action associée
   Promise.resolve(nextEvent.action()).then(() => {
-    // Délai réel de 2 secondes entre chaque événement
     setTimeout(processNextEvent, 2000);
   });
 }
 
-// Fonction qui planifie une étape de simulation
+// ⚙️ Programmation d'une étape de simulation
 function scheduleSimulationStep() {
-  // Planifie une étape de simulation dans "timeStep" minutes simulées
   const nextTime = new Date(simulatedTime.getTime() + timeStep * 60000);
   scheduleEvent(nextTime, async () => {
     await planifierVols();
     await mettreAJourStatutDesVols();
-    // Après exécution, planifie la prochaine étape
-    scheduleSimulationStep();
+    scheduleSimulationStep(); // on planifie la suite
   });
 }
 
 /***************************************************************
- * Fonctions de planification et mise à jour des statuts
+ * planifierVols & mettreAJourStatutDesVols (sans Deboarding)
  ***************************************************************/
 async function planifierVols() {
   if (isPaused) return;
@@ -238,13 +238,14 @@ async function planifierVols() {
       SELECT A.Airplane_ID, A.Current_Location
       FROM Airplanes A
       WHERE NOT EXISTS (
-        SELECT 1 FROM Flights F 
-        WHERE F.Airplane_ID = A.Airplane_ID 
-          AND F.Status IN ('On-Time', 'Boarding', 'In-Flight', 'Approaching', 'Deboarding')
+        SELECT 1 FROM Flights F
+        WHERE F.Airplane_ID = A.Airplane_ID
+          AND F.Status IN ('On-Time','Boarding','In-Flight','Approaching')
       )
       ORDER BY RAND()
       LIMIT 1
     `);
+
     if (availablePlane.length === 0) {
       await conn.end();
       console.log("Aucun avion libre à planifier pour le moment.");
@@ -253,85 +254,109 @@ async function planifierVols() {
     const plane = availablePlane[0];
     const airplaneId = plane.Airplane_ID;
     console.log(
-      `Avion sélectionné : ID ${airplaneId}, localisation initiale : ${plane.Current_Location}`
+      `Avion sélectionné : ${airplaneId}, loc: ${plane.Current_Location}`
     );
+
     const [lastFlight] = await conn.execute(
-      `SELECT Arrival_Airport_ID, Arrival_Time
-       FROM Flights
-       WHERE Airplane_ID = ?
-       ORDER BY Arrival_Time DESC
-       LIMIT 1`,
+      `
+      SELECT Arrival_Airport_ID, Arrival_Time
+      FROM Flights
+      WHERE Airplane_ID = ?
+      ORDER BY Arrival_Time DESC
+      LIMIT 1
+    `,
       [airplaneId]
     );
+
     let departureAirportId;
     let departureTime;
+
     if (lastFlight.length === 0) {
+      // Avion vierge
       departureAirportId = plane.Current_Location;
-      const randomDelay = Math.floor(Math.random() * 91) + 30; // 30 à 120 min
+      const randomDelay = Math.floor(Math.random() * 91) + 30; // 30..120
       departureTime = new Date(simulatedTime.getTime() + randomDelay * 60000);
       console.log(
-        `Avion ${airplaneId} vierge, randomDelay = ${randomDelay} min, départ prévu à ${departureTime.toISOString()}`
+        `Avion vierge #${airplaneId}, départ à: ${departureTime.toISOString()} (delay=${randomDelay} min)`
       );
     } else {
+      // Avion déjà utilisé
       const { Arrival_Airport_ID, Arrival_Time } = lastFlight[0];
       departureAirportId = Arrival_Airport_ID;
       const arrivalDate = new Date(Arrival_Time);
       const baseTime =
         arrivalDate > simulatedTime ? arrivalDate : simulatedTime;
-      const randomTurnaround = Math.floor(Math.random() * 31) + 30; // 30 à 60 min
+      const randomTurnaround = Math.floor(Math.random() * 31) + 30; // 30..60
       departureTime = new Date(baseTime.getTime() + randomTurnaround * 60000);
       console.log(
-        `Avion ${airplaneId} déjà utilisé, randomTurnaround = ${randomTurnaround} min, départ prévu à ${departureTime.toISOString()}`
+        `Avion #${airplaneId}, turnaround=${randomTurnaround} min, départ: ${departureTime.toISOString()}`
       );
     }
+
+    // Choix d'une destination
     const [dest] = await conn.execute(
-      `SELECT Airport_ID
-       FROM Airports
-       WHERE Airport_ID <> ?
-       ORDER BY RAND()
-       LIMIT 1`,
+      `
+      SELECT Airport_ID
+      FROM Airports
+      WHERE Airport_ID <> ?
+      ORDER BY RAND()
+      LIMIT 1
+    `,
       [departureAirportId]
     );
+
     if (dest.length === 0) {
-      console.log(`🚨 Aucune destination trouvée pour avion ${airplaneId}`);
+      console.log(`🚨 Aucune destination pour avion #${airplaneId}`);
       await conn.end();
       return;
     }
     const arrivalAirportId = dest[0].Airport_ID;
-    const flightDuration = Math.floor(Math.random() * 121) + 60; // 60 à 180 min
+    const flightDuration = Math.floor(Math.random() * 121) + 60; // 60..180
     const arrivalTime = new Date(
       departureTime.getTime() + flightDuration * 60000
     );
     console.log(
-      `Durée du vol = ${flightDuration} min, arrivée prévue à ${arrivalTime.toISOString()}`
+      `Vol: ${flightDuration} min, arrivée: ${arrivalTime.toISOString()}`
     );
+
+    // Recherche équipage
     const [crew] = await conn.execute(
-      `SELECT E1.Employee_ID AS CDB, E2.Employee_ID AS OPL
-       FROM Employees E1
-       JOIN Employees E2 ON E1.Location = E2.Location AND E1.Employee_ID <> E2.Employee_ID
-       WHERE E1.Role = 'Pilot'
-         AND E2.Role = 'Pilot'
-         AND E1.Location = ?
-         AND NOT EXISTS (
-           SELECT 1 FROM Flights F
-           WHERE (F.CDB = E1.Employee_ID OR F.OPL = E2.Employee_ID)
-             AND F.Status IN ('On-Time', 'Boarding', 'In-Flight', 'Approaching', 'Deboarding')
-         )
-       ORDER BY RAND()
-       LIMIT 1`,
+      `
+      SELECT E1.Employee_ID AS CDB, E2.Employee_ID AS OPL
+      FROM Employees E1
+      JOIN Employees E2 ON E1.Location = E2.Location
+        AND E1.Employee_ID <> E2.Employee_ID
+      WHERE E1.Role = 'Pilot'
+        AND E2.Role = 'Pilot'
+        AND E1.Location = ?
+        AND NOT EXISTS (
+          SELECT 1
+          FROM Flights F
+          WHERE (F.CDB = E1.Employee_ID OR F.OPL = E2.Employee_ID)
+            AND F.Status IN ('On-Time','Boarding','In-Flight','Approaching')
+        )
+      ORDER BY RAND()
+      LIMIT 1
+    `,
       [departureAirportId]
     );
+
     if (crew.length === 0) {
-      console.log(`🚨 Aucun équipage disponible pour avion ${airplaneId}`);
+      console.log(`🚨 Aucun équipage pour avion #${airplaneId}`);
       await conn.end();
       return;
     }
+
+    // Insertion du vol
     try {
       await conn.execute(
-        `INSERT INTO Flights (
-           Flight_Number, Departure_Airport_ID, Arrival_Airport_ID,
-           Departure_Time, Arrival_Time, Airplane_ID, CDB, OPL, Status
-         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'On-Time')`,
+        `
+        INSERT INTO Flights (
+          Flight_Number, Departure_Airport_ID, Arrival_Airport_ID,
+          Departure_Time, Arrival_Time, Airplane_ID, CDB, OPL, Status
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'On-Time')
+      `,
         [
           `FL${Math.floor(Math.random() * 10000)}`,
           departureAirportId,
@@ -343,19 +368,17 @@ async function planifierVols() {
           crew[0].OPL,
         ]
       );
-      console.log(`✅ Nouveau vol planifié pour avion ${airplaneId}`);
+      console.log(`✅ Nouveau vol planifié pour avion #${airplaneId}`);
     } catch (err) {
-      console.error("❌ Erreur lors de l'insertion du vol:", err);
+      console.error("❌ Erreur insertion vol:", err);
     }
+
     await conn.end();
   } catch (err) {
-    console.error("❌ Erreur dans planifierVols:", err);
+    console.error("❌ Erreur planifierVols:", err);
   }
 }
 
-/***************************************************************
- * MISE À JOUR DES STATUTS DES VOLS
- ***************************************************************/
 async function mettreAJourStatutDesVols() {
   if (isPaused) return;
   try {
@@ -365,6 +388,7 @@ async function mettreAJourStatutDesVols() {
       FROM Flights
       WHERE Status NOT IN ('Completed', 'Canceled')
     `);
+
     for (const flight of flights) {
       const dep = new Date(flight.Departure_Time);
       const arr = new Date(flight.Arrival_Time);
@@ -373,7 +397,7 @@ async function mettreAJourStatutDesVols() {
       console.log(
         `Vol #${
           flight.Flight_ID
-        } - dep: ${dep.toISOString()}, arr: ${arr.toISOString()}, now: ${simulatedTime.toISOString()}`
+        } - dep=${dep.toISOString()}, arr=${arr.toISOString()}, now=${simulatedTime.toISOString()}`
       );
 
       if (simulatedTime < dep) {
@@ -382,17 +406,15 @@ async function mettreAJourStatutDesVols() {
         newStatus =
           diffBeforeDeparture <= BOARDING_THRESHOLD ? "Boarding" : "On-Time";
       } else if (simulatedTime >= dep && simulatedTime <= arr) {
-        // Pendant le vol (jusqu'à l'heure d'arrivée)
+        // Pendant le vol
         const diffBeforeArrival = (arr - simulatedTime) / 60000;
         newStatus =
           diffBeforeArrival <= APPROACHING_THRESHOLD
             ? "Approaching"
             : "In-Flight";
       } else if (simulatedTime > arr) {
-        // Après l'arrivée, ne passer en Deboarding qu'une fois que l'heure d'arrivée est dépassée
-        const diffAfterArrival = (simulatedTime - arr) / 60000;
-        newStatus =
-          diffAfterArrival <= DEBOARDING_THRESHOLD ? "Deboarding" : "Completed";
+        // Arrivée dépassée -> Completed
+        newStatus = "Completed";
       }
 
       if (newStatus !== flight.Status) {
@@ -407,12 +429,12 @@ async function mettreAJourStatutDesVols() {
     }
     await conn.end();
   } catch (err) {
-    console.error("❌ Erreur dans mettreAJourStatutDesVols:", err);
+    console.error("❌ Erreur mettreAJourStatutDesVols:", err);
   }
 }
 
 /***************************************************************
- * API: Modifier la vitesse et pause/reprise
+ * API: set-speed & toggle-pause
  ***************************************************************/
 app.post("/api/set-speed", (req, res) => {
   const newSpeed = parseInt(req.query.value);
@@ -430,16 +452,8 @@ app.post("/api/toggle-pause", (req, res) => {
 });
 
 /***************************************************************
- * Gestion événementielle du temps simulé
+ * Événementiel : boucle FIFO
  ***************************************************************/
-
-// Planifie un événement
-function scheduleEvent(eventTime, action) {
-  eventQueue.push({ time: eventTime, action });
-  eventQueue.sort((a, b) => a.time - b.time);
-}
-
-// Traite le prochain événement de la file
 function processNextEvent() {
   if (eventQueue.length === 0) {
     console.log("Plus d'événements planifiés.");
@@ -449,22 +463,20 @@ function processNextEvent() {
   simulatedTime = nextEvent.time;
   console.log(`🕒 Simulated time avancée à: ${simulatedTime.toISOString()}`);
   Promise.resolve(nextEvent.action()).then(() => {
-    setTimeout(processNextEvent, 2000); // 2 secondes entre chaque événement réel
+    setTimeout(processNextEvent, 2000);
   });
 }
 
-// Planifie une étape de simulation (mise à jour des vols et statuts)
 function scheduleSimulationStep() {
   const nextTime = new Date(simulatedTime.getTime() + timeStep * 60000);
   scheduleEvent(nextTime, async () => {
     await planifierVols();
     await mettreAJourStatutDesVols();
-    // Planifie la prochaine étape
-    scheduleSimulationStep();
+    scheduleSimulationStep(); // planifier l'étape suivante
   });
 }
 
-// Démarrage de la simulation basée sur événements
+// Démarrage
 scheduleSimulationStep();
 processNextEvent();
 
@@ -473,5 +485,5 @@ processNextEvent();
  ***************************************************************/
 app.listen(PORT, () => {
   console.log(`🌍 Serveur en ligne sur http://localhost:${PORT}`);
-  console.log(`🔄 Simulation basée sur événements démarrée.`);
+  console.log(`🔄 Simulation basée sur événements (sans Deboarding) démarrée.`);
 });
