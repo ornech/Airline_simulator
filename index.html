@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Airline Simulator Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            width: 100%;
+            text-align: center;
+            background: #f0f0f0;
+            color: #333;
+            padding: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .dashboard-stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background: #e9e9e9;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .stat-block {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 22%;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background: #f0f0f0;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .controls label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .controls input {
+            margin-right: 10px;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+        }
+
+        .left-panel {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .right-panel {
+            width: 400px;
+            background: #fff;
+            padding: 15px;
+            border-left: 1px solid #ddd;
+            overflow-y: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 6px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: 600;
+        }
+
+        .clickable {
+            cursor: pointer;
+        }
+
+        /* Style pour le tableau des avions */
+        .airplanes-panel {
+            padding: 20px;
+            background: #fff;
+            margin: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        th.sortable:hover {
+            cursor: pointer;
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Barre d'horloge -->
+    <div class="header">
+        Airline Simulator | Heure simulée : <span id="simClock">Chargement...</span>
+    </div>
+
+    <!-- Contrôles de vitesse -->
+    <div class="controls">
+        <label for="speedControl">⏳ Vitesse:</label>
+        <input type="range" id="speedControl" min="1" max="60" step="1" value="10">
+        <span id="speedValue">10 min/tick</span>
+        <button id="pauseResume">⏸️ Pause</button>
+    </div>
+
+    <!-- Dashboard Stats -->
+    <div class="dashboard-stats">
+        <div class="stat-block">📌 Avions disponibles : <span id="availablePlanes">0</span></div>
+        <div class="stat-block">📌 Pilotes disponibles : <span id="availablePilots">0</span></div>
+        <div class="stat-block">🚀 Avions engagés : <span id="engagedPlanes">0</span></div>
+        <div class="stat-block">👨‍✈️ Pilotes engagés : <span id="engagedPilots">0</span></div>
+    </div>
+
+    <div class="content">
+        <!-- Tableau des vols (conservé) -->
+        <div class="left-panel">
+            <h1>Opérations aériennes</h1>
+            <table id="flightsTable">
+                <thead>
+                    <tr>
+                        <th>Immatriculation</th>
+                        <th>Status</th>
+                        <th>Vol</th>
+                        <th>Date</th>
+                        <th>Décollage</th>
+                        <th>Arrivée</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Détails du vol -->
+        <div class="right-panel">
+            <h2>Détails du vol</h2>
+            <div id="flightDetails">
+                <p>Sélectionnez un vol à gauche pour voir plus d'informations.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nouveau tableau : Statut des avions -->
+    <div class="airplanes-panel">
+        <h1>Statut des avions</h1>
+        <table id="airplanesTable">
+            <thead>
+                <tr>
+                    <th class="sortable" data-type="number">ID</th>
+                    <th class="sortable" data-type="string">Immatriculation</th>
+                    <th class="sortable" data-type="string">Type</th>
+                    <th class="sortable" data-type="string">Localisation</th>
+                    <th class="sortable" data-type="string">Dernier status</th>
+                    <th class="sortable" data-type="date">Prochain décollage</th>
+                    <th class="sortable" data-type="date">Prochain atterrissage</th>
+                    <th class="sortable" data-type="number">Pilotes disponibles</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        // Mise à jour de l'horloge simulée
+        async function updateClock() {
+            try {
+                const res = await fetch("/api/simulated-time");
+                if (!res.ok) throw new Error("HTTP " + res.status);
+                const data = await res.json();
+                document.getElementById("simClock").innerText = data.simulatedTime;
+            } catch (err) {
+                document.getElementById("simClock").innerText = "⛔ Erreur";
+            }
+        }
+
+        // Mise à jour des dashboard stats
+        async function updateDashboardStats() {
+            try {
+                const res = await fetch("/api/dashboard-stats");
+                if (!res.ok) throw new Error("HTTP " + res.status);
+                const stats = await res.json();
+                document.getElementById("availablePlanes").innerText = stats.availablePlanes;
+                document.getElementById("availablePilots").innerText = stats.availablePilots;
+                document.getElementById("engagedPlanes").innerText = stats.engagedPlanes;
+                document.getElementById("engagedPilots").innerText = stats.engagedPilots;
+            } catch (err) {
+                console.error("Erreur récupération dashboard stats:", err);
+            }
+        }
+
+        // Fonction de coloration en fonction du status
+        function getStatusColor(status) {
+            switch (status) {
+                case "On-Time": return "#d4edda";
+                case "Boarding": return "#fff3cd";
+                case "In-Flight": return "#cce5ff";
+                case "Approaching": return "#f8d7da";
+                case "Deboarding": return "#d1ecf1";
+                case "Completed": return "#e2e3e5";
+                default: return "#ffffff";
+            }
+        }
+
+        // Mise à jour du tableau des vols
+        async function updateFlights() {
+            try {
+                const response = await fetch("/api/flights");
+                if (!response.ok) throw new Error("HTTP " + response.status);
+                let flights = await response.json();
+                // Trie par date décroissante (vols les plus récents en haut)
+                flights.sort((a, b) => {
+                    const dtA = new Date(a.Date + "T" + a.Departure_Time);
+                    const dtB = new Date(b.Date + "T" + b.Departure_Time);
+                    return dtB - dtA;
+                });
+                const tbody = document.querySelector("#flightsTable tbody");
+                tbody.innerHTML = "";
+                flights.forEach((f) => {
+                    const row = document.createElement("tr");
+                    row.classList.add("clickable");
+                    row.addEventListener("click", () => showFlightDetails(f));
+                    row.innerHTML = `
+              <td style="background-color: ${getStatusColor(f.Status)};">${f.Airplane_Registration || "N/A"}</td>
+              <td style="background-color: ${getStatusColor(f.Status)};"><b>${f.Status}</b></td>
+              <td style="background-color: ${getStatusColor(f.Status)};">${f.Departure_City} / ${f.Arrival_City}</td>
+              <td style="background-color: ${getStatusColor(f.Status)};">${f.Date || "N/A"}</td>
+              <td style="background-color: ${getStatusColor(f.Status)};">${f.Departure_Time}</td>
+              <td style="background-color: ${getStatusColor(f.Status)};">${f.Arrival_Time}</td>
+          `;
+                    tbody.appendChild(row);
+                });
+            } catch (err) {
+                console.error("Erreur récupération flights:", err);
+            }
+        }
+
+        // Affichage des détails d'un vol dans le panneau de droite
+        function showFlightDetails(flight) {
+            const detailDiv = document.getElementById("flightDetails");
+            detailDiv.innerHTML = `
+          <p><strong>Vol #${flight.Flight_Number || "(inconnu)"} - ID ${flight.Flight_ID}</strong></p>
+          <p>Date : ${flight.Date || "N/A"}</p>
+          <p>Status : ${flight.Status}</p>
+          <p>Départ : ${flight.Departure_Time} - ${flight.Departure_City}</p>
+          <p>Arrivée : ${flight.Arrival_Time} - ${flight.Arrival_City}</p>
+          <p>Immatriculation : ${flight.Airplane_Registration || "N/A"}</p>
+      `;
+        }
+
+        // Mise à jour du tableau des avions (statut, prochains vols, etc.)
+        async function updateAirplanes() {
+            try {
+                const response = await fetch("/api/airplanes-status");
+                if (!response.ok) throw new Error("HTTP " + response.status);
+                const airplanes = await response.json();
+                const tbody = document.querySelector("#airplanesTable tbody");
+                tbody.innerHTML = "";
+                airplanes.forEach((a) => {
+                    const row = document.createElement("tr");
+                    // Création d'une chaîne d'icônes pour représenter les pilotes disponibles
+                    const pilotIcons = a.Available_Pilots ? "👨‍✈️".repeat(a.Available_Pilots) : "N/A";
+                    row.innerHTML = `
+              <td>${a.Airplane_ID}</td>
+              <td>${a.Registration || "N/A"}</td>
+              <td>${a.Model || "N/A"}</td>
+              <td>${a.Location_City || "N/A"}</td>
+              <td>${a.Last_Status || "N/A"}</td>
+              <td>${a.Next_Departure || "N/A"}</td>
+              <td>${a.Next_Arrival || "N/A"}</td>
+              <td>${pilotIcons}</td>
+          `;
+                    tbody.appendChild(row);
+                });
+            } catch (err) {
+                console.error("Erreur récupération des statuts des avions:", err);
+            }
+        }
+
+        // Fonction de tri générique pour un tableau HTML
+        function sortTable(tableId, colIndex, type = "string") {
+            const table = document.getElementById(tableId);
+            const tbody = table.tBodies[0];
+            const rowsArray = Array.from(tbody.querySelectorAll("tr"));
+            // Tri en ordre ascendant
+            rowsArray.sort((a, b) => {
+                const aText = a.children[colIndex].textContent.trim();
+                const bText = b.children[colIndex].textContent.trim();
+                let aValue, bValue;
+                if (type === "number") {
+                    aValue = parseFloat(aText) || 0;
+                    bValue = parseFloat(bText) || 0;
+                } else if (type === "date") {
+                    aValue = new Date(aText);
+                    bValue = new Date(bText);
+                } else {
+                    aValue = aText.toLowerCase();
+                    bValue = bText.toLowerCase();
+                }
+                if (aValue > bValue) return 1;
+                if (aValue < bValue) return -1;
+                return 0;
+            });
+            // Réinsertion des lignes triées
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild);
+            }
+            tbody.append(...rowsArray);
+        }
+
+        // Ajout d'écouteurs sur les th du tableau des avions pour le tri
+        document.querySelectorAll("#airplanesTable th.sortable").forEach((header, index) => {
+            header.addEventListener("click", () => {
+                const type = header.getAttribute("data-type") || "string";
+                sortTable("airplanesTable", index, type);
+            });
+        });
+
+        // Contrôle de vitesse
+        document.getElementById("speedControl").addEventListener("input", async function () {
+            const newSpeed = this.value;
+            document.getElementById("speedValue").innerText = `${newSpeed} min/tick`;
+            try {
+                await fetch(`/api/set-speed?value=${newSpeed}`, { method: "POST" });
+            } catch (err) {
+                console.error("Erreur modification vitesse:", err);
+            }
+        });
+
+        // Pause / Reprendre la simulation
+        let paused = false;
+        document.getElementById("pauseResume").addEventListener("click", async function () {
+            paused = !paused;
+            this.innerText = paused ? "▶️ Reprendre" : "⏸️ Pause";
+            try {
+                await fetch(`/api/toggle-pause`, { method: "POST" });
+            } catch (err) {
+                console.error("Erreur pause/reprise:", err);
+            }
+        });
+
+        // Rafraîchissement automatique toutes les 5 secondes
+        setInterval(updateClock, 5000);
+        setInterval(updateFlights, 5000);
+        setInterval(updateDashboardStats, 5000);
+        setInterval(updateAirplanes, 5000);
+
+        // Chargement initial
+        updateClock();
+        updateFlights();
+        updateDashboardStats();
+        updateAirplanes();
+    </script>
+</body>
+
+</html>
