@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Airline Simulator Dashboard</title>
+    <title>Airline Simulator Dashboard (FIFO, sans Deboarding) - Tri Statuts</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -124,7 +124,7 @@
 <body>
     <!-- Barre d'horloge -->
     <div class="header">
-        Airline Simulator | Heure simulée : <span id="simClock">Chargement...</span>
+        Airline Simulator FIFO (sans Deboarding) | Heure simulée : <span id="simClock">Chargement...</span>
     </div>
 
     <!-- Contrôles de vitesse -->
@@ -144,7 +144,7 @@
     </div>
 
     <div class="content">
-        <!-- Tableau des vols (conservé) -->
+        <!-- Tableau des vols -->
         <div class="left-panel">
             <h1>Opérations aériennes</h1>
             <table id="flightsTable">
@@ -162,7 +162,6 @@
             </table>
         </div>
 
-        <!-- Détails du vol -->
         <div class="right-panel">
             <h2>Détails du vol</h2>
             <div id="flightDetails">
@@ -171,7 +170,7 @@
         </div>
     </div>
 
-    <!-- Nouveau tableau : Statut des avions -->
+    <!-- Tableau: Statut des avions -->
     <div class="airplanes-panel">
         <h1>Statut des avions</h1>
         <table id="airplanesTable">
@@ -192,7 +191,7 @@
     </div>
 
     <script>
-        // Mise à jour de l'horloge simulée
+        // 🎯 Mise à jour de l'horloge simulée
         async function updateClock() {
             try {
                 const res = await fetch("/api/simulated-time");
@@ -204,7 +203,7 @@
             }
         }
 
-        // Mise à jour des dashboard stats
+        // 🎯 Mise à jour des stats
         async function updateDashboardStats() {
             try {
                 const res = await fetch("/api/dashboard-stats");
@@ -219,44 +218,76 @@
             }
         }
 
-        // Fonction de coloration en fonction du status
+        // 🎯 Couleurs de statut (sans Deboarding)
         function getStatusColor(status) {
             switch (status) {
-                case "On-Time": return "#d4edda";
-                case "Boarding": return "#fff3cd";
-                case "In-Flight": return "#cce5ff";
                 case "Approaching": return "#f8d7da";
-                case "Deboarding": return "#d1ecf1";
+                case "In-Flight": return "#cce5ff";
+                case "Boarding": return "#fff3cd";
+                case "On-Time": return "#d4edda";
                 case "Completed": return "#e2e3e5";
                 default: return "#ffffff";
             }
         }
 
-        // Mise à jour du tableau des vols
+        // 🎯 Priorité de tri pour chaque statut
+        const STATUS_PRIORITY = {
+            "Approaching": 1,
+            "In-Flight": 2,
+            "Boarding": 3,
+            "On-Time": 4,
+            "Completed": 99  // s'il apparaît
+        };
+
+        // 🎯 Mise à jour du tableau des vols
         async function updateFlights() {
             try {
                 const response = await fetch("/api/flights");
                 if (!response.ok) throw new Error("HTTP " + response.status);
                 let flights = await response.json();
-                // Trie par date décroissante (vols les plus récents en haut)
+
+                // Tri principal par statut (Approaching > In-Flight > Boarding > On-Time)
+                // En cas d'égalité, on trie par heure de départ ascendante
                 flights.sort((a, b) => {
-                    const dtA = new Date(a.Date + "T" + a.Departure_Time);
-                    const dtB = new Date(b.Date + "T" + b.Departure_Time);
-                    return dtB - dtA;
+                    const priorityA = STATUS_PRIORITY[a.Status] || 9999;
+                    const priorityB = STATUS_PRIORITY[b.Status] || 9999;
+
+                    if (priorityA !== priorityB) {
+                        return priorityA - priorityB;
+                    } else {
+                        // Si même statut, on compare l'heure de départ
+                        const dtA = new Date(a.Date + "T" + a.Departure_Time);
+                        const dtB = new Date(b.Date + "T" + b.Departure_Time);
+                        return dtA - dtB;
+                    }
                 });
+
                 const tbody = document.querySelector("#flightsTable tbody");
                 tbody.innerHTML = "";
+
                 flights.forEach((f) => {
                     const row = document.createElement("tr");
                     row.classList.add("clickable");
                     row.addEventListener("click", () => showFlightDetails(f));
                     row.innerHTML = `
-              <td style="background-color: ${getStatusColor(f.Status)};">${f.Airplane_Registration || "N/A"}</td>
-              <td style="background-color: ${getStatusColor(f.Status)};"><b>${f.Status}</b></td>
-              <td style="background-color: ${getStatusColor(f.Status)};">${f.Departure_City} / ${f.Arrival_City}</td>
-              <td style="background-color: ${getStatusColor(f.Status)};">${f.Date || "N/A"}</td>
-              <td style="background-color: ${getStatusColor(f.Status)};">${f.Departure_Time}</td>
-              <td style="background-color: ${getStatusColor(f.Status)};">${f.Arrival_Time}</td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Airplane_Registration || "N/A"}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              <b>${f.Status}</b>
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Departure_City} / ${f.Arrival_City}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Date || "N/A"}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Departure_Time}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Arrival_Time}
+            </td>
           `;
                     tbody.appendChild(row);
                 });
@@ -265,40 +296,41 @@
             }
         }
 
-        // Affichage des détails d'un vol dans le panneau de droite
+        // 🎯 Détails du vol
         function showFlightDetails(flight) {
             const detailDiv = document.getElementById("flightDetails");
             detailDiv.innerHTML = `
-          <p><strong>Vol #${flight.Flight_Number || "(inconnu)"} - ID ${flight.Flight_ID}</strong></p>
-          <p>Date : ${flight.Date || "N/A"}</p>
-          <p>Status : ${flight.Status}</p>
-          <p>Départ : ${flight.Departure_Time} - ${flight.Departure_City}</p>
-          <p>Arrivée : ${flight.Arrival_Time} - ${flight.Arrival_City}</p>
-          <p>Immatriculation : ${flight.Airplane_Registration || "N/A"}</p>
+        <p><strong>Vol #${flight.Flight_Number || "(inconnu)"} - ID ${flight.Flight_ID}</strong></p>
+        <p>Date : ${flight.Date || "N/A"}</p>
+        <p>Status : ${flight.Status}</p>
+        <p>Départ : ${flight.Departure_Time} - ${flight.Departure_City}</p>
+        <p>Arrivée : ${flight.Arrival_Time} - ${flight.Arrival_City}</p>
+        <p>Immatriculation : ${flight.Airplane_Registration || "N/A"}</p>
       `;
         }
 
-        // Mise à jour du tableau des avions (statut, prochains vols, etc.)
+        // 🎯 Mise à jour du tableau des avions
         async function updateAirplanes() {
             try {
                 const response = await fetch("/api/airplanes-status");
                 if (!response.ok) throw new Error("HTTP " + response.status);
                 const airplanes = await response.json();
+
                 const tbody = document.querySelector("#airplanesTable tbody");
                 tbody.innerHTML = "";
+
                 airplanes.forEach((a) => {
                     const row = document.createElement("tr");
-                    // Création d'une chaîne d'icônes pour représenter les pilotes disponibles
                     const pilotIcons = a.Available_Pilots ? "👨‍✈️".repeat(a.Available_Pilots) : "N/A";
                     row.innerHTML = `
-              <td>${a.Airplane_ID}</td>
-              <td>${a.Registration || "N/A"}</td>
-              <td>${a.Model || "N/A"}</td>
-              <td>${a.Location_City || "N/A"}</td>
-              <td>${a.Last_Status || "N/A"}</td>
-              <td>${a.Next_Departure || "N/A"}</td>
-              <td>${a.Next_Arrival || "N/A"}</td>
-              <td>${pilotIcons}</td>
+            <td>${a.Airplane_ID}</td>
+            <td>${a.Registration || "N/A"}</td>
+            <td>${a.Model || "N/A"}</td>
+            <td>${a.Location_City || "N/A"}</td>
+            <td>${a.Last_Status || "N/A"}</td>
+            <td>${a.Next_Departure || "N/A"}</td>
+            <td>${a.Next_Arrival || "N/A"}</td>
+            <td>${pilotIcons}</td>
           `;
                     tbody.appendChild(row);
                 });
@@ -307,16 +339,18 @@
             }
         }
 
-        // Fonction de tri générique pour un tableau HTML
+        // 🎯 Tri générique d'un tableau (colonnes "sortable")
         function sortTable(tableId, colIndex, type = "string") {
             const table = document.getElementById(tableId);
+            if (!table) return;
             const tbody = table.tBodies[0];
             const rowsArray = Array.from(tbody.querySelectorAll("tr"));
-            // Tri en ordre ascendant
+
             rowsArray.sort((a, b) => {
                 const aText = a.children[colIndex].textContent.trim();
                 const bText = b.children[colIndex].textContent.trim();
                 let aValue, bValue;
+
                 if (type === "number") {
                     aValue = parseFloat(aText) || 0;
                     bValue = parseFloat(bText) || 0;
@@ -327,18 +361,19 @@
                     aValue = aText.toLowerCase();
                     bValue = bText.toLowerCase();
                 }
+
                 if (aValue > bValue) return 1;
                 if (aValue < bValue) return -1;
                 return 0;
             });
-            // Réinsertion des lignes triées
+
             while (tbody.firstChild) {
                 tbody.removeChild(tbody.firstChild);
             }
             tbody.append(...rowsArray);
         }
 
-        // Ajout d'écouteurs sur les th du tableau des avions pour le tri
+        // 🎯 Ecouteurs de clic pour trier les colonnes des avions
         document.querySelectorAll("#airplanesTable th.sortable").forEach((header, index) => {
             header.addEventListener("click", () => {
                 const type = header.getAttribute("data-type") || "string";
@@ -346,7 +381,7 @@
             });
         });
 
-        // Contrôle de vitesse
+        // 🎯 Contrôle de vitesse
         document.getElementById("speedControl").addEventListener("input", async function () {
             const newSpeed = this.value;
             document.getElementById("speedValue").innerText = `${newSpeed} min/tick`;
@@ -357,7 +392,7 @@
             }
         });
 
-        // Pause / Reprendre la simulation
+        // 🎯 Pause / Reprendre
         let paused = false;
         document.getElementById("pauseResume").addEventListener("click", async function () {
             paused = !paused;
@@ -369,13 +404,13 @@
             }
         });
 
-        // Rafraîchissement automatique toutes les 5 secondes
+        // 🎯 Mise à jour périodique
         setInterval(updateClock, 5000);
         setInterval(updateFlights, 5000);
         setInterval(updateDashboardStats, 5000);
         setInterval(updateAirplanes, 5000);
 
-        // Chargement initial
+        // 🎯 Premier chargement
         updateClock();
         updateFlights();
         updateDashboardStats();
