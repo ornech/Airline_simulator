@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+   <g
+     id="airports"
+     style="display:inline">
+  <g id="airports_layer">
+    
+    <!-- Airport examples with hover labels -->
+    <g id="EDDB" inkscape:label="Berlin Brandenburg Airport (EDDB, Germany)">
+      <title>Berlin Brandenburg Airport (EDDB, Germany)</title>
+      <circle cx="663" cy="243" r="5" style="fill:#91522d;stroke:#232323;stroke-width:0.4;"/>
+    </g>
+    
+    <g id="LROP" inkscape:label="Henri Coanda International Airport (LROP, Romania)">
+      <title>Henri Coanda International Airport (LROP, Romania)</title>
+      <circle cx="947" cy="423" r="5" style="fill:#91522d;stroke:#232323;stroke-width:0.4;"/>
+    </g>
+    
+    <g id="UMMS" inkscape:label="Minsk National Airport (UMMS, Belarus)">
+      <title>Minsk National Airport (UMMS, Belarus)</title>
+      <circle cx="684" cy="298" r="5" style="fill:#91522d;stroke:#232323;stroke-width:0.4;"/>
+    </g>
+    
+    <g id="GMMN" inkscape:label="Mohammed V International Airport (GMMN, Morocco)">
+      <title>Mohammed V International Airport (GMMN, Morocco)</title>
+      <circle cx="256" cy="658" r="5" style="fill:#91522d;stroke:#232323;stroke-width:0.4;"/>
+    </g>
+    
+    <g id="LHBP" inkscape:label="Budapest Ferenc Liszt International Airport (LHBP, Hungary)">
+      <title>Budapest Ferenc Liszt International Airport (LHBP, Hungary)</title>
+      <circle cx="796" cy="357" r="5" style="fill:#91522d;stroke:#232323;stroke-width:0.4;"/>
+    </g>
+    
+    <g id="EDDM" inkscape:label="Munich Airport (EDDM, Germany)">
+      <title>Munich Airport (EDDM, Germany)</title>
+      <circle cx="629" cy="337" r="5" style="fill:#91522d;stroke:#232323;stroke-width:0.4;"/>
+    </g>
+    
+    <g id="EBBR" inkscape:label="Brussels South Charleroi Airport (EBBR, Belgium)">
+      <title>Brussels South Charleroi Airport (EBBR, Belgium)</title>
+      <circle cx="466" cy="290" r="5" style="fill:#91522d;stroke:#232323;stroke-width:0.4;"/>
+    </g>
+    
+    <g id="LUKK" inkscape:label="Chisinau International Airport (LUKK, Moldova)">
+      <title>Chisinau International Airport (LUKK, Moldova)</title>
+      <circle cx="1011" cy="368" r="5" style="fill:#91522d;stroke:#232323;stroke-width:0.4;"/>
+    </g>
+    
+    <g id="LYBE" inkscape:label="Belgrade Nikola Tesla Airport (LYBE, Serbia)">
+      <title>Belgrade Nikola Tesla Airport (LYBE, Serbia)</title>
+      <circle cx="818" cy="416" r="5" style="fill:#91522d;stroke:#232323;stroke-width:0.4;"/>
+    </g>
+    
+ 
+
+
+  </g>
+</svg>

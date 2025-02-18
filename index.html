@@ -3,418 +3,287 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Airline Simulator Dashboard (FIFO, sans Deboarding) - Tri Statuts</title>
+    <title>Dashboard Airline Simulator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
+            text-align: center;
             background-color: #f9f9f9;
         }
 
-        .header {
-            width: 100%;
-            text-align: center;
-            background: #f0f0f0;
-            color: #333;
-            padding: 8px;
-            font-size: 1.2em;
-            font-weight: bold;
-            border-bottom: 2px solid #ddd;
-        }
-
-        .dashboard-stats {
-            display: flex;
-            justify-content: space-around;
-            padding: 10px;
-            background: #e9e9e9;
-            border-bottom: 2px solid #ccc;
-        }
-
-        .stat-block {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 22%;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            background: #f0f0f0;
-            border-bottom: 2px solid #ddd;
-        }
-
-        .controls label {
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .controls input {
-            margin-right: 10px;
-        }
-
-        .content {
-            display: flex;
-            flex: 1;
-        }
-
-        .left-panel {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .right-panel {
-            width: 400px;
-            background: #fff;
-            padding: 15px;
-            border-left: 1px solid #ddd;
-            overflow-y: auto;
+        .container {
+            width: 90%;
+            margin: auto;
         }
 
         table {
-            border-collapse: collapse;
             width: 100%;
-            margin-bottom: 20px;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
         th,
         td {
-            border: 1px solid #ccc;
-            padding: 6px;
-            text-align: left;
-            font-size: 0.9em;
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
         }
 
         th {
             background-color: #f0f0f0;
-            font-weight: 600;
         }
 
-        .clickable {
-            cursor: pointer;
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
-        /* Style pour le tableau des avions */
-        .airplanes-panel {
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
             padding: 20px;
-            background: #fff;
-            margin: 20px;
-            border: 1px solid #ddd;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+            width: 50%;
+            text-align: center;
+            border-radius: 10px;
         }
 
-        th.sortable:hover {
+        .close {
+            float: right;
+            font-size: 28px;
             cursor: pointer;
-            background-color: #eee;
         }
     </style>
 </head>
 
 <body>
-    <!-- Barre d'horloge -->
-    <div class="header">
-        Airline Simulator FIFO (sans Deboarding) | Heure simulée : <span id="simClock">Chargement...</span>
-    </div>
+    <h1>Airline Simulator Dashboard</h1>
 
-    <!-- Contrôles de vitesse -->
-    <div class="controls">
-        <label for="speedControl">⏳ Vitesse:</label>
-        <input type="range" id="speedControl" min="1" max="60" step="1" value="10">
-        <span id="speedValue">10 min/tick</span>
-        <button id="pauseResume">⏸️ Pause</button>
-    </div>
+    <h2>Heure simulée: <span id="simTime">Chargement...</span></h2>
 
-    <!-- Dashboard Stats -->
-    <div class="dashboard-stats">
-        <div class="stat-block">📌 Avions disponibles : <span id="availablePlanes">0</span></div>
-        <div class="stat-block">📌 Pilotes disponibles : <span id="availablePilots">0</span></div>
-        <div class="stat-block">🚀 Avions engagés : <span id="engagedPlanes">0</span></div>
-        <div class="stat-block">👨‍✈️ Pilotes engagés : <span id="engagedPilots">0</span></div>
-    </div>
+    <h2>Actions</h2>
+    <button onclick="resetDatabase()">🔄 Réinitialiser la Base de Données</button>
+    <button onclick="openFlightModal()">📅 Planifier un Vol</button>
 
-    <div class="content">
-        <!-- Tableau des vols -->
-        <div class="left-panel">
-            <h1>Opérations aériennes</h1>
-            <table id="flightsTable">
-                <thead>
-                    <tr>
-                        <th>Immatriculation</th>
-                        <th>Status</th>
-                        <th>Vol</th>
-                        <th>Date</th>
-                        <th>Décollage</th>
-                        <th>Arrivée</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+    <h2>Vols en cours</h2>
+    <table id="flightsTable">
+        <thead>
+            <tr>
+                <th>Flight ID</th>
+                <th>Numéro</th>
+                <th>Départ</th>
+                <th>Arrivée</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>Statut des avions</h2>
+    <table id="airplanesTable">
+        <thead>
+            <tr>
+                <th>Avion ID</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Modal de planification des vols -->
+    <div id="flightModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeFlightModal()">&times;</span>
+            <h2>Planifier un vol</h2>
+
+            <label for="departureAirport">Départ :</label>
+            <select id="departureAirport"></select>
+
+            <label for="arrivalAirport">Arrivée :</label>
+            <select id="arrivalAirport"></select>
+
+            <label for="departureDate">Date de départ :</label>
+            <input type="date" id="departureDate">
+
+            <label for="departureTime">Heure de départ :</label>
+            <input type="time" id="departureTime">
+
+            <p>Distance estimée : <span id="flightDistance">-</span> km</p>
+            <p>Durée estimée : <span id="flightDuration">-</span> minutes</p>
+            <p>Heure d’arrivée estimée : <span id="arrivalTime">-</span></p>
+
+            <button onclick="calculateFlightDetails()">Calculer durée et arrivée</button>
+            <button onclick="scheduleFlight()">Planifier</button>
+            <button onclick="closeFlightModal()">Annuler</button>
         </div>
-
-        <div class="right-panel">
-            <h2>Détails du vol</h2>
-            <div id="flightDetails">
-                <p>Sélectionnez un vol à gauche pour voir plus d'informations.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Tableau: Statut des avions -->
-    <div class="airplanes-panel">
-        <h1>Statut des avions</h1>
-        <table id="airplanesTable">
-            <thead>
-                <tr>
-                    <th class="sortable" data-type="number">ID</th>
-                    <th class="sortable" data-type="string">Immatriculation</th>
-                    <th class="sortable" data-type="string">Type</th>
-                    <th class="sortable" data-type="string">Localisation</th>
-                    <th class="sortable" data-type="string">Dernier status</th>
-                    <th class="sortable" data-type="date">Prochain décollage</th>
-                    <th class="sortable" data-type="date">Prochain atterrissage</th>
-                    <th class="sortable" data-type="number">Pilotes disponibles</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
     </div>
 
     <script>
-        // 🎯 Mise à jour de l'horloge simulée
-        async function updateClock() {
+        async function updateData() {
             try {
-                const res = await fetch("/api/simulated-time");
-                if (!res.ok) throw new Error("HTTP " + res.status);
-                const data = await res.json();
-                document.getElementById("simClock").innerText = data.simulatedTime;
+                const resTime = await fetch("/api/simulated-time");
+                const timeData = await resTime.json();
+                document.getElementById("simTime").innerText = new Date(timeData.simulatedTime).toLocaleTimeString();
+
+                const resFlights = await fetch("/api/flights");
+                const flights = await resFlights.json();
+                const flightsTable = document.getElementById("flightsTable").querySelector("tbody");
+                flightsTable.innerHTML = flights.map(flight => `
+                    <tr>
+                        <td>${flight.Flight_ID}</td>
+                        <td>${flight.Flight_Number}</td>
+                        <td>${flight.Departure_Airport_ID}</td>
+                        <td>${flight.Arrival_Airport_ID}</td>
+                        <td>${flight.Status}</td>
+                    </tr>
+                `).join("");
+
+                const resAirplanes = await fetch("/api/airplanes-status");
+                const airplanes = await resAirplanes.json();
+                const airplanesTable = document.getElementById("airplanesTable").querySelector("tbody");
+                airplanesTable.innerHTML = airplanes.map(airplane => `
+                    <tr>
+                        <td>${airplane.Airplane_ID}</td>
+                        <td>${airplane.Status}</td>
+                    </tr>
+                `).join("");
             } catch (err) {
-                document.getElementById("simClock").innerText = "⛔ Erreur";
+                console.error("❌ Erreur lors de la récupération des données", err);
             }
         }
 
-        // 🎯 Mise à jour des stats
-        async function updateDashboardStats() {
+        async function fetchAirports() {
             try {
-                const res = await fetch("/api/dashboard-stats");
-                if (!res.ok) throw new Error("HTTP " + res.status);
-                const stats = await res.json();
-                document.getElementById("availablePlanes").innerText = stats.availablePlanes;
-                document.getElementById("availablePilots").innerText = stats.availablePilots;
-                document.getElementById("engagedPlanes").innerText = stats.engagedPlanes;
-                document.getElementById("engagedPilots").innerText = stats.engagedPilots;
+                const res = await fetch("/api/airports");
+                const airports = await res.json();
+                const departureSelect = document.getElementById("departureAirport");
+                const arrivalSelect = document.getElementById("arrivalAirport");
+
+                departureSelect.innerHTML = airports.map(a => `<option value="${a.Airport_ID}">${a.Name} (${a.OACI_Code})</option>`).join("");
+                arrivalSelect.innerHTML = departureSelect.innerHTML;
             } catch (err) {
-                console.error("Erreur récupération dashboard stats:", err);
+                console.error("Erreur lors de la récupération des aéroports", err);
             }
         }
 
-        // 🎯 Couleurs de statut (sans Deboarding)
-        function getStatusColor(status) {
-            switch (status) {
-                case "Approaching": return "#f8d7da";
-                case "In-Flight": return "#cce5ff";
-                case "Boarding": return "#fff3cd";
-                case "On-Time": return "#d4edda";
-                case "Completed": return "#e2e3e5";
-                default: return "#ffffff";
+        async function calculateFlightDetails() {
+            const departureAirport = document.getElementById("departureAirport").value;
+            const arrivalAirport = document.getElementById("arrivalAirport").value;
+            const departureDate = document.getElementById("departureDate").value;
+            const departureTime = document.getElementById("departureTime").value;
+
+            if (!departureAirport || !arrivalAirport || !departureDate || !departureTime) {
+                alert("Veuillez remplir tous les champs.");
+                return;
             }
-        }
 
-        // 🎯 Priorité de tri pour chaque statut
-        const STATUS_PRIORITY = {
-            "Approaching": 1,
-            "In-Flight": 2,
-            "Boarding": 3,
-            "On-Time": 4,
-            "Completed": 99  // s'il apparaît
-        };
-
-        // 🎯 Mise à jour du tableau des vols
-        async function updateFlights() {
             try {
-                const response = await fetch("/api/flights");
-                if (!response.ok) throw new Error("HTTP " + response.status);
-                let flights = await response.json();
+                // Récupération de la distance entre les aéroports
+                const distanceRes = await fetch(`/api/flight-distance?departure=${departureAirport}&arrival=${arrivalAirport}`);
+                if (!distanceRes.ok) throw new Error("Échec de la récupération de la distance");
+                const distanceData = await distanceRes.json();
+                const distance = distanceData.distance;
+                document.getElementById("flightDistance").innerText = distance;
 
-                // Tri principal par statut (Approaching > In-Flight > Boarding > On-Time)
-                // En cas d'égalité, on trie par heure de départ ascendante
-                flights.sort((a, b) => {
-                    const priorityA = STATUS_PRIORITY[a.Status] || 9999;
-                    const priorityB = STATUS_PRIORITY[b.Status] || 9999;
+                // Récupération de la durée du vol en minutes
+                const durationRes = await fetch(`/api/flight-time?distance=${distance}`);
+                if (!durationRes.ok) throw new Error("Échec de la récupération du temps de vol");
+                const durationData = await durationRes.json();
+                const flightDuration = durationData.duration;
+                document.getElementById("flightDuration").innerText = flightDuration;
 
-                    if (priorityA !== priorityB) {
-                        return priorityA - priorityB;
-                    } else {
-                        // Si même statut, on compare l'heure de départ
-                        const dtA = new Date(a.Date + "T" + a.Departure_Time);
-                        const dtB = new Date(b.Date + "T" + b.Departure_Time);
-                        return dtA - dtB;
-                    }
-                });
+                // Création d'un objet Date pour la date et l'heure de départ
+                const departureDateTime = new Date(`${departureDate}T${departureTime}:00`);
 
-                const tbody = document.querySelector("#flightsTable tbody");
-                tbody.innerHTML = "";
-
-                flights.forEach((f) => {
-                    const row = document.createElement("tr");
-                    row.classList.add("clickable");
-                    row.addEventListener("click", () => showFlightDetails(f));
-                    row.innerHTML = `
-            <td style="background-color: ${getStatusColor(f.Status)};">
-              ${f.Airplane_Registration || "N/A"}
-            </td>
-            <td style="background-color: ${getStatusColor(f.Status)};">
-              <b>${f.Status}</b>
-            </td>
-            <td style="background-color: ${getStatusColor(f.Status)};">
-              ${f.Departure_City} / ${f.Arrival_City}
-            </td>
-            <td style="background-color: ${getStatusColor(f.Status)};">
-              ${f.Date || "N/A"}
-            </td>
-            <td style="background-color: ${getStatusColor(f.Status)};">
-              ${f.Departure_Time}
-            </td>
-            <td style="background-color: ${getStatusColor(f.Status)};">
-              ${f.Arrival_Time}
-            </td>
-          `;
-                    tbody.appendChild(row);
-                });
-            } catch (err) {
-                console.error("Erreur récupération flights:", err);
-            }
-        }
-
-        // 🎯 Détails du vol
-        function showFlightDetails(flight) {
-            const detailDiv = document.getElementById("flightDetails");
-            detailDiv.innerHTML = `
-        <p><strong>Vol #${flight.Flight_Number || "(inconnu)"} - ID ${flight.Flight_ID}</strong></p>
-        <p>Date : ${flight.Date || "N/A"}</p>
-        <p>Status : ${flight.Status}</p>
-        <p>Départ : ${flight.Departure_Time} - ${flight.Departure_City}</p>
-        <p>Arrivée : ${flight.Arrival_Time} - ${flight.Arrival_City}</p>
-        <p>Immatriculation : ${flight.Airplane_Registration || "N/A"}</p>
-      `;
-        }
-
-        // 🎯 Mise à jour du tableau des avions
-        async function updateAirplanes() {
-            try {
-                const response = await fetch("/api/airplanes-status");
-                if (!response.ok) throw new Error("HTTP " + response.status);
-                const airplanes = await response.json();
-
-                const tbody = document.querySelector("#airplanesTable tbody");
-                tbody.innerHTML = "";
-
-                airplanes.forEach((a) => {
-                    const row = document.createElement("tr");
-                    const pilotIcons = a.Available_Pilots ? "👨‍✈️".repeat(a.Available_Pilots) : "N/A";
-                    row.innerHTML = `
-            <td>${a.Airplane_ID}</td>
-            <td>${a.Registration || "N/A"}</td>
-            <td>${a.Model || "N/A"}</td>
-            <td>${a.Location_City || "N/A"}</td>
-            <td>${a.Last_Status || "N/A"}</td>
-            <td>${a.Next_Departure || "N/A"}</td>
-            <td>${a.Next_Arrival || "N/A"}</td>
-            <td>${pilotIcons}</td>
-          `;
-                    tbody.appendChild(row);
-                });
-            } catch (err) {
-                console.error("Erreur récupération des statuts des avions:", err);
-            }
-        }
-
-        // 🎯 Tri générique d'un tableau (colonnes "sortable")
-        function sortTable(tableId, colIndex, type = "string") {
-            const table = document.getElementById(tableId);
-            if (!table) return;
-            const tbody = table.tBodies[0];
-            const rowsArray = Array.from(tbody.querySelectorAll("tr"));
-
-            rowsArray.sort((a, b) => {
-                const aText = a.children[colIndex].textContent.trim();
-                const bText = b.children[colIndex].textContent.trim();
-                let aValue, bValue;
-
-                if (type === "number") {
-                    aValue = parseFloat(aText) || 0;
-                    bValue = parseFloat(bText) || 0;
-                } else if (type === "date") {
-                    aValue = new Date(aText);
-                    bValue = new Date(bText);
-                } else {
-                    aValue = aText.toLowerCase();
-                    bValue = bText.toLowerCase();
+                if (isNaN(departureDateTime.getTime())) {
+                    throw new Error("Date ou heure de départ invalide");
                 }
 
-                if (aValue > bValue) return 1;
-                if (aValue < bValue) return -1;
-                return 0;
-            });
+                // Ajout de la durée du vol à l'heure de départ
+                departureDateTime.setMinutes(departureDateTime.getMinutes() + flightDuration);
 
-            while (tbody.firstChild) {
-                tbody.removeChild(tbody.firstChild);
+                // Formatage de la date et l'heure d'arrivée
+                const arrivalTimeFormatted = departureDateTime.toLocaleString("fr-FR", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit"
+                });
+
+                document.getElementById("arrivalTime").innerText = arrivalTimeFormatted;
+
+                // 📌 Console logs pour le suivi des détails du vol planifié
+                console.log("✈️ Détails du vol planifié :");
+                console.log(`🛫 Départ : ${departureDate} à ${departureTime}`);
+                console.log(`📍 Aéroport de départ ID : ${departureAirport}`);
+                console.log(`📍 Aéroport d'arrivée ID : ${arrivalAirport}`);
+                console.log(`📏 Distance estimée : ${distance} km`);
+                console.log(`⏳ Durée estimée : ${flightDuration} minutes`);
+                console.log(`🛬 Heure d’arrivée estimée : ${arrivalTimeFormatted}`);
+
+            } catch (err) {
+                console.error("❌ Erreur lors du calcul du vol :", err);
+                alert("Une erreur est survenue lors du calcul des détails du vol.");
             }
-            tbody.append(...rowsArray);
+
+
         }
 
-        // 🎯 Ecouteurs de clic pour trier les colonnes des avions
-        document.querySelectorAll("#airplanesTable th.sortable").forEach((header, index) => {
-            header.addEventListener("click", () => {
-                const type = header.getAttribute("data-type") || "string";
-                sortTable("airplanesTable", index, type);
-            });
-        });
+        function openFlightModal() {
+            fetchAirports();
+            document.getElementById("flightModal").style.display = "block";
+        }
 
-        // 🎯 Contrôle de vitesse
-        document.getElementById("speedControl").addEventListener("input", async function () {
-            const newSpeed = this.value;
-            document.getElementById("speedValue").innerText = `${newSpeed} min/tick`;
-            try {
-                await fetch(`/api/set-speed?value=${newSpeed}`, { method: "POST" });
-            } catch (err) {
-                console.error("Erreur modification vitesse:", err);
+        function closeFlightModal() {
+            document.getElementById("flightModal").style.display = "none";
+        }
+
+        async function scheduleFlight() {
+            const departureAirport = document.getElementById("departureAirport").value;
+            const arrivalAirport = document.getElementById("arrivalAirport").value;
+            const departureDate = document.getElementById("departureDate").value;
+            const departureTime = document.getElementById("departureTime").value;
+
+            if (!departureAirport || !arrivalAirport || !departureDate || !departureTime) {
+                alert("Veuillez remplir tous les champs.");
+                return;
             }
-        });
 
-        // 🎯 Pause / Reprendre
-        let paused = false;
-        document.getElementById("pauseResume").addEventListener("click", async function () {
-            paused = !paused;
-            this.innerText = paused ? "▶️ Reprendre" : "⏸️ Pause";
             try {
-                await fetch(`/api/toggle-pause`, { method: "POST" });
+                const res = await fetch("/api/schedule-flight", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        departureAirport,
+                        arrivalAirport,
+                        departureTime: `${departureDate}T${departureTime}:00`
+                    })
+                });
+
+                if (res.ok) {
+                    alert("Vol planifié avec succès !");
+                    closeFlightModal();
+                } else {
+                    alert("Erreur lors de la planification du vol.");
+                }
             } catch (err) {
-                console.error("Erreur pause/reprise:", err);
+                console.error("Erreur lors de la planification du vol", err);
             }
-        });
+        }
 
-        // 🎯 Mise à jour périodique
-        setInterval(updateClock, 5000);
-        setInterval(updateFlights, 5000);
-        setInterval(updateDashboardStats, 5000);
-        setInterval(updateAirplanes, 5000);
+        async function resetDatabase() {
+            alert("Réinitialisation de la base non encore implémentée !");
+        }
 
-        // 🎯 Premier chargement
-        updateClock();
-        updateFlights();
-        updateDashboardStats();
-        updateAirplanes();
+        setInterval(updateData, 5000);
+        updateData();
     </script>
 </body>
 

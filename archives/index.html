@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Airline Simulator avec Carte SVG Précise</title>
+    <!-- Vous pouvez ajouter ici d'autres feuilles de style si nécessaire -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            width: 100%;
+            text-align: center;
+            background: #f0f0f0;
+            color: #333;
+            padding: 10px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .dashboard-stats,
+        .controls {
+            width: 90%;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .stat-block {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            margin: 0 5px;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        .controls label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .controls input {
+            margin-right: 10px;
+        }
+
+        .content {
+            display: flex;
+            width: 90%;
+            margin-top: 20px;
+        }
+
+        .left-panel {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .right-panel {
+            width: 400px;
+            background: #fff;
+            padding: 15px;
+            border-left: 1px solid #ddd;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 6px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: 600;
+        }
+
+        .clickable {
+            cursor: pointer;
+        }
+
+        .airplanes-panel {
+            width: 90%;
+            background: #fff;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        th.sortable:hover {
+            cursor: pointer;
+            background-color: #eee;
+        }
+
+        /* Carte SVG : placée en haut de la left-panel, en carré sous le titre "Opérations aériennes" */
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+
+        /* Style pour l'icône d'avion */
+        .airplane-icon {
+            fill: red;
+            stroke: black;
+            stroke-width: 1px;
+            transform: translate(-12px, -12px);
+            /* pour centrer l'icône */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Barre d'horloge -->
+    <div class="header">
+        Airline Simulator FIFO (sans Deboarding) | Heure simulée : <span id="simClock">Chargement...</span>
+    </div>
+
+    <!-- Contrôles -->
+    <div class="controls">
+        <div>
+            <label for="speedControl">⏳ Vitesse:</label>
+            <input type="range" id="speedControl" min="1" max="60" step="1" value="10">
+            <span id="speedValue">10 min/tick</span>
+        </div>
+        <div>
+            <button id="pauseResume">⏸️ Pause</button>
+        </div>
+    </div>
+
+    <!-- Dashboard Stats -->
+    <div class="dashboard-stats">
+        <div class="stat-block">📌 Avions disponibles : <span id="availablePlanes">0</span></div>
+        <div class="stat-block">📌 Pilotes disponibles : <span id="availablePilots">0</span></div>
+        <div class="stat-block">🚀 Avions engagés : <span id="engagedPlanes">0</span></div>
+        <div class="stat-block">👨‍✈️ Pilotes engagés : <span id="engagedPilots">0</span></div>
+    </div>
+
+    <div class="content">
+        <!-- Left Panel : Opérations aériennes avec carte et tableau des vols -->
+        <div class="left-panel">
+            <h1>Opérations aériennes</h1>
+
+            <!-- Tableau des vols -->
+            <table id="flightsTable">
+                <thead>
+                    <tr>
+                        <th>Immatriculation</th>
+                        <th>Status</th>
+                        <th>Vol</th>
+                        <th>Date</th>
+                        <th>Décollage</th>
+                        <th>Arrivée</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Right Panel : Détails du vol -->
+        <div class="right-panel">
+            <h2>Détails du vol</h2>
+            <div id="flightDetails">
+                <p>Sélectionnez un vol à gauche pour voir plus d'informations.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tableau des avions -->
+    <div class="airplanes-panel">
+        <h1>Statut des avions</h1>
+        <table id="airplanesTable">
+            <thead>
+                <tr>
+                    <th class="sortable" data-type="number">ID</th>
+                    <th class="sortable" data-type="string">Immatriculation</th>
+                    <th class="sortable" data-type="string">Type</th>
+                    <th class="sortable" data-type="string">Localisation</th>
+                    <th class="sortable" data-type="string">Dernier status</th>
+                    <th class="sortable" data-type="date">Prochain décollage</th>
+                    <th class="sortable" data-type="date">Prochain atterrissage</th>
+                    <th class="sortable" data-type="number">Pilotes disponibles</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Intégration de Leaflet n'est plus nécessaire puisque nous utilisons un SVG pour la carte -->
+    <script>
+        // Exemple d'un dictionnaire de coordonnées pour les villes (doit être enrichi avec des valeurs précises)
+        const cityCoords = {
+            "Paris": [48.8566, 2.3522],
+            "Berlin": [52.5200, 13.4050],
+            "London": [51.5074, -0.1278],
+            "Madrid": [40.4168, -3.7038],
+            "Rome": [41.9028, 12.4964],
+            "Athens": [37.9838, 23.7275],
+            "Vienna": [48.2082, 16.3738],
+            "Budapest": [47.4979, 19.0402]
+            // Ajoutez d'autres villes ou aéroports avec leurs coordonnées en fonction de votre SVG
+        };
+
+        // Pour ce prototype, nous allons animer un seul vol défini dans le SVG.
+        // On simule une interpolation de position le long d'un path.
+        const flightPath = document.getElementById("flightPath");
+        const airplaneIcon = document.getElementById("airplaneIcon");
+        const totalLength = flightPath.getTotalLength();
+
+        let startTime = null;
+        const flightDuration = 10000; // durée du vol en ms (10 secondes) pour l'exemple
+
+        function animateFlight(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            let fraction = elapsed / flightDuration;
+            if (fraction > 1) fraction = 1;
+            const pos = flightPath.getPointAtLength(totalLength * fraction);
+            // Met à jour la position de l'icône en utilisant une transformation
+            airplaneIcon.setAttribute("transform", `translate(${pos.x}, ${pos.y})`);
+
+            // On peut aussi mettre à jour la rotation si besoin (calcul de l'angle du path)
+            if (fraction < 1) {
+                requestAnimationFrame(animateFlight);
+            }
+        }
+
+        // Animation fluide du vol
+        requestAnimationFrame(animateFlight);
+
+        // --- Le reste du code pour mettre à jour les tableaux et l'heure simulée (identique aux versions précédentes) ---
+
+        const STATUS_PRIORITY = {
+            "Approaching": 1,
+            "In-Flight": 2,
+            "Boarding": 3,
+            "On-Time": 4,
+            "Completed": 99
+        };
+
+        async function updateClock() {
+            try {
+                const res = await fetch("/api/simulated-time");
+                if (!res.ok) throw new Error("HTTP " + res.status);
+                const data = await res.json();
+                document.getElementById("simClock").innerText = data.simulatedTime;
+            } catch (err) {
+                document.getElementById("simClock").innerText = "⛔ Erreur";
+            }
+        }
+
+        async function updateDashboardStats() {
+            try {
+                const res = await fetch("/api/dashboard-stats");
+                if (!res.ok) throw new Error("HTTP " + res.status);
+                const stats = await res.json();
+                document.getElementById("availablePlanes").innerText = stats.availablePlanes;
+                document.getElementById("availablePilots").innerText = stats.availablePilots;
+                document.getElementById("engagedPlanes").innerText = stats.engagedPlanes;
+                document.getElementById("engagedPilots").innerText = stats.engagedPilots;
+            } catch (err) {
+                console.error("Erreur récupération dashboard stats:", err);
+            }
+        }
+
+        async function updateFlights() {
+            try {
+                const resTime = await fetch("/api/simulated-time");
+                if (!resTime.ok) throw new Error("HTTP " + resTime.status);
+                const dataTime = await resTime.json();
+                const simulatedTime = dataTime.simulatedTime;
+
+                const response = await fetch("/api/flights");
+                if (!response.ok) throw new Error("HTTP " + response.status);
+                let flights = await response.json();
+
+                // Tri par statut et heure de départ
+                flights.sort((a, b) => {
+                    const pA = STATUS_PRIORITY[a.Status] || 9999;
+                    const pB = STATUS_PRIORITY[b.Status] || 9999;
+                    if (pA !== pB) return pA - pB;
+                    const dtA = new Date(a.Date + "T" + a.Departure_Time);
+                    const dtB = new Date(b.Date + "T" + b.Departure_Time);
+                    return dtA - dtB;
+                });
+
+                const tbody = document.querySelector("#flightsTable tbody");
+                tbody.innerHTML = "";
+
+                flights.forEach((f) => {
+                    const row = document.createElement("tr");
+                    row.classList.add("clickable");
+                    row.addEventListener("click", () => showFlightDetails(f));
+                    row.innerHTML = `
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Airplane_Registration || "N/A"}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              <b>${f.Status}</b>
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Departure_City} / ${f.Arrival_City}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Date || "N/A"}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Departure_Time}
+            </td>
+            <td style="background-color: ${getStatusColor(f.Status)};">
+              ${f.Arrival_Time}
+            </td>
+          `;
+                    tbody.appendChild(row);
+                });
+
+                // Met à jour la carte en fonction des vols
+                updateFlightsOnMap(flights, simulatedTime);
+            } catch (err) {
+                console.error("Erreur récupération flights:", err);
+            }
+        }
+
+        async function updateAirplanes() {
+            try {
+                const response = await fetch("/api/airplanes-status");
+                if (!response.ok) throw new Error("HTTP " + response.status);
+                const airplanes = await response.json();
+
+                const tbody = document.querySelector("#airplanesTable tbody");
+                tbody.innerHTML = "";
+
+                airplanes.forEach((a) => {
+                    const row = document.createElement("tr");
+                    const pilotIcons = a.Available_Pilots ? "👨‍✈️".repeat(a.Available_Pilots) : "N/A";
+                    row.innerHTML = `
+            <td>${a.Airplane_ID}</td>
+            <td>${a.Registration || "N/A"}</td>
+            <td>${a.Model || "N/A"}</td>
+            <td>${a.Location_City || "N/A"}</td>
+            <td>${a.Last_Status || "N/A"}</td>
+            <td>${a.Next_Departure || "N/A"}</td>
+            <td>${a.Next_Arrival || "N/A"}</td>
+            <td>${pilotIcons}</td>
+          `;
+                    tbody.appendChild(row);
+                });
+            } catch (err) {
+                console.error("Erreur récupération des statuts des avions:", err);
+            }
+        }
+
+        function showFlightDetails(flight) {
+            const detailDiv = document.getElementById("flightDetails");
+            detailDiv.innerHTML = `
+        <p><strong>Vol #${flight.Flight_Number || "(inconnu)"} - ID ${flight.Flight_ID}</strong></p>
+        <p>Date : ${flight.Date || "N/A"}</p>
+        <p>Status : ${flight.Status}</p>
+        <p>Départ : ${flight.Departure_Time} - ${flight.Departure_City}</p>
+        <p>Arrivée : ${flight.Arrival_Time} - ${flight.Arrival_City}</p>
+        <p>Immatriculation : ${flight.Airplane_Registration || "N/A"}</p>
+      `;
+        }
+
+        // Mise à jour de la carte avec position interpolée et tracé
+        function updateFlightsOnMap(flights, currentTime) {
+            // Dans ce prototype, nous n'animons qu'un seul vol (celui dont le tracé est défini dans le SVG)
+            // Pour chaque vol en "In-Flight" ou "Approaching", on calcule la position interpolée.
+            // Ici, nous utilisons uniquement le vol correspondant au path "flightPath".
+
+            // Si aucun vol n'est en cours ou si vous souhaitez afficher plusieurs vols,
+            // vous devrez itérer sur un tableau de tracés et markers.
+
+            // Pour l'exemple, nous utilisons le path "flightPath" et l'icône "airplaneIcon"
+            // On récupère les données du vol correspondant (si présent)
+            const flight = flights.find(f => f.Status === "In-Flight" || f.Status === "Approaching");
+            if (flight) {
+                const depCity = flight.Departure_City;
+                const arrCity = flight.Arrival_City;
+                const depTime = flight.Date + "T" + flight.Departure_Time;
+                const arrTime = flight.Date + "T" + flight.Arrival_Time;
+
+                // Calcul de la fraction du vol parcouru en fonction du temps simulé
+                const tDep = new Date(depTime).getTime();
+                const tArr = new Date(arrTime).getTime();
+                const tNow = new Date(currentTime).getTime();
+                let fraction = (tNow - tDep) / (tArr - tDep);
+                if (fraction < 0) fraction = 0;
+                if (fraction > 1) fraction = 1;
+                const pos = flightPath.getPointAtLength(totalLength * fraction);
+                // Mise à jour de l'icône sur la carte
+                airplaneIcon.setAttribute("transform", `translate(${pos.x}, ${pos.y})`);
+            }
+        }
+
+        // Tri générique pour les tableaux
+        function sortTable(tableId, colIndex, type = "string") {
+            const table = document.getElementById(tableId);
+            if (!table) return;
+            const tbody = table.tBodies[0];
+            const rowsArray = Array.from(tbody.querySelectorAll("tr"));
+
+            rowsArray.sort((a, b) => {
+                const aText = a.children[colIndex].textContent.trim();
+                const bText = b.children[colIndex].textContent.trim();
+                let aValue, bValue;
+                if (type === "number") {
+                    aValue = parseFloat(aText) || 0;
+                    bValue = parseFloat(bText) || 0;
+                } else if (type === "date") {
+                    aValue = new Date(aText);
+                    bValue = new Date(bText);
+                } else {
+                    aValue = aText.toLowerCase();
+                    bValue = bText.toLowerCase();
+                }
+                if (aValue > bValue) return 1;
+                if (aValue < bValue) return -1;
+                return 0;
+            });
+
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild);
+            }
+            tbody.append(...rowsArray);
+        }
+
+        document.querySelectorAll("#airplanesTable th.sortable").forEach((header, index) => {
+            header.addEventListener("click", () => {
+                const type = header.getAttribute("data-type") || "string";
+                sortTable("airplanesTable", index, type);
+            });
+        });
+
+        // Contrôle de vitesse
+        document.getElementById("speedControl").addEventListener("input", async function () {
+            const newSpeed = this.value;
+            document.getElementById("speedValue").innerText = `${newSpeed} min/tick`;
+            try {
+                await fetch(`/api/set-speed?value=${newSpeed}`, { method: "POST" });
+            } catch (err) {
+                console.error("Erreur modification vitesse:", err);
+            }
+        });
+
+        // Pause / Reprendre
+        let paused = false;
+        document.getElementById("pauseResume").addEventListener("click", async function () {
+            paused = !paused;
+            this.innerText = paused ? "▶️ Reprendre" : "⏸️ Pause";
+            try {
+                await fetch(`/api/toggle-pause`, { method: "POST" });
+            } catch (err) {
+                console.error("Erreur pause/reprise:", err);
+            }
+        });
+
+        // Mise à jour périodique
+        setInterval(updateClock, 2000);
+        setInterval(updateFlights, 2000);
+        setInterval(updateDashboardStats, 2000);
+        setInterval(updateAirplanes, 5000);
+
+        // Premier chargement
+        window.addEventListener("load", () => {
+            updateClock();
+            updateFlights();
+            updateDashboardStats();
+            updateAirplanes();
+            initMap();
+        });
+    </script>
+</body>
+
+</html>
