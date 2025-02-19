@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Orchestrateur Airline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .header {
+            background: #003366;
+            color: white;
+            padding: 10px;
+            font-size: 1.5em;
+        }
+
+        .controls {
+            margin: 10px;
+        }
+
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .stat-block {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        Orchestrateur Airline | Heure simulée : <span id="simClock">Chargement...</span>
+    </div>
+
+    <div class="controls">
+        <label for="speedControl">Vitesse :</label>
+        <input type="range" id="speedControl" min="1" max="60" step="1" value="10">
+        <span id="speedValue">10 min/tick</span>
+        <button id="pauseResume">⏸️ Pause</button>
+    </div>
+
+    <div class="dashboard">
+        <div class="stat-block">Avions disponibles : <span id="availablePlanes">0</span></div>
+        <div class="stat-block">Pilotes disponibles : <span id="availablePilots">0</span></div>
+        <div class="stat-block">Avions en vol : <span id="engagedPlanes">0</span></div>
+    </div>
+
+    <h2>Vols en cours</h2>
+    <table id="flightsTable">
+        <thead>
+            <tr>
+                <th>Numéro de vol</th>
+                <th>Départ</th>
+                <th>Arrivée</th>
+                <th>Heure départ</th>
+                <th>Heure arrivée</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        async function updateClock() {
+            const res = await fetch("/api/simulated-time");
+            const data = await res.json();
+            document.getElementById("simClock").innerText = data.simulatedTime;
+        }
+
+        async function updateDashboardStats() {
+            const res = await fetch("/api/dashboard-stats");
+            const stats = await res.json();
+            document.getElementById("availablePlanes").innerText = stats.availablePlanes;
+            document.getElementById("availablePilots").innerText = stats.availablePilots;
+            document.getElementById("engagedPlanes").innerText = stats.engagedPlanes;
+        }
+
+        async function updateFlights() {
+            const res = await fetch("/api/flights");
+            const flights = await res.json();
+            const tbody = document.querySelector("#flightsTable tbody");
+            tbody.innerHTML = "";
+            flights.forEach((f) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${f.Flight_Number}</td>
+                    <td>${f.Departure_City}</td>
+                    <td>${f.Arrival_City}</td>
+                    <td>${f.Departure_Time}</td>
+                    <td>${f.Arrival_Time}</td>
+                    <td>${f.Status}</td>`;
+                tbody.appendChild(row);
+            });
+        }
+
+        document.getElementById("speedControl").addEventListener("input", async function () {
+            const newSpeed = this.value;
+            document.getElementById("speedValue").innerText = `${newSpeed} min/tick`;
+            await fetch(`/api/set-speed?value=${newSpeed}`, { method: "POST" });
+        });
+
+        document.getElementById("pauseResume").addEventListener("click", async function () {
+            await fetch(`/api/toggle-pause`, { method: "POST" });
+        });
+
+        setInterval(updateClock, 2000);
+        setInterval(updateFlights, 2000);
+        setInterval(updateDashboardStats, 2000);
+
+        window.addEventListener("load", () => {
+            updateClock();
+            updateFlights();
+            updateDashboardStats();
+        });
+    </script>
+</body>
+
+</html>

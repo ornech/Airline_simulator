@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1036 666"
+   version="1.1"
+   id="svg574"
+   sodipodi:docname="map2.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs578" />
+  <sodipodi:namedview
+     id="namedview576"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.39100205"
+     inkscape:cx="593.34727"
+     inkscape:cy="410.48378"
+     inkscape:window-width="1600"
+     inkscape:window-height="836"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="50m_cultural_—_ne_50m_admin_0_sovereignty"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="1036.0189,497.7146"
+       orientation="1,0"
+       id="guide1592" />
+    <sodipodi:guide
+       position="825.91168,666"
+       orientation="0,-1"
+       id="guide1845" />
+    <sodipodi:guide
+       position="182.4375,-0.0078125"
+       orientation="0,-1"
+       id="guide2227" />
+  </sodipodi:namedview>
+  <!-- svg generated using QGIS www.qgis.org -->
+  <g
+     id="50m_cultural_—_ne_50m_admin_0_sovereignty"
+     inkscape:groupmode="layer"
+     inkscape:label="50m_cultural_—_ne_50m_admin_0_sovereignty">
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_1"
+       inkscape:label="Vatican"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 644,480 v 1 -1"
+         id="path2" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_2"
+       inkscape:label="United_Kingdom"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 322,317 v 2 h -1 v -1 h -2 l -2,1 1,-2 h 3 1"
+         id="path5" />
+      <path
+         d="m 311,312 -1,1 h -2 v -1 l 3,-1 v 1"
+         id="path7" />
+      <path
+         d="m 269,207 -5,3 h -1 -2 l 1,-1 1,-3 1,-1 3,-2 2,-1 1,1 1,2 -2,1 v 1"
+         id="path9" />
+      <path
+         d="m 308,264 -2,1 -5,1 -2,1 -4,2 h -1 -6 l -5,-3 -2,-1 h -2 -1 -2 -3 l 1,-1 2,-1 h -4 l -1,-1 h -1 l -4,-1 -1,1 -3,1 -4,1 -5,-2 h -1 v -2 l -1,-1 -1,-1 2,-1 2,-1 5,-1 7,-3 4,-1 3,-1 2,-1 1,-2 1,-2 2,-1 -2,-1 -1,-1 1,-1 v -1 -1 l -1,-1 v -1 -2 l -3,1 h -3 l -2,1 -3,1 h -2 v -1 l 1,-1 2,-1 3,-2 1,-1 1,-1 1,-1 4,-1 6,-2 h 1 3 3 l 2,-1 h 2 l 5,2 -1,-3 2,-1 3,3 h 1 3 l -1,-1 h -1 -2 l -1,-1 -2,-3 v -1 l 1,-2 2,-2 h -1 l -1,-1 -1,-1 1,-2 3,-1 v -2 l 1,-2 -1,-1 -2,1 h -2 l -1,1 -1,-1 -4,-2 -2,-1 -3,-4 -1,-2 3,-5 4,-3 6,-1 h -1 -8 -3 l -2,1 -2,1 h -1 l -1,1 h -2 l -1,1 h -3 -1 -1 v -1 h -1 -2 l -2,1 h -2 -3 l -4,-1 h -1 l -1,1 v 2 l -3,-2 -2,-2 -1,-1 v -2 h 1 2 l 2,-3 4,-5 1,-1 1,-2 v -1 l -1,-1 -4,-2 v -2 l 1,-2 1,-2 h 5 -2 l -4,-2 v -1 l 1,-2 v 1 h -1 l -1,2 -1,1 h -3 l -1,1 h -1 l -1,1 -1,-1 v -1 l 1,-2 1,-1 4,-2 h -2 l -4,3 -3,1 v 1 1 l 1,3 -1,1 -3,8 -1,1 -1,1 h -2 l -1,-1 v -1 -1 l 2,-4 v -1 l 1,-1 3,-2 h -2 -1 v -5 l 2,-2 v -3 l 1,-2 1,-2 1,-2 2,-1 v -1 l 2,-1 1,-2 h -1 l -8,4 -2,1 h -2 l -2,-1 -2,-1 -1,-1 -2,-1 h -1 l 2,-1 h 3 l 4,-2 -3,-1 v -1 l 3,-1 3,-3 v -3 l -1,-1 -1,-1 -3,-1 v -1 -1 h 1 l 2,-1 2,-1 h -2 l -1,-1 -1,-1 1,-3 1,-1 1,-1 h 6 1 v -1 l 3,1 v -1 l -5,-3 1,-2 v -1 -1 h 2 5 1 l -1,-1 -1,-1 v -1 -1 -2 l 2,-1 v -1 h 2 l 2,1 h 1 l 1,1 h 1 l 3,-1 h 1 l 2,1 5,-1 h 7 l 5,-1 h 4 l 5,-1 h 4 v 1 l -1,2 v 2 l -1,1 -1,1 -5,2 -8,4 -5,2 v 1 l -1,2 h 3 1 v 1 l -5,3 -1,2 h 3 l 3,-1 5,-1 5,-1 h 3 l 5,1 h 1 l 2,-1 h 2 13 4 l 2,1 3,1 2,3 -2,1 -2,2 -2,2 v 1 l -1,1 v 1 l -4,6 -4,3 -2,2 -2,1 -2,1 -2,1 -6,1 h -1 l -2,1 -2,1 h 2 l 2,-1 h 5 l 5,2 v 1 l -2,1 -5,1 -5,2 -2,1 h -2 -2 l -5,-1 h -2 l 2,1 h 2 l 12,2 h 1 l 4,-2 h 5 l 10,3 3,2 4,3 3,1 1,1 1,2 2,5 2,6 3,5 2,2 1,1 9,2 2,1 4,3 3,2 3,2 3,2 -1,1 -1,1 v 2 l 2,1 2,3 3,3 h -1 l -1,-1 h -1 -2 l -2,-1 -2,-1 -4,1 -3,-1 h -2 l 4,1 h 5 l 9,5 3,3 2,4 -1,2 -2,1 -2,1 -2,2 5,2 h 1 l 2,-1 h 1 l 2,-2 1,-1 h 3 3 l 2,1 3,-1 4,1 3,1 6,3 1,2 1,2 v 2 l -1,3 -1,2 -1,2 v 1 l -1,1 -3,2 -3,1 -1,-1 -1,1 1,1 v 1 l -1,1 -2,1 -4,-1 -4,2 3,1 1,1 -1,1 -2,1 h -2 l -3,1 h -2 l -1,1 2,-1 1,1 1,1 h 1 l 5,1 h 3 5 3 1 v 1 l -1,3 -1,1 -7,2 -1,2 -1,1 h -4 l -2,1 h -3 l -3,1 -2,1 h -2 l -9,-1 h -6 l -7,1 h -2 l -3,-1 h -3 l -3,-1 -3,-1 1,2 -4,2 h -1 -2 -4 -4 v 1 l 1,1 v 1 h -1 l -7,-1 h -1 l -1,1 h -3 l -2,-2 h -3 l -2,-1 h -3 l -9,2 -1,2 -1,3 -2,2 -2,2 h -2 l -3,-1 -4,-1 -2,-1 h -1 -1 -2 l -3,1 -5,1 -2,1 -4,2 h -1 l -2,2 -2,1 -2,-2 h -3 -2 l -2,1 h -1 v -2 l 2,-1 5,-1 5,-3 2,-2 1,-1 h 1 l 1,-1 1,-1 6,-4 1,-1 v -2 l 1,-1 5,-2 2,-3 h 1 l 7,-1 h 5 l 5,1 h 3 2 l 2,-1 4,-4 2,-1 2,-2 3,-1 3,-3 -2,1 -3,1"
+         id="path11" />
+      <path
+         d="m 274,226 1,1 h 2 l -1,1 -2,1 -2,1 -2,1 -1,-1 h -1 l -2,-2 v -3 l 2,-1 h 3 l 3,2"
+         id="path13" />
+      <path
+         d="m 310,95 h -2 l 1,-1 2,-1 3,1 h -1 l -3,1"
+         id="path15" />
+      <path
+         d="m 344,66 -1,1 -2,-3 2,-2 h 2 v 1 h -1 v 1 1 1"
+         id="path17" />
+      <path
+         d="m 338,66 v 2 l 2,-1 1,2 h 1 l 2,-1 -1,1 -1,4 -1,1 v 1 l -1,3 -1,1 v 1 l -1,1 -1,-1 1,-3 1,-2 -1,-1 h -2 -2 v -1 h -1 -2 l -1,-1 2,-1 h 2 l 3,-1 -2,-3 h -2 -1 l 1,-1 h 1 l 2,-1 1,-1 h 1 v 2"
+         id="path19" />
+      <path
+         d="m 350,60 -1,2 v 1 h -2 v -1 l -1,-1 v -1 h 1 1 l 1,-1 1,1"
+         id="path21" />
+      <path
+         d="m 297,105 h -2 -1 l -2,-1 -1,-1 1,-1 h 2 l 1,1 v 1 h 1 l 1,1"
+         id="path23" />
+      <path
+         d="m 302,106 h -1 l -1,-2 h 2 1 l -1,1 v 1"
+         id="path25" />
+      <path
+         d="m 299,99 v 1 h 2 2 l 1,1 h 2 l -1,1 -1,1 h -1 l -2,-2 -4,1 h -1 l -1,-1 v -1 l -1,1 h -1 v -1 -1 -2 h 2 2 l 2,1 h 1 v 1 h -1"
+         id="path27" />
+      <path
+         d="m 306,96 -1,1 -1,-1 -1,-1 -2,-1 h -1 l -1,-1 2,-1 2,2 2,1 h 1 1 l -1,1"
+         id="path29" />
+      <path
+         d="m 220,154 h -1 l 2,-2 h 1 1 l -1,1 -2,1"
+         id="path31" />
+      <path
+         d="m 254,179 h -3 -1 l -1,-1 -2,-3 1,-1 1,-1 h 1 l 2,1 2,2 v 2 1"
+         id="path33" />
+      <path
+         d="m 239,159 -9,1 h -3 -1 l 1,-1 h 3 l 1,-3 -4,-1 v -1 -1 h 3 l 1,-1 2,1 2,2 h 2 l 2,1 v 3"
+         id="path35" />
+      <path
+         d="m 231,168 1,3 v 2 1 l -4,2 h -1 v -1 l 1,-1 -1,-1 v -1 h -1 l -2,1 -1,1 v -1 -1 -1 h 1 v -1 h 1 1 1 l 2,-1 2,-1"
+         id="path37" />
+      <path
+         d="m 234,171 h -1 -1 v -1 -1 h 1 l 3,-2 h -2 l 1,-1 3,-2 h 1 1 l -2,3 -4,4"
+         id="path39" />
+      <path
+         d="m 229,114 -3,4 h -1 l -1,1 -3,1 h 3 l 1,1 -1,1 -3,2 h -3 l -2,2 h -1 l -2,1 -1,1 h -1 l -1,-1 2,-2 h 1 l 2,-1 h -1 l -3,-1 -1,-1 2,-1 h -1 -1 l -1,-1 v -1 l 1,-1 1,-1 2,1 h 1 2 2 l -2,-2 1,-1 5,-1 5,-2 1,-1 1,1 v 1 1"
+         id="path41" />
+      <path
+         d="m 227,145 v 1 h -1 l -1,-1 -1,-1 3,-1 v 1 h 1 v 1 h -1"
+         id="path43" />
+      <path
+         d="m 230,133 v 1 2 l 1,1 v 1 h 1 l 4,1 h 4 1 v 1 h -1 l -2,1 -2,2 -1,1 h -1 l -1,-1 v -3 l -3,1 h -2 l -2,-1 v -1 l -2,-2 h -5 l -2,-2 v -1 h 1 1 1 l 1,-1 -1,-1 5,-1 1,-1 h 1 1 l 2,2 v 1"
+         id="path45" />
+      <path
+         d="m 207,129 2,2 -2,2 h -3 l -4,-2 v -1 h 1 1 1 1 1 l 2,-1"
+         id="path47" />
+      <path
+         d="m 206,142 h -1 -1 -1 l -1,-2 v -2 -2 h 3 l 1,6"
+         id="path49" />
+      <path
+         d="m 202,145 -2,1 h -1 v -1 l 1,-1 h 1 l 1,1 h 1 -1"
+         id="path51" />
+      <path
+         d="m 229,209 h -2 l -1,1 h -1 -1 -3 -2 v -1 -1 -1 h -2 -1 l -1,-2 h -1 v -1 l -1,-1 -2,-1 h -1 l -2,1 -1,2 1,1 -1,1 -2,1 h -1 v 1 l -2,-1 h -3 -1 l -2,-1 h -4 v -2 h -1 l -4,-3 -1,-1 h 1 l 1,-1 6,-1 1,-1 -2,-1 h -1 l -1,-1 1,-1 h 2 l 1,1 1,-1 h 2 l 1,-1 1,-1 1,-1 1,-1 1,-2 v -1 l 4,-1 v 1 h 2 l 2,-1 2,-2 h 1 1 3 l 5,-1 h 2 3 3 l 2,2 1,2 3,3 3,2 v 1 l -1,1 -3,1 v 1 h 2 l 1,-1 4,1 1,1 1,1 v 1 2 l -1,-1 -1,-1 -1,-1 h -1 l 1,2 -1,2 h 1 2 l -2,2 -2,1 h -2 l -1,1 -1,1 -1,1 -2,1 h -2 l -2,-1"
+         id="path53" />
+      <path
+         d="m 343,285 -1,1 -1,1 h -2 -1 l -5,-2 h -1 1 l 3,-1 2,-1 4,1 1,1"
+         id="path55" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_3"
+       inkscape:label="Ukraine"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="M 1036.0716,393.85704 1032,395 h -2 -3 -1 v 1 l -1,2 2,1 1,5 v 2 l -1,-1 -2,-2 -4,-1 -4,1 -4,1 -3,1 h -2 -1 v 1 l -7,-1 -3,-1 -2,-3 h 1 l 1,-1 h 3 1 v -1 -1 -1 l 1,-2 3,-1 1,-1 v -2 l 3,-1 2,-2 v -2 l 1,-1 -1,-2 v -2 -1 -1 l 2,-1 h 2 1 1 v 3 h 1 l 1,-2 h 1 l 1,1 1,-1 1,1 h 1 2 1 l 1,-1 1,1 2,1 h 1 4 l 1,-1 -4,-3 v -2 -2 -1 l -1,-1 -4,-1 -3,-2 v -1 -1 l -1,-1 -1,-1 1,-1 v -1 -1 h -1 -1 l -1,-1 -1,-1 -3,-2 h -1 l -1,-1 v -1 -1 l 1,-2 1,-1 v -1 l -1,-3 -1,-1 -1,-1 -1,1 h -1 -2 l -1,-1 -2,-3 h -4 l -1,-1 -2,2 v -1 h -1 l -1,-1 -1,1 v -1 l 1,-1 -2,-1 h -3 -1 v -1 h -1 l -2,-1 h -2 l -1,-1 -2,-1 -4,-1 -2,1 -1,1 -2,-1 -2,2 h -5 -3 l -1,-1 -4,2 -1,1 h -1 l -3,1 h -3 v 2 l -1,1 -2,2 -6,1 h -5 l -5,1 -6,2 -2,1 -2,1 h -2 l -1,-1 -5,-2 -1,-2 h -2 -3 l -2,1 h -2 l -3,-1 h -1 l -7,-1 h -1 -5 l -5,-2 h -1 l -1,1 -1,1 -3,1 h -1 -1 v -1 -1 -1 h -1 v -1 h -2 -1 -2 l -1,-2 -2,-1 h -2 l -1,-1 -1,-1 v -1 h -1 -2 l 1,-4 3,-2 1,-2 1,-3 1,-1 1,-1 1,-1 v -1 h 1 l 3,1 h 2 1 v -1 l -2,-1 -1,-1 v -1 -1 l 1,-1 -1,-1 -1,-3 v -1 l 1,-2 4,-3 2,-2 1,-1 6,-4 3,-3 2,-1 3,-2 2,-1 5,-1 1,-1 1,-1 h 1 v -2 l -1,-3 -1,-1 h -1 l 1,-1 h 1 1 v -1 l -2,-2 -1,-1 -2,-3 -3,-3 -2,-1 v -1 l 1,-1 -1,-1 -1,-1 v -1 -2 h 1 1 2 2 l 2,1 4,-2 3,-2 1,-2 h 1 l 3,-1 h 3 1 4 3 l 2,-1 h 4 7 l 5,1 h 3 l 7,1 h 3 l 1,1 h 3 l 5,1 h 4 2 2 l 3,3 v 1 h 1 3 3 2 v 2 h 1 l 1,-1 1,-1 h 1 l 3,1 2,-1 h 1 1 2 l 3,1 h 3 1 l 1,2 h 1 1 l 2,-1 1,-1 h 2 l 1,-1 1,-1 h 1 1 l 1,1 1,2 2,2 1,1 3,-1 1,-1 h 4 4 l 5.0924,-1.05677"
+         id="path58"
+         sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_4"
+       inkscape:label="Turkey"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 945,520 h -5 -2 l 2,-2 h 3 l 1,-1 1,2 v 1"
+         id="path61" />
+      <path
+         d="m 1036,606 -6,2 h -3 l -7,-2 -3,-2 -2,-1 v -3 l -1,-1 -1,-2 v -1 h -2 l -1,1 h -2 l -2,-1 -5,-2 h -4 l -3,2 -2,1 -2,1 v -1 l 2,-2 h -6 l -4,2 -2,-1 h -2 v -1 h 2 l 2,-1 h 6 l 2,-1 2,-2 3,-1 v -1 h -2 -10 -8 v 1 h -2 v -2 l 1,-1 h 2 l 4,-1 -1,-2 -2,-1 -1,-1 h -2 l -1,-1 -1,-2 -1,-3 -2,-1 v -1 l 4,-1 v -3 -2 l -2,-1 -5,-1 h -1 l -2,-2 -2,-1 h -2 l -1,1 h -1 l -2,-2 h -2 l -1,-1 1,-2 h 2 v -2 l -1,-2 v -2 h 1 2 l 1,2 1,1 v 2 l 1,1 v 1 l 1,-2 h 1 l 1,1 h 2 l 5,-1 1,-1 h -4 l -1,-1 -2,-1 -1,-2 -1,-2 h 1 l 3,-1 2,-3 h -1 l -1,-1 -1,1 -1,-1 -1,-1 1,-1 v -2 l -3,-3 v -1 -1 l 2,-1 3,-3 h -1 l -1,-1 -8,1 -3,1 -5,1 v -2 -1 l 1,-2 v -4 -3 l 3,-1 4,-4 6,-4 h 6 l 2,-1 h 4 1 v 1 l 3,2 6,-1 h 1 l 2,-1 -3,-2 1,-1 h 2 l 3,1 -1,1 -1,1 h 1 7 8 2 6 l 1,-1 -1,-1 h -2 -1 l -2,-1 4,-2 2,-1 10,-1 8,-1 h -1 l -10,-1 -2,-1 -3,-2 -1,-1 -1,-1 1,-2 v -1 l 1,-1 4,-1 17.1397,1.95502"
+         id="path63"
+         sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+      <path
+         d="m 990,479 v 2 l 1,3 3,4 4,2 13,5 h 2 v 2 l -1,2 -1,1 -4,1 -11,-2 h -2 -2 l -4,2 -4,-1 -5,1 -2,3 -4,3 -6,3 -4,2 -7,5 -3,3 -2,1 h -1 v -1 l 1,-2 v -1 -1 l 2,-2 2,-1 6,-2 2,-2 h -5 -5 -3 -2 l -1,-1 -1,-1 1,-1 h 1 l 1,-2 2,-1 2,-2 v -1 -1 -1 -1 -2 l 4,-2 h 2 v -1 -3 l -1,-2 -2,-1 -1,-1 h -2 l -1,-1 1,-1 4,-1 1,-1 v -2 h 1 2 2 l 2,-1 h 2 l 1,-1 h 4 l 1,-1 h 1 l 2,2 2,1 2,1 h 1 l 1,-1 h 2 1 1 1 3"
+         id="path65" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_5"
+       inkscape:label="Tunisia"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 537,666 -2,-4 -1,-2 v -3 -3 l 1,-1 4,-2 2,-4 3,-1 2,-1 2,-1 1,-2 2,-2 v -2 -4 l 1,-2 2,-3 -1,-2 -1,-2 v -4 -2 l -1,-1 v -2 -1 -4 l 1,-4 1,-4 -1,-1 -2,-1 v -1 l 3,-2 2,-3 1,-1 2,-1 v -1 -1 l 5,-2 6,-3 1,-1 13,-3 h 1 l 2,1 -1,1 v 1 l 1,1 1,-1 v -1 h 2 2 l 3,1 v 4 l 3,3 -1,2 3,1 2,-1 1,-2 5,-1 4,-3 h 2 v 2 l 2,2 -2,1 -2,2 -4,6 -3,1 -3,2 -1,2 v 2 l 1,3 2,3 2,2 2,1 5,3 v 2 2 l 1,2 1,3 -3,4 -2,3 -4,5 -4,3 -7,4 -2,2 -1,1 -1,2 1,2 2,5 3,2 4,2 5,-1 v 2 l 1,2 h 2 2 l 1,-3 3,2"
+         id="path68"
+         sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+      <path
+         d="m 618,639 -3,2 v -1 l 2,-2 h 1 v 1"
+         id="path70" />
+      <path
+         d="m 611,662 h -1 l -1,1 -2,-1 h -1 v -3 h 4 l 2,1 1,1 -1,1 h -1"
+         id="path72" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_6"
+       inkscape:label="Switzerland"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 579,355 1,1 1,1 v 1 l -2,3 -1,2 v 2 1 h 2 1 3 l 2,1 1,1 2,2 h 4 1 l 3,-3 2,1 1,1 v 1 l -1,3 -1,1 1,2 v 1 h -1 -2 l -2,-2 -1,1 h -2 v 1 l -1,2 h 1 v 1 l 1,1 v 2 l 1,1 h -1 -1 -1 l -1,-2 -1,-1 h -1 l -2,1 -3,1 h -2 l -1,-1 h -1 l -1,-2 v -1 h -1 l -2,-1 -1,1 v 2 2 l -1,1 -3,3 -1,1 -1,1 v 1 l 1,1 v 1 1 h -2 l -1,-1 v -1 l -3,-2 1,-1 -4,-1 -1,-1 -3,-2 v -1 -3 l -1,-1 h -1 l -1,1 -2,2 -3,1 v 1 l 1,1 v 1 l -3,2 v 1 l -3,1 -2,1 -4,-1 h -1 l -2,1 h -3 l -4,1 -2,-1 h -1 v -1 l -1,-1 -1,-1 -1,-1 -2,-1 1,-3 -1,-1 v -1 -1 h -1 -4 -3 l -2,1 -2,1 1,2 -2,1 -3,1 h -1 -1 v -2 h 1 l 2,-1 v -1 -1 l -1,-1 v -1 l 1,-1 v -1 l 1,-1 3,-2 3,-2 v -1 -2 l 1,-1 3,-1 1,-1 h 1 l 3,-3 3,-2 v -1 h 1 v -1 h -1 -1 v -1 l 1,-1 2,-1 h 2 l 1,1 2,1 1,-1 h 2 l 1,-1 1,-1 3,-1 h 1 5 4 2 3 2 1 l 1,-1 h 1 1 l -1,-1 -2,1 -1,-1 1,-1 1,-1 h 2 1 l 2,1 1,1 v -1 h 1 1 v 1 h 1 5 1 l 4,2 4,1"
+         id="path75" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_7"
+       inkscape:label="Sweden"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 791,126 -1,1 -2,1 h -1 l -1,1 -1,5 3,2 h -2 l -1,1 h -1 l -1,2 -4,1 -1,1 -2,2 -1,2 -2,1 h -2 l 1,-2 2,-1 -2,-1 -1,-2 -1,-1 1,-2 -1,-2 1,-3 1,-1 2,-1 2,-2 3,-2 5,-1 1,1 1,-1 1,-1 2,1 2,1"
+         id="path78" />
+      <path
+         d="m 735,160 -1,2 -1,-1 -1,-1 v -4 -2 l 5,-7 h 2 l 3,-4 1,-2 1,-2 1,-1 1,-1 h 1 l 1,1 h -2 l 1,2 h -1 l -3,5 -1,3 -2,1 -5,11"
+         id="path80" />
+      <path
+         d="m 620,99 2,3 2,1 2,-1 2,-2 v -3 l 2,-3 -2,-3 -1,-3 v -1 l 3,-2 1,-2 2,-2 1,-1 h 2 2 l 3,-1 2,-2 2,-1 v -3 -2 l 1,-1 1,-2 -1,-2 -2,-3 -3,-5 v -2 l 1,-1 h 2 5 l 1,-1 v -1 l 1,-1 1,-1 1,-2 1,-1 -3,-2 -4,-2 -2,-1 -4,-2 -4,-1 2,-6 2,-4 v -1 -2 l -4,-7 v -1 -2 -2 l -1,-2 1,-1 2,-1 -2,-2 -3,-4 5,-5 h 168 l -1,1 h -2 l -1,-1 h -2 v 1 1 l -3,-1 -2,1 -1,1 -5,3 -4,-1 -1,1 h 1 l 1,1 h -1 -2 -2 -1 l -1,1 -1,2 h -2 -2 l -1,1 h 5 l -1,1 v 1 l -5,2 h -1 l -1,1 h -2 v -1 h 1 -4 l -1,-1 v 1 l 1,1 1,1 -1,1 -1,1 h 1 2 v 1 l -2,1 -2,1 h -3 l -1,1 h -2 -1 l -3,-1 v 1 1 l 1,2 2,2 h 2 l -1,1 -1,1 -2,3 -1,1 v 2 2 l 1,1 1,1 h -3 -3 v 1 l -2,2 v 1 l 1,1 -1,2 1,1 1,1 h -1 v 1 2 l 1,4 v 1 l 1,3 v 1 1 l 2,2 h 2 3 l 1,1 1,1 h 2 l 3,-1 h 1 l 2,2 3,2 2,1 h 3 l 4,2 -1,2 2,1 4,1 1,1 1,1 1,1 1,3 v 1 l -2,1 -4,2 -1,1 -2,1 -4,1 -1,1 h -1 l -2,1 h -1 l -4,1 v 1 h 3 2 l 1,-1 h 2 1 l 2,-1 h 1 1 l 1,2 -2,1 h -2 l -1,2 -1,1 -1,1 -4,1 -3,1 -3,1 h -2 l -2,1 -5,1 -2,2 -5,2 -3,1 h -8 -7 -2 2 l 2,1 h 2 4 3 l 3,2 -3,1 -4,1 2,3 1,2 -1,1 -1,5 h -2 l -1,3 1,1 v 2 2 l 1,1 v 2 l -3,4 v 1 1 l 1,2 -2,3 -1,3 -1,2 -3,3 -2,2 -3,6 -2,1 -2,1 -2,-1 h -2 -3 l -4,1 -6,-1 h -6 l -2,1 1,2 h -2 -2 l -2,1 h -2 l -3,2 -1,2 v 2 l 2,2 1,2 -4,3 h -2 -6 l -11,1 -9,-1 1,-2 v -1 -2 l 1,-1 v -2 l -1,-1 -2,-2 -6,-5 -1,-3 -2,-1 h 1 l 5,2 1,-1 h 1 l -1,-2 -2,-1 v -1 h 2 2 l 1,-2 v -2 l -2,-1 h -2 l -3,-3 -4,-2 -6,-7 -2,-5 h -2 l -1,-2 -1,-2 v -1 l -3,-1 v -1 l -1,-5 -3,-1 -2,-2 -1,-5 -2,-1 h -2 v -1 l 1,-1 -1,-5 -1,-4 v -1 l -1,-2 v -1 l 1,-1 h 2 l 2,1"
+         id="path82"
+         sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+      <path
+         d="m 793,124 v 1 h -1 l -1,-1 2,-1 h 3 1 l -4,1"
+         id="path84" />
+      <path
+         d="m 777,99 -1,1 h -1 l 1,-1 v -1 h 2 l -1,1"
+         id="path86" />
+      <path
+         d="m 781,90 h -1 v -1 -1 h 1 2 l -2,1 v 1"
+         id="path88" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_8"
+       inkscape:label="Spain"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 403,552 -1,1 -1,-1 h -3 v -1 h 1 v -1 l 1,1 3,1"
+         id="path91" />
+      <path
+         d="m 437,527 2,1 2,-1 2,1 h 1 v 1 l -1,2 -1,2 -2,1 -1,2 -2,2 h -2 l -3,-1 -3,-1 -1,-2 -1,-1 h -1 -2 l -1,1 -1,-1 h -2 v -1 -1 l 9,-5 3,-1 5,-2 1,1 v 1 1 h -1 v 1"
+         id="path93" />
+      <path
+         d="m 463,526 h -1 l -7,-2 h -2 v -1 -1 -1 h 4 l 4,1 2,3 v 1"
+         id="path95" />
+      <path
+         d="m 399,547 -1,1 h -3 l -1,-1 1,-1 1,-1 v -1 l 1,-1 5,-1 1,1 v 1 l -3,2 -1,1"
+         id="path97" />
+      <path
+         d="m 327,447 v 1 l 1,1 h 1 l 2,1 h 1 2 l 2,1 v 1 l -1,1 v 1 h -1 l 1,1 h 1 1 l 1,-1 1,1 2,1 5,1 h 2 2 l 1,1 3,2 h 1 1 2 2 1 l 2,1 1,1 1,1 h 1 l 6,-1 1,1 h 1 2 3 2 l 1,-3 1,-1 1,1 6,1 2,1 h 2 2 l 1,1 2,2 v 1 1 1 1 h 1 l 1,-1 h 1 l 2,-1 h 1 l 3,1 2,1 h 1 v 1 h 1 2 l 2,-1 4,1 4,1 h 2 v -1 l 1,-1 h 1 2 l 1,-1 h 2 2 l 2,1 h 2 v 1 l 1,1 1,1 h -2 l -1,1 -1,2 h 1 l 1,1 v 3 l -2,2 -3,2 -15,7 -4,3 -2,1 -11,2 -8,2 -4,1 -5,4 -2,1 2,1 2,2 h -1 l -3,2 h -1 -1 -1 l -5,7 -4,4 -3,2 -3,3 -5,8 v 3 l 3,8 1,2 2,1 5,2 1,1 -2,2 -4,2 -7,4 -3,2 -1,3 -2,1 -1,3 -1,3 -1,1 -1,1 v 2 l 2,1 -1,1 -1,1 h -3 -8 l -7,4 -4,3 -3,7 -4,3 -2,1 -2,-2 h -3 l -4,1 -1,1 -3,1 -2,-1 h -6 -2 l -4,1 -3,-1 h -6 l -12,1 h -2 l -1,2 -4,2 -6,1 -5,1 -1,1 -2,3 -1,3 h -1 v -1 h -1 v 2 l -2,1 h -2 l -4,-1 -3,-2 -2,-1 -3,-3 -1,-2 -1,-2 v -1 -1 h -3 v -3 l 1,-2 2,-1 1,-1 h -2 l -2,2 -2,-3 -9,-5 1,-1 -1,-1 -1,2 h -1 -4 -6 l -1,-5 -1,-2 v -2 l 2,-3 1,-1 2,-3 2,-2 h 3 l 1,-1 1,-2 v -1 h -3 l -5,-6 v -1 l 1,-1 v -2 -2 l 2,-1 2,-1 1,-2 1,-2 v -1 l -1,-1 -2,-1 -3,-5 -1,-2 -1,-1 -1,-1 -2,-2 v -1 h 1 8 l 1,-1 h 1 l 1,-2 1,-3 1,-2 -1,-1 -2,-1 v -1 -1 l 2,-1 2,-1 1,-1 -1,-1 v -1 -1 -3 -1 -3 -2 l -2,-3 1,-1 2,-1 2,-2 3,-2 4,-2 2,-2 1,-1 h 1 v -1 l -1,-1 -1,-1 h -2 -2 -1 l -1,-1 v -2 -2 -1 h -1 -2 l -2,-1 h -1 -1 -3 -2 -1 -1 v 1 1 h -2 l -3,1 h -2 l -2,-1 h -1 -1 -5 l -2,1 h -2 -1 -1 l -1,-1 v -1 l 2,-2 v -1 h -1 v -1 l -1,-1 h -1 l -1,1 -5,1 h -1 l -2,1 -2,2 h -2 v -1 l -1,-3 3,-2 2,-2 h -1 -2 v -1 l 1,-1 1,-1 h -1 l -1,-1 v -2 -1 -1 l -4,1 h -1 v -1 l 2,-3 1,-1 h -3 l -2,-1 -1,-1 -1,-1 v -2 l 1,-3 2,-1 h 1 l 4,-2 h 4 l 3,-1 3,-1 h 1 l 3,-1 v -1 l -1,-1 v -1 l 3,-1 3,-1 3,-1 4,-1 2,1 h 2 l 3,1 3,2 4,1 4,-1 h 6 3 6 3 l 5,-1 4,1 8,1 5,1 13,2 h 4 l 7,-1 3,-1 h 2 l 4,-1 2,1 2,1 8,2 3,-2 h 1 l 6,1 6,2 h 3 l 5,-1 3,-1 h 1"
+         id="path99" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_9"
+       inkscape:label="Slovakia"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 868,321 v 1 l -1,1 -1,1 -1,1 -1,3 -1,2 -3,2 -1,4 -8,1 h -1 l -1,-1 -1,-1 v -1 h -1 l -2,-1 h -1 l -1,-1 -4,1 -3,1 -2,-1 h -3 -5 -3 v 1 l -4,4 -4,2 -4,2 h -1 l -2,-1 -3,-1 h -1 -2 l -1,1 -1,1 -4,1 -8,1 -3,1 -1,1 v 1 l 1,1 -1,1 v 1 h -6 -7 -5 -4 l -3,-1 -3,-2 -4,-2 h -1 -2 l -2,-1 v -1 l -2,-3 -3,-4 v -1 l 1,-1 1,-1 v -1 -1 l 1,-1 2,-3 1,-1 h 1 3 4 3 l 3,-1 2,-1 1,-1 h 1 v -1 h 3 v -1 l 1,-1 v -1 -1 l 1,-1 5,-2 v -1 h 1 l 1,-1 1,-1 h 2 2 1 l 1,-1 h 1 2 l 1,2 v 1 h 4 l 2,-3 h 1 l 2,-1 2,-1 v 1 l 2,1 1,2 h 1 v 1 h 2 1 v 1 2 1 h 1 1 1 l 3,1 1,-2 2,-1 1,-1 2,-1 h 1 1 2 1 2 2 l 2,1 1,1 2,-1 h 1 l 2,-2 h 1 2 3 6 l 2,1 4,1 2,1 v 1 l 1,1 4,1 6,2 h 1"
+         id="path102" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_10"
+       inkscape:label="Slovenia"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 734,378 h -2 l -2,-1 v 1 h -1 l -1,1 1,2 h -1 -3 -1 l -1,1 -2,1 -1,1 h -2 l -2,1 h -1 -1 v 1 1 l 2,1 v 2 1 l -1,1 v 1 l -4,1 -4,1 v 1 l 2,1 -2,1 v 1 l 1,1 v 1 l -2,1 -3,-1 -3,-1 -1,1 h -2 -1 l -1,-1 -2,-1 -1,-1 v -1 h -1 -1 v 1 l -2,2 -1,1 h -2 -3 -2 l -2,-1 v 1 l -1,1 h -1 l -6,-1 -1,-1 h 1 l 2,-2 2,1 1,-1 h 1 l -1,-2 -3,-1 -1,-1 -2,-1 1,-3 h -2 -1 v -1 -1 l 1,-1 2,-1 v -1 h -2 l -1,-1 h -1 v 1 l -1,-1 v -1 -1 l 2,-1 2,-1 1,-1 h 1 l 1,-1 h 1 2 2 l 2,1 h 2 3 l 4,1 h 1 1 1 1 l 2,-1 1,-1 2,-1 v -1 h 1 2 l 1,-1 h 5 5 2 l 2,-1 3,-1 4,1 h 1 l -1,-3 2,-1 h 1 4 l 1,1 v 1 1 l 1,1 h 1 l -1,1 1,1 2,2"
+         id="path105" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_11"
+       inkscape:label="Serbia"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 842,415 4,1 1,1 1,1 3,1 h 3 l 3,1 2,2 2,-1 3,-2 3,-1 4,1 1,1 1,1 h -1 -2 l -1,1 -1,1 -1,1 1,1 1,1 2,1 h 1 v 1 l -1,1 h -1 v 1 2 l -3,1 -1,1 h -1 v 3 2 1 l 1,1 1,2 1,1 1,2 3,1 2,1 1,1 1,1 2,2 v 1 l -1,1 -2,2 h -1 l -2,3 h -3 -1 -1 l -1,2 1,1 -1,2 1,2 1,1 v 1 l -2,2 v 1 h -2 -1 v -1 h -1 l -2,1 h -2 -2 -2 -1 -1 l -1,1 -3,1 h -1 l -1,-1 v -1 -1 h 2 v -1 l 2,-4 1,-1 v -1 h -1 -1 l -6,-1 v -2 l -2,-1 -2,-1 v -1 l -2,-2 -2,-1 -2,-1 h -1 l -1,-1 -1,-1 v -1 h -1 l -1,1 -2,1 v 1 l 1,1 h -1 v 1 l -3,2 -1,1 1,1 h -1 l -2,1 v -1 -1 l -2,-1 h -2 l -5,-3 h -2 -2 l -2,-2 h -2 l -1,-1 -3,-3 -3,-1 -1,-1 -1,-1 v -1 l 1,-1 h 1 2 1 1 l 1,-1 v -2 l -3,-3 -3,-2 1,-1 h 1 3 2 1 v -1 l -1,-1 -3,-2 -2,-1 -2,-1 -2,-1 v -1 h -1 l 1,-1 v -2 -1 l 2,-2 1,-2 1,-2 1,-1 -1,-1 -2,-1 -2,1 h -2 -1 v -1 h 1 1 v -1 l -1,-4 h 2 v -1 l 1,1 h 2 2 l 1,-1 -1,-1 h -1 l -1,-1 -4,-1 -2,-1 v -2 -1 h 1 l -2,-1 -1,-1 1,-1 -2,-3 -1,-1 1,-1 1,-1 2,-1 h 1 v -1 h 1 l 1,1 h 1 l 2,-1 h 1 l 1,-1 h 1 l 1,-1 2,-1 h 1 3 2 2 6 1 v 1 l 2,1 1,2 2,1 2,1 h 1 l 1,2 2,1 h 1 v 2 1 2 1 h 1 l 1,1 2,1 2,1 1,1 h 1 l 2,1 4,1 h 1 l 1,1 v 1 l -1,1 v 1 h -1 -1 v 1 h 1 l 2,1 h 1 v 1 h -2 -1 l -1,1"
+         id="path108" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_12"
+       inkscape:label="San_Marino"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 645,436 h -2 v -1 l 1,-1 h 1 v 1 1"
+         id="path111" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_13"
+       inkscape:label="Russia"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="M 1036.0189,169.992 1033,170 l -1,1 h -2 l -1,1 h -2 -1 l -3,2 -2,-1 -1,-1 v -1 l 1,-1 v -1 l -1,-1 h -2 l -4,-2 h -1 l -2,1 -3,1 h -2 l -1,-1 -1,-2 h -2 -3 l -2,1 h -1 l -3,-2 1,-1 v -2 -1 -2 l -2,-3 -2,-1 v -1 l -1,-2 -2,-1 v -1 -1 h -1 -4 l 1,-3 1,-2 1,-1 1,-1 v -1 -1 -1 h -1 l -2,-2 -3,-1 -1,-2 h -1 -3 l 1,-1 v -1 l 1,-1 2,-2 1,-1 4,-1 h 1 v -1 l -1,-1 h -1 l -1,-2 -2,-3 -1,-2 -1,-1 1,-1 v -1 -1 l -2,-7 v -1 l 1,-1 1,-1 2,-2 3,-2 3,-3 1,-2 h 1 l 1,-1 h 1 v -1 h 2 v -1 l -2,-1 -1,-1 1,-1 v -2 l -1,-2 1,-1 h 2 l 2,1 2,1 2,-1 1,-2 1,-1 2,1 h 4 2 2 l 1,-1 v -1 l 2,-1 1,-1 12,1 9.0189,1.960087 L 1036,78 l -2,-1 -2,-2 -4,-1 -3,-1 -5,1 h -6 l -6,-3 -4,-1 -3,-3 v -1 l 3,1 v -1 -2 l -1,-1 h -2 l -7,2 -9,1 8,-5 6,-3 1,-1 h 3 l 2,-1 1,-2 6,-2 6,-3 5,-3 2,-1 2,-1 6,-4 3.0189,-1.875181"
+         id="path114"
+         sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+      <path
+         d="m 833,183 -2,2 -6,4 2,1 h 2 l 3,1 h 2 4 l 1,-4 v -4 h 2 2 l 1,1 3,1 2,1 5,1 4,1 h 1 5 5 l 1,2 3,1 2,1 v 1 l -3,4 v 2 1 l 1,2 v 1 1 l -13,-1 h -12 -11 l -10,-1 h -10 -7 l -6,-1 h -1 l 4,-2 2,-2 2,-2 v -2 -2 l 3,-1 h 7 l 3,-1 3,-2 4,-3 1,-1 h 1"
+         id="path116" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_14"
+       inkscape:label="Romania"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 995,401 2,3 3,1 7,1 v -1 h 1 2 l 3,-1 4,-1 4,-1 4,1 2,2 1,1 -1,1 v 1 l -1,4 v 1 l -1,2 -12,2 1,-1 v -2 l -1,-1 1,-1 h -2 -1 l -1,1 v 3 l -1,1 v 1 2 h -1 v 1 h 2 l -1,1 -4,3 -1,2 1,7 -2,4 v 1 l -4,1 -1,-1 h -3 l -4,-1 -2,-2 -2,-2 -3,1 h -1 v -1 l -3,-1 h -3 l -7,-2 v -1 l -6,1 -8,1 -6,2 -6,3 -3,2 -3,1 -4,1 h -7 l -8,-1 -9,-2 -4,1 -6,-1 -9,-1 h -7 -7 -1 l -1,-1 1,-1 1,-1 1,-1 h 1 v -1 l -2,-1 -3,-2 -2,-1 v -1 h -1 l -2,-1 -1,-1 -1,-1 1,-1 1,-1 1,-1 h 2 1 l -1,-1 -1,-1 -4,-1 -3,1 -3,2 -2,1 -2,-2 -3,-1 h -3 l -3,-1 -1,-1 -1,-1 -4,-1 1,-1 h 1 2 v -1 h -1 l -2,-1 h -1 v -1 h 1 1 v -1 l 1,-1 v -1 l -1,-1 h -1 l -4,-1 -2,-1 h -1 l -1,-1 -2,-1 -2,-1 -1,-1 h -1 v -1 -2 -1 -2 h -1 l -2,-1 -1,-2 h -1 l -2,-1 -2,-1 -1,-2 -2,-1 1,-1 h 5 3 1 l 1,-1 v -1 h 1 l 2,-1 4,1 2,-1 h 1 v -2 l 2,-1 v -1 -1 l 1,-1 v -1 l 1,-1 h 1 l 2,-1 v -1 -1 l 2,-2 2,-2 v -1 -1 l 1,-1 2,-1 2,-4 1,-1 1,-1 v -2 l 1,-1 2,-1 2,-1 1,-1 1,-1 h 1 l 2,-1 h 1 2 1 l 1,-1 4,-2 1,-1 h 1 l 3,-1 1,-1 1,-1 h 1 l 5,2 h 5 1 l 7,1 h 1 l 3,1 h 2 l 2,-1 h 3 2 l 1,2 5,2 1,1 h 2 l 2,-1 2,-1 6,-2 5,-1 h 5 l 6,-1 2,-2 1,-1 v -2 h 3 l 3,-1 h 1 2 2 l 2,1 2,1 1,1 1,2 2,2 2,2 v 2 l 1,1 1,2 3,2 1,1 2,3 2,2 2,1 v 1 l 2,1 2,2 2,2 2,4 1,2 1,1 v 3 1 l -1,3 -1,4 -1,4 v 2 1 l 1,1 v 2 1 1 h -1 v 1 l 1,1 2,1"
+         id="path119" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_15"
+       inkscape:label="Portugal"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 172,480 2,-2 2,-1 h 1 l 5,-1 1,-1 h 1 l 1,1 v 1 h 1 v 1 l -2,2 v 1 l 1,1 h 1 1 2 l 2,-1 h 5 1 1 l 2,1 h 2 l 3,-1 h 2 v -1 -1 h 1 1 2 3 1 1 l 2,1 h 2 1 v 1 2 2 l 1,1 h 1 2 2 l 1,1 1,1 v 1 h -1 l -1,1 -2,2 -4,2 -3,2 -2,2 -2,1 -1,1 2,3 v 2 3 1 3 1 1 l 1,1 -1,1 -2,1 -2,1 v 1 1 l 2,1 1,1 -1,2 -1,3 -1,2 h -1 l -1,1 h -8 -1 v 1 l 2,2 1,1 1,1 1,2 3,5 2,1 1,1 v 1 l -1,2 -1,2 -2,1 -2,1 v 2 2 l -1,1 v 1 l 5,6 h 3 v 1 l -1,2 -1,1 h -3 l -2,2 -2,3 -1,1 -2,3 v 2 l 1,2 1,5 -2,1 -7,3 h -2 l -5,-1 -8,-1 h -2 l -3,1 h -3 l -2,1 h -1 l 2,-3 2,-6 v -4 l 1,-3 -1,-3 -1,-2 1,-5 v -2 l -1,-4 4,1 -1,-2 h -2 -1 -1 l -4,1 h -2 -1 v -2 l -1,-2 2,-1 h 2 l 1,-1 1,-2 v -2 l 1,-2 4,-2 h -2 l -2,2 -3,4 -1,2 h -3 l -2,1 -1,-1 h -2 v -2 -1 l 1,-2 1,-4 1,-3 v -2 l 1,-1 1,-1 3,-2 3,-6 4,-7 -1,-1 h -1 l 1,-2 2,-8 1,-1 1,-2 v -4 l 1,-2 v -1 l -1,-2 -1,-3 -2,-6 v -2 l 1,-1 h -2 l -1,-2 1,-1 2,-2"
+         id="path122" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_16"
+       inkscape:label="Poland"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 892,267 1,1 1,1 -1,1 v 1 l 2,1 3,3 2,3 1,1 2,2 v 1 h -1 -1 l -1,1 h 1 l 1,1 1,3 v 2 h -1 l -1,1 -1,1 -5,1 -2,1 -3,2 -2,1 -3,3 -6,4 -1,1 -2,2 -4,3 -1,2 v 1 l 1,3 1,1 -1,1 v 1 1 l 1,1 2,1 v 1 h -1 -2 l -3,-1 h -1 -1 l -6,-2 -4,-1 -1,-1 v -1 l -2,-1 -4,-1 -2,-1 h -6 -3 -2 -1 l -2,2 h -1 l -2,1 -1,-1 -2,-1 h -2 -2 -1 -2 -1 -1 l -2,1 -1,1 -2,1 -1,2 -3,-1 h -1 -1 -1 v -1 -2 -1 h -1 -2 v -1 h -1 l -1,-2 -2,-1 v -1 l -2,1 -2,1 h -1 l -2,3 h -4 v -1 l -1,-2 h -2 l -1,-2 -4,-3 -1,-2 v -1 l -1,-1 h -4 -1 -1 l -1,-1 -2,-1 h -1 -1 -1 l -2,1 h -1 l -1,-1 -1,-1 -2,-1 h -1 l -1,-1 3,-1 1,-1 -1,-1 v -1 l -1,1 h -2 l -2,1 h -2 l -5,-3 -4,-1 h -2 -1 l 1,2 2,2 -2,1 h -1 l -2,1 -1,1 h -1 -1 -1 l -2,-3 -3,-2 -1,-1 h -1 -1 v -1 -1 h 1 l 2,-1 1,-1 v -1 l -1,-1 h -2 -5 l -1,1 -1,-1 v -1 h -1 -2 l -2,-1 h -2 l -4,-1 h -1 l -1,-1 -1,-1 h -1 l -1,-2 -2,-1 h -3 -1 l 1,2 -1,1 h -2 -1 l 2,-3 1,-2 1,-4 -1,-2 -1,-2 -4,-2 h -1 l 1,-2 v -1 h -1 l -2,-2 v -1 l 2,-2 v -1 l 1,-2 v -1 l -1,-1 v -1 -1 -1 h -2 l -1,-1 v -1 -2 l 1,-2 -2,-3 -6,-3 -3,-2 1,-1 1,-1 2,-1 2,-2 1,-2 v -2 l -3,-6 v -1 l -1,-2 v -1 l 5,2 h 2 v -1 -1 -2 l -5,-1 h -3 v -1 -1 l 1,1 h 3 l 7,-2 13,-3 14,-2 3,-1 h 3 l 1,-1 1,-1 2,-1 4,-3 8,-1 2,-1 6,-2 13,-2 h 5 6 l 4,1 5,2 1,1 h -2 l -4,-2 h -2 l 4,5 1,2 4,1 3,1 10,-1 3,-1 1,-1 h 1 l 6,1 h 7 10 l 10,1 h 11 12 l 13,1 v -1 h 2 1 2 l 1,1 1,1 h 1 1 l 3,1 2,1 2,1 v 2 1 1 1 l 3,7 4,8 2,3 v 2 l 1,3 v 2 1 1 l -2,1 -8,3 h -1 l -3,2 -2,2 v 1 1 l 3,1 3,1 1,1 2,1 h 1 v 1 1 l -1,2 1,2 -1,1 -1,1 v 2 l 1,3"
+         id="path125" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_17"
+       inkscape:label="Norway"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 639,0 -5,5 3,4 2,2 -2,1 -1,1 1,2 v 2 2 1 l 4,7 v 2 1 l -2,4 -2,6 4,1 4,2 2,1 4,2 3,2 -1,1 -1,2 -1,1 -1,1 v 1 l -1,1 h -5 -2 l -1,1 v 2 l 3,5 2,3 1,2 -1,2 -1,1 v 2 3 l -2,1 -2,2 -3,1 h -2 -2 l -1,1 -2,2 -1,2 -3,2 v 1 l 1,3 2,3 -2,3 v 3 l -2,2 -2,1 -2,-1 -2,-3 v -1 l -5,-1 h -1 l -2,-1 h -1 -3 l -2,-2 -2,-3 v -4 l -1,-2 v -2 l -2,2 1,2 -1,1 -3,1 1,1 1,2 -1,2 -4,5 h -1 v 1 l -3,-1 -2,2 h -3 l -1,-1 -4,-2 h -1 l 1,1 2,1 -1,1 h -1 l -1,1 -6,1 2,1 -2,2 h -1 l -1,1 h -1 l -5,3 -9,6 -5,1 -3,2 h -3 l -4,2 -9,1 -6,-1 -4,1 -2,-1 -1,-1 1,-1 h -1 -2 v 2 h -1 l -3,-1 h -1 l 1,-2 2,-1 h -1 l -1,-1 -3,1 -2,-1 -7,-2 -2,-1 -6,-2 -3,-2 -1,-3 v -2 l 1,-3 1,-1 5,1 6,2 h 1 l 1,-2 4,-1 h -1 l -5,1 -2,-1 -3,-1 v -1 l 1,-1 1,-1 -1,-1 v -2 l 3,-1 3,-2 2,-1 3,-1 h -3 l -3,1 -3,2 -4,1 -3,1 h -1 l -2,1 -2,2 h -3 l -4,1 -1,-2 1,-5 2,-2 1,-2 h 2 l 2,-2 h 1 l 1,1 h 5 l 2,-1 h 2 l 5,-2 h -3 -2 -3 -2 v -1 l 1,-1 4,-3 2,-1 1,-1 v -1 l 1,-1 4,-3 4,-1 1,1 -1,3 v 1 l 3,-4 2,-1 1,-1 4,-1 h 1 -4 l -11,2 -4,1 -1,1 -3,2 -2,2 v 1 l -2,1 -2,1 -3,2 -2,2 -3,1 -2,1 v 1 l -2,1 -1,-1 v -1 -2 l 1,-2 1,-2 -1,-1 1,-1 h 1 3 2 l 5,-1 -1,-1 h -2 -3 l -3,-1 -3,-2 -1,-3 1,-1 8,-3 3,-1 -2,-1 -3,2 -4,1 -3,-1 -2,-2 v -3 -2 -2 l 1,-1 h 3 l 2,1 5,-1 10,-1 7,1 h 3 l 4,-1 4,-1 3,1 1,1 v 2 l 2,1 1,-1 -1,-1 v -1 l 11,-2 1,-1 h -4 l -1,-2 2,-3 -3,1 -1,2 v 2 1 h -2 -5 l -4,-1 h -3 -1 v -2 l -1,1 -1,2 -3,1 -7,-1 h -9 l -5,1 h -2 l -5,-2 -2,-1 -1,-3 v -1 l 4,-1 2,1 2,-1 -2,-1 h -2 l -1,-2 -3,-1 -1,-1 -1,-2 1,-2 h 1 3 8 l 7,1 5,1 h 10 l 6,-2 h -1 l -7,1 h -6 l -10,-2 h -4 -5 l -2,-1 -2,-1 2,-3 2,-1 1,1 h 1 l 2,-1 1,-1 1,-2 4,-1 h 2 l 3,-1 h 1 l 1,1 1,1 h 3 l 8,-2 h 1 l 2,-1 h -5 l -5,1 h -2 l -1,-1 h 1 l 2,-1 1,-2 h 1 2 4 l 3,-1 h 5 l 7,1 5,1 h 1 2 l 1,-1 h -3 l -1,-1 1,-1 6,-1 h 6 l -1,-1 -14,2 -4,-1 h -3 -2 l -5,1 -1,-1 1,-1 3,-3 2,-1 8,-1 5,-2 h 1 2 3 5 l 3,2 2,1 7,3 v -1 l -6,-4 -3,-1 -1,-1 V 6 l 2,-1 7,-1 h 1 V 2 h -1 -2 l -2,-1 -1,-1 h 1 17 -2 v 1 h 2 l 1.18924,-1 H 586 h 1 l 1,1 1,1 h 1 1 l 3,-1 h 3 6 2 1 l -1,-1"
+         id="path128"
+         sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+      <path
+         d="m 477,54 h -2 -1 v -2 l 1,-1 h 1 l 2,1 -1,2"
+         id="path130" />
+      <path
+         d="m 480,71 v 3 l -2,-1 -1,-1 v -2 -1 -1 h 1 l 1,1 1,2"
+         id="path132" />
+      <path
+         d="m 547,4 h -2 l -2,-1 h -2 V 2 l 3,-1 h 3 l 1,1 v 1 l -1,1"
+         id="path134" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_18"
+       inkscape:label="Netherlands"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 500,284 h -2 -2 l -1,-1 h -1 l -1,-1 v -1 l 2,-1 v -1 -1 l 2,-2 v -1 h -1 l -1,-1 h -3 l -2,-1 v -1 h -1 -1 -3 -2 l -2,-2 -1,-1 v -1 h -1 -1 l -1,1 h -2 -1 v -1 -1 h -1 l -3,2 h -1 l -1,-1 h -1 -1 l -1,1 v 1 h -1 -1 l -2,-1 h -2 l -3,-1 -4,1 -3,-1 h -2 l -2,-1 -1,-1 1,-1 h 1 4 4 l 5,3 h 2 1 l -1,-1 h -1 l -2,-1 -2,-1 4,-1 -1,-1 -4,-3 1,-1 1,-2 1,-1 h 1 l 2,-1 3,-4 3,-2 2,-3 2,-8 1,-2 1,-1 h 2 l 1,1 4,-2 6,-3 2,-2 2,-1 8,-3 h 4 l 6,-1 h 5 6 l 2,1 1,1 2,1 h 3 v 2 5 l -2,2 -1,3 v 2 l -1,1 h -6 -1 v 1 h 1 l -1,1 v 1 l 1,1 h 2 2 1 l 1,1 h 1 v 1 l -1,2 -1,1 -2,2 h -2 l -1,1 -1,1 2,1 v 1 l -1,1 -5,1 h -2 l -1,1 h -1 l -1,-1 -3,-1 -1,1 -2,1 h -2 v 1 l 3,2 1,1 v 1 l 1,1 1,1 v 1 1 l -1,1 -2,3 v 1 h 1 1 l -1,1 -3,2 h -1 -1 -1 l 1,1 2,1 h 1 l 1,1 -2,4"
+         id="path137" />
+      <path
+         d="m 461,269 v 1 l -1,1 -3,2 h -3 -2 -1 v -1 h -2 -2 -2 l -1,1 h -1 v -1 h -1 v -2 l 1,-1 h 4 l 3,1 h 3 l 3,-1 3,1 2,-1"
+         id="path139" />
+      <path
+         d="m 508,222 -3,1 h -1 l 3,-1 h 1"
+         id="path141" />
+      <path
+         d="m 499,223 -4,1 -2,-1 h 1 4 1"
+         id="path143" />
+      <path
+         d="m 481,227 -4,1 h -1 l 3,-1 h 2"
+         id="path145" />
+      <path
+         d="m 486,225 h -2 -1 l 5,-1 h 3 l -5,1"
+         id="path147" />
+      <path
+         d="m 476,232 -2,2 -2,-1 1,-1 3,-2 v 2"
+         id="path149" />
+      <path
+         d="m 455,262 2,1 h 1 v 1 h -3 l -3,-1 h -2 l -1,-1 2,-1 4,1"
+         id="path151" />
+      <path
+         d="m 517,221 h -2 v -1 h 2 1 l -1,1"
+         id="path153" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_19"
+       inkscape:label="Morocco"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 318,632 v 1 l 2,2 4,3 3,1 v 1 l -1,2 v 1 l 1,1 1,1 1,1 -1,1 -1,1 2,4 v 4 3 2 1 l 2,4 -137.26893,0.008 L 199,664 l 9,-4 6,-3 3,-4 9,-14 9,-20 v -3 h 4 l 3,-1 h 2 l 3,-2 3,1 -2,1 v 2 l 2,3 4,4 6,4 4,1 7,1 8,-1 4,-1 h 2 l 2,1 h 5 4 l 3,-2 2,-2 v 1 1 l 1,1 1,2 1,1 h 2 2 5 l 5,1"
+         id="path156"
+         sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_20"
+       inkscape:label="Montenegro"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 794,444 v 1 l 1,1 1,1 3,1 3,3 1,1 h 2 l 2,2 h 2 2 l 5,3 h 2 l 2,1 v 1 1 h -3 l -1,1 h -1 -2 v 1 1 l 1,1 v 2 h -1 l -2,1 h -2 l -2,1 -1,-1 v -2 -1 h -1 -1 l -1,2 -1,1 -2,2 -1,2 -2,2 -1,1 1,1 1,2 v 1 l -1,2 v 1 l -3,-2 -2,-2 -5,-4 -5,-3 -1,-1 h 1 v -1 h -1 l -1,1 h -1 l -1,-1 -1,-1 v -1 h 1 v -1 l 1,-1 h 1 v -1 l -2,-2 v -2 l -1,-2 1,-1 3,-1 v -2 l 1,-1 v -1 l 2,-1 2,-2 h 1 1 l 1,2 1,-1 1,-1 -2,-2 -1,-1 1,-1 h 1 1 1 1 1"
+         id="path159" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_21"
+       inkscape:label="Moldova"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 959,339 1,-1 4,-2 1,1 h 3 5 l 2,-2 2,1 1,-1 2,-1 4,1 2,1 1,1 h 2 l 2,1 h 1 v 1 h 1 3 l 2,1 -1,1 v 1 l 1,-1 1,1 h 1 v 1 l 2,-2 1,1 h 4 l 2,3 1,1 h 2 1 l 1,-1 1,1 1,1 1,3 v 1 l -1,1 -1,2 v 1 1 l 1,1 h 1 l 3,2 1,1 1,1 h 1 1 v 1 1 l -1,1 1,1 1,1 v 1 1 l 3,2 4,1 1,1 v 1 2 2 l 4,3 -1,1 h -4 -1 l -2,-1 -1,-1 -1,1 h -1 -2 -1 l -1,-1 -1,1 -1,-1 h -1 l -1,2 h -1 v -3 h -1 -1 -2 l -2,1 v 1 1 2 l 1,2 -1,1 v 2 l -2,2 -3,1 v 2 l -1,1 -3,1 -1,2 v 1 1 1 h -1 -3 l -1,1 h -1 l -2,-1 -1,-1 v -1 h 1 v -1 -1 -2 l -1,-1 v -1 -2 l 1,-4 1,-4 1,-3 v -1 -3 l -1,-1 -1,-2 -2,-4 -2,-2 -2,-2 -2,-1 v -1 l -2,-1 -2,-2 -2,-3 -1,-1 -3,-2 -1,-2 -1,-1 v -2 l -2,-2 -2,-2 -1,-2 -1,-1 -2,-1 -2,-1 h -2 -2"
+         id="path162" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_22"
+       inkscape:label="Monaco"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 533,439 -2,1 v -1 h 1 1"
+         id="path165" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_23"
+       inkscape:label="Malta"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 691,615 -1,1 h -2 l -2,-1 v -3 l 2,1 2,1 1,1"
+         id="path168" />
+      <path
+         d="m 685,611 h -1 -1 v -1 h 1 1 l 1,1 h -1"
+         id="path170" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_24"
+       inkscape:label="North_Macedonia"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 847,473 h 1 l 3,-1 1,-1 h 1 1 2 2 2 l 2,-1 h 1 v 1 h 1 l 4,4 1,1 3,1 2,1 h 1 l 2,4 v 1 l 1,1 h 1 v 1 l -1,2 -1,6 h -1 -2 l -1,1 v 3 h -3 l -3,1 h -2 l -3,-1 h -1 -1 l -4,1 h -1 l -3,4 -4,1 h -1 -3 -1 -2 l -4,1 h -1 -3 v -1 l -2,-1 -3,1 v -1 l -1,-3 h -1 l -1,-1 -2,-4 v -1 -1 l -1,-3 1,-1 v -1 -2 l 1,-4 h 1 2 1 v -1 l 1,-2 v -1 l 7,-3 h 1 l 2,1 1,1 h 1 v -1 l 1,-1 1,-1 h 4"
+         id="path173" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_25"
+       inkscape:label="Luxembourg"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 503,298 v 2 l 1,1 1,1 1,1 2,1 2,1 h 1 l 1,1 -1,1 h -1 v 1 l -1,1 -1,2 v 1 h -1 -1 l -1,-1 -2,1 h -1 l -1,1 -1,-1 h -1 -1 l -1,-1 h -1 v -1 h 1 v -1 l 1,-1 -2,-2 -2,-1 v -1 l 1,-1 v -1 l 1,-1 1,-1 1,-2 2,-1 h 2 1 v 1"
+         id="path176" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_26"
+       inkscape:label="Lithuania"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 833,183 h -1 l 3,-3 v -2 l 1,-2 1,-1 v 1 2 l -2,3 -2,2"
+         id="path179" />
+      <path
+         d="m 873,203 v -1 l -1,-2 v -1 -2 l 3,-4 v -1 l -2,-1 -3,-1 -1,-2 h -5 -5 -1 l -4,-1 -5,-1 -2,-1 -3,-1 -1,-1 h -2 -2 v -2 -2 l -1,-4 -2,-4 -1,-5 v -1 l 6,-2 8,-3 h 1 l 7,-2 h 1 7 l 4,1 5,-1 h 2 2 l 2,2 h 1 l 2,-1 h 9 2 l 3,1 h 4 l 3,1 h 5 2 l 2,-1 3,-2 h 2 2 1 l 1,2 3,2 3,1 8,1 2,1 5,2 2,1 2,1 3,2 2,1 2,1 3,1 h 2 v 1 l -1,2 -1,2 -1,2 v 1 h 5 l 1,1 h 1 l -1,1 h -2 v 1 l -1,1 h -7 -1 v 1 l -1,1 -1,1 -2,1 h -2 l -3,1 -1,2 -2,2 v 2 1 1 h -1 l -1,2 -1,2 -1,1 h 1 1 l 2,1 1,1 v 1 1 h -2 -2 -1 l -1,-1 h 1 l -1,-2 h -1 l -2,1 h -2 l -2,1 -1,1 h -2 -4 l -1,1 -1,2 v 1 h -3 l -3,1 -4,1 -2,-1 -1,-1 -2,1 h -2 -1 -2 -3 -4 -2 v -1 -1 -1 -2 l -2,-1 -2,-1 -3,-1 h -1 -1 l -1,-1 -1,-1 h -2 -1 -2"
+         id="path181" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_27"
+       inkscape:label="Liechtenstein"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 580,366 h -2 v -1 -2 l 1,-2 v 1 h 1 v 1 1 h 1 v 1 l -1,1"
+         id="path184" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_28"
+       inkscape:label="Latvia"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 959,174 h -2 l -3,-1 -2,-1 -2,-1 -3,-2 -2,-1 -2,-1 -5,-2 -2,-1 -8,-1 -3,-1 -3,-2 -1,-2 h -1 -2 -2 l -3,2 -2,1 h -2 -5 l -3,-1 h -4 l -3,-1 h -2 -9 l -2,1 h -1 l -2,-2 h -2 -2 l -5,1 -4,-1 h -7 -1 l -7,2 h -1 l -8,3 -6,2 v -4 -8 l 1,-4 4,-3 2,-2 1,-2 1,-3 v -2 l 6,-5 5,-1 7,-1 7,-1 1,1 1,1 9,5 2,1 3,6 8,2 6,-1 3,-1 5,-2 2,-2 1,-2 -1,-7 -1,-3 v -2 h 1 l 2,-1 7,-1 h 2 l 1,-1 5,-1 1,1 h 1 1 v -1 h 2 l 5,3 h 2 1 l 2,1 4,1 h 1 v 1 l 4,3 2,1 4,2 h 1 l 7,-1 1,-1 h 2 l 1,1 4,1 h 3 3 1 l 1,2 3,1 2,2 h 1 v 1 1 1 l -1,1 -1,1 -1,2 -1,3 h 4 1 v 1 1 l 2,1 1,2 v 1 l 2,1 2,3 v 2 1 2 l -1,1 h -2 l -3,1 -5,3 -1,1 -1,2 h -1 -2 -1 -2 -6 -2 l -3,2 -1,1 h -4"
+         id="path187" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_29"
+       inkscape:label="Kosovo"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 820,460 2,-1 h 1 l -1,-1 1,-1 3,-2 v -1 h 1 l -1,-1 v -1 l 2,-1 1,-1 h 1 v 1 l 1,1 1,1 h 1 l 2,1 2,1 2,2 v 1 l 2,1 2,1 v 2 l 6,1 h 1 1 v 1 l -1,1 -2,4 v 1 h -2 v 1 1 l 1,1 h -4 l -1,1 -1,1 v 1 h -1 l -1,-1 -2,-1 h -1 l -7,3 v 1 l -1,2 v 1 h -1 -2 v -1 -2 l -1,-4 -1,-1 -2,-1 -1,-1 h -3 l -1,-2 -2,-2 -1,-1 h 1 v -2 l -1,-1 v -1 -1 h 2 1 l 1,-1 h 3"
+         id="path190" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_30"
+       inkscape:label="Italy"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 523,391 h 1 l 2,1 4,-1 h 3 l 2,-1 h 1 l 4,1 2,-1 3,-1 v -1 l 3,-2 v -1 l -1,-1 v -1 l 3,-1 2,-2 1,-1 h 1 l 1,1 v 3 1 l 3,2 1,1 4,1 -1,1 3,2 v 1 l 1,1 h 2 v -1 -1 l -1,-1 v -1 l 1,-1 1,-1 3,-3 1,-1 v -2 -2 l 1,-1 2,1 h 1 v 1 l 1,2 h 1 l 1,1 h 2 l 3,-1 2,-1 h 1 l 1,1 1,2 h 1 1 1 l -1,-1 v -2 l -1,-1 v -1 h -1 l 1,-2 v -1 h 2 l 1,-1 2,2 h 2 1 v -1 l -1,-2 1,-1 1,-3 h 2 3 l 1,2 h 2 2 2 l 1,-2 2,-2 h 2 l 4,-1 h 3 2 1 2 l 4,-1 5,-1 v 1 l -1,1 v 1 l 3,3 1,1 2,2 h 2 l 2,1 h 3 2 l 8,2 h 4 3 l 5,1 -1,1 h -1 l -1,1 -2,1 -2,1 v 1 1 l 1,1 v -1 h 1 l 1,1 h 2 v 1 l -2,1 -1,1 v 1 1 h 1 2 l -1,3 2,1 1,1 3,1 1,2 h -1 l -1,1 -2,-1 h 2 l -4,-4 h -1 l -2,2 -6,-2 -1,1 -1,1 -2,1 -3,1 -3,1 -3,1 -3,1 h -1 l 2,-2 h -1 l -3,2 -2,1 v 1 l -1,3 1,1 3,4 3,1 -1,2 -1,1 -1,1 -2,-1 h -1 v 3 l 1,6 2,5 2,2 4,3 5,2 9,5 5,1 1,1 3,4 2,5 3,7 2,4 4,4 8,6 7,4 6,3 h 6 12 2 l 3,1 v 1 l -1,2 -2,1 -3,2 v 2 l 2,2 12,4 13,4 3,2 5,3 10,4 2,2 7,4 3,4 v 2 l -1,3 -1,2 -1,2 -3,-1 -3,-2 -5,-8 h -8 l -2,-1 -3,-1 v -1 l -1,-1 h -1 l -3,-1 -2,2 -3,2 -3,5 -3,6 v 2 l 1,3 5,1 4,2 3,2 v 6 l 1,3 -2,2 -3,-1 -4,1 -3,2 -2,2 1,5 -1,2 -6,4 -3,3 -1,2 -1,1 -7,1 -2,-3 v -3 l 1,-2 3,-1 2,-4 -1,-2 1,-2 1,-1 h 2 l 3,-1 1,-4 -3,-2 v -2 l -1,-5 -4,-6 -2,-5 -2,-3 -2,-1 h -5 l -2,-1 -7,-4 h -1 v -1 l 1,-2 v -2 l -1,-2 -2,-1 -1,-1 h -4 l -1,1 h -2 -2 -1 l 3,-2 -1,-1 -3,-1 -3,-1 h -1 l -1,1 h -1 l 1,-2 -5,-5 -2,-3 h -2 -2 l -5,-1 h -2 -2 l -2,1 h -1 v -1 l -4,-3 -5,-1 -9,-8 -3,-2 -6,-4 -4,-4 -3,-2 -5,-1 h -1 -1 l -1,1 -1,-1 1,-1 h 1 v -2 l -6,-4 -3,-2 v -1 l -1,-1 -1,-1 h -1 -1 -2 v -2 -2 -2 l -2,-3 -2,-3 -2,-8 -1,-2 -3,-2 -7,-1 -10,-5 h -2 l -6,-2 -4,-1 -5,2 -5,5 -5,5 h -2 l -6,2 -5,1 v -1 -1 -1 l 2,-1 1,-2 1,-1 v -1 l -1,-1 h -1 l -5,1 h -1 l -4,-2 -4,-1 -1,-2 -1,-1 v -1 -1 l -1,-1 1,-1 1,-1 1,-1 1,-1 v -3 h -1 -1 -1 l -2,-1 -1,-1 v -1 l -1,-1 -1,-1 v -1 l 1,-1 h 2 1 l 3,-1 h 2 l 1,-1 v -2 l 1,-1 v -1 l -3,-2 -1,-1 -2,-2 -1,-1 -1,-1 v -1 -1 l 3,-1 2,-1"
+         id="path193" />
+      <path
+         d="m 644,480 v 1 -1"
+         id="path195" />
+      <path
+         d="m 645,436 v -1 -1 h -1 l -1,1 v 1 h 2"
+         id="path197" />
+      <path
+         d="m 598,459 1,1 v 1 1 l -2,-1 -3,1 h -2 v -1 -1 h 3 1 2 v -1"
+         id="path199" />
+      <path
+         d="m 677,507 h -1 -1 l 1,-1 h 2 v 1 h -1"
+         id="path201" />
+      <path
+         d="m 635,595 h -1 l -1,-1 v -1 h 2 v 1 1"
+         id="path203" />
+      <path
+         d="m 714,562 -2,3 -1,1 -5,6 -1,1 v 2 l -1,1 v 2 l -1,1 v 2 1 l 1,1 h 1 l 1,1 -1,1 1,1 1,1 v 1 1 l -2,2 -1,1 -1,1 v 1 1 1 h -2 -3 -2 l -4,-1 -1,-1 h -1 l -3,-4 -3,-2 -2,-1 h -3 -3 l -2,-1 -5,-2 -5,-2 -2,-2 -1,-1 h -1 l -3,-1 -2,-1 h -2 -2 -1 l -2,-1 -2,-1 -2,-3 v -1 l 1,-2 1,-3 1,-1 h 2 l 1,-1 v -1 l 3,3 h 1 1 l 2,-1 1,-1 2,-1 h 3 1 l 1,1 1,1 h 1 l 4,2 2,1 h 1 l 3,-1 3,-1 5,1 3,-1 h 2 l 3,-1 2,-1 1,-1 h 1 3 l 3,1 2,-1 h 1 l 1,-1 h 1 l 4,-1 h 1 2 l -1,1"
+         id="path205" />
+      <path
+         d="m 581,503 1,2 3,5 v 2 1 l -1,1 -2,3 v 2 l 1,2 v 1 2 l -2,13 -1,2 v 2 l -2,1 -2,-1 -3,-1 h -1 l -1,1 -1,-1 h -1 l -1,4 -1,2 -2,1 h -2 -2 -2 l -1,-1 -1,-2 -1,-1 -2,-3 v -2 -4 -1 l 1,-1 v -1 -2 l 1,-1 v 1 h 1 v -1 -2 l -1,-1 h -2 v -2 -1 l 1,-1 1,-1 v -4 l -2,-1 v -2 l -1,-1 -1,-2 -2,-1 -1,-1 v -2 l 1,-3 v -1 l 1,1 1,1 h 1 2 3 l 3,-1 2,-1 4,-4 3,-1 1,-1 v -1 h 1 l 2,1 h 1 l 2,1 1,1 1,1 1,1 h 1 l -1,1 v 1 l 1,1"
+         id="path207" />
+      <path
+         d="m 556,543 -2,3 -1,-2 v -1 -1 l 2,1 h 1"
+         id="path209" />
+      <path
+         d="m 551,500 v 1 h -1 v -1 l 1,-2 h 1 1 l -1,1 -1,1"
+         id="path211" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_31"
+       inkscape:label="Ireland"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 146,213 v 1 l -2,-1 -1,-1 h -4 l 2,-1 h 1 3 l 1,1 v 1"
+         id="path214" />
+      <path
+         d="m 207,187 -4,1 v 1 l -1,2 -1,1 -1,1 -1,1 -1,1 h -2 l -1,1 -1,-1 h -2 l -1,1 1,1 h 1 l 2,1 -1,1 -6,1 -1,1 h -1 l 1,1 4,3 h 1 v 2 h 4 l 2,1 h 1 3 l 2,1 v -1 h 1 l 2,-1 1,-1 -1,-1 1,-2 2,-1 h 1 l 2,1 1,1 v 1 h 1 l 1,2 h 1 2 v 1 1 1 h 2 3 1 1 l 1,-1 h 2 l 1,1 v 1 h -1 -2 l -1,1 v 1 l 1,1 1,1 1,2 v 2 l 2,2 v 1 1 2 h -1 l 1,2 1,3 1,2 v 3 l -1,2 -1,1 -1,1 -1,2 v 3 l -3,3 -1,1 h -2 l 3,2 -2,1 -3,1 -3,-1 h -2 l -1,1 h -1 -1 l -1,-2 -1,2 -1,1 h -3 -5 l -2,1 h -1 l -1,1 v 1 h -1 l -4,1 h -1 l -2,2 -2,1 h -2 l -2,-1 -1,-1 h -3 l 1,1 1,1 -1,2 h -1 -1 l -3,2 h -3 l -2,1 -11,2 h -2 l -1,-1 h -2 l -4,2 -3,-1 3,-2 4,-2 h -1 l -7,1 h -3 l -2,1 1,-2 3,-1 2,-1 h 1 l 1,-1 4,-1 -11,2 h -3 l -1,-1 h -2 l -1,-1 4,-3 1,-1 h 3 l 2,-1 1,-1 h -1 -7 -3 v -1 l 1,-1 3,-1 h 2 1 2 l 1,1 4,-1 -2,-1 v -2 h -1 l 1,-1 2,-1 3,-1 1,-1 h 6 l 6,-1 6,-1 -3,-1 -2,-1 -2,2 -2,1 h -5 -1 l -3,-1 v 1 h -1 l -3,1 h -3 l 3,-2 5,-3 h 2 l 1,-2 v -1 h -1 l 3,-4 h 2 2 l 2,-1 h 1 l 2,-1 -3,-1 h -2 -8 -1 -1 v -2 h -1 -2 -1 -1 -2 l 2,-1 h -2 -2 l -2,-1 v -1 l -1,-1 v -1 h 1 2 l 2,-1 h 4 l -3,-1 h -1 v -1 -1 l 3,-1 h 4 v -1 -1 h -4 -3 v -1 l 1,-2 v -1 -1 l -2,1 v -2 l -1,-1 -2,1 v -1 -1 l 2,-1 h 1 3 2 l 3,-1 6,1 4,2 1,-1 1,-1 h 1 6 l 3,1 h 1 v -1 l -2,-1 2,-2 h 2 l 1,-1 h 3 l 1,-1 1,-2 1,-1 -7,1 -7,-2 1,-1 2,-1 h 2 v -1 h 2 l 2,-1 -1,-2 v -1 l 2,-1 v -1 l 1,-1 h 3 l 3,-1 h 1 4 1 l -1,-1 3,-1 v 1 l 1,1 h 1 v 1 l -1,1 -1,1 1,1 -1,1 1,-1 3,-1 v -1 l -1,-1 v -1 -1 l 1,-1 4,-1 -2,-1 h 2 1 l 2,1 2,1 2,1 -2,1 -2,1 -1,1"
+         id="path216" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_32"
+       inkscape:label="Hungary"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 859,336 h 2 1 v 1 l 1,1 1,1 h 2 l 2,1 1,2 h 2 1 2 v 1 h 1 v 1 1 1 h 1 l -1,1 -4,2 -1,1 h -1 -2 -1 l -2,1 h -1 l -1,1 -1,1 -2,1 -2,1 -1,1 v 2 l -1,1 -1,1 -2,4 -2,1 -1,1 v 1 1 l -2,2 -2,2 v 1 1 l -2,1 h -1 l -1,1 v 1 l -1,1 v 1 1 l -2,1 v 2 h -1 l -2,1 -4,-1 -2,1 h -1 v 1 l -1,1 h -1 -3 -5 l -1,1 v -1 h -1 -6 -2 -2 -3 -1 l -2,1 -1,1 h -1 l -1,1 h -1 l -2,1 h -1 l -1,-1 h -1 v 1 h -1 l -2,1 h -1 -1 l -2,1 -2,-1 -2,2 -1,1 h -2 l -2,1 h -1 l -1,-1 h -6 -4 l -2,-1 -2,-1 v -1 h -2 l -3,-1 -2,-1 -1,-1 -2,-2 -3,-1 -2,-1 -2,-2 -2,-2 -4,-2 h -2 l -2,-2 -1,-1 1,-1 h -1 l -1,-1 v -1 -1 l -1,-1 h -4 l 4,-2 1,-1 h 2 1 l 1,-1 v -1 -1 h -1 l -1,-2 1,-1 v -2 -1 h 1 2 l 1,-1 v -1 l 1,-1 -1,-2 -4,-1 h -1 1 l 2,-1 v -1 h 1 l 1,1 3,1 h 1 1 3 l 2,-1 -1,-1 v -1 -1 l 1,-1 v -1 l 2,-1 h 2 1 l 4,2 3,2 3,1 h 4 5 7 6 v -1 l 1,-1 -1,-1 v -1 l 1,-1 3,-1 8,-1 4,-1 1,-1 1,-1 h 2 1 l 3,1 2,1 h 1 l 4,-2 4,-2 4,-4 v -1 h 3 5 3 l 2,1 3,-1 4,-1 1,1 h 1 l 2,1 h 1 v 1 l 1,1 1,1 h 1 l 8,-1"
+         id="path219" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_33"
+       inkscape:label="Greece"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 987,599 -1,1 -1,-1 v -1 h 1 l 1,-1 v 1 1"
+         id="path222" />
+      <path
+         d="m 826,559 v 2 l 1,1 2,2 v 1 1 l -4,-1 h -1 l -1,-1 v -1 l -1,-1 -1,1 h -1 v -1 l 1,-2 1,-1 1,1 h 1 v -2 -1 l 2,2"
+         id="path224" />
+      <path
+         d="m 832,572 2,2 -2,-1 -2,2 -2,-2 -2,-2 v -1 l 1,-1 2,1 2,1 1,1"
+         id="path226" />
+      <path
+         d="m 827,554 h -1 -1 -1 v -2 l 1,-2 1,-1 1,-1 1,1 v 4 l -1,1"
+         id="path228" />
+      <path
+         d="m 829,560 h -1 l -2,-2 v -1 -1 l 1,1 h 1 v 1 1 l 1,1"
+         id="path230" />
+      <path
+         d="m 814,535 v 2 l -3,-1 -2,-1 -1,-3 -4,-3 v -1 l 1,-1 h 3 2 v 1 h 1 l -2,2 1,1 v 1 2 h 1 l 2,1 h 1"
+         id="path232" />
+      <path
+         d="m 888,546 1,2 1,1 3,1 h 1 l 4,2 h 5 l 1,1 v 1 l 1,1 1,1 -1,1 1,3 1,2 2,2 h 2 2 1 v 3 l -1,1 h -1 -1 v -1 h -1 -1 l -1,-1 -2,-1 -1,-1 v -1 l -1,-1 -1,-2 h -1 v -1 l -4,-1 h -2 l -3,-1 -1,-2 -1,-1 h -1 l -1,-1 -2,-2 -3,-2 -2,-1 h -3 l -2,1 -1,-1 2,-1 4,-2 2,-1 h 2 l 2,2"
+         id="path234" />
+      <path
+         d="m 896,542 -1,1 h -2 l -1,-3 4,2"
+         id="path236" />
+      <path
+         d="m 898,541 -1,1 1,-2 2,-1 v 1 l -2,1"
+         id="path238" />
+      <path
+         d="m 916,549 -2,1 h -1 v -1 h 1 l -3,-2 v -1 l 1,-1 1,1 1,2 2,1"
+         id="path240" />
+      <path
+         d="m 918,509 -3,1 -3,-2 v -1 l 2,-1 1,-1 h 2 l 1,1 v 1 1 1"
+         id="path242" />
+      <path
+         d="m 891,569 h -1 -1 -1 l 1,-1 v -1 l 1,1 h 1 v 1"
+         id="path244" />
+      <path
+         d="m 880,607 v 1 h -3 v -1 -2 -2 h 1 l 1,1 2,2 -1,1"
+         id="path246" />
+      <path
+         d="m 972,624 -1,1 -1,-1 v -1 l -1,-2 2,-3 v -2 h 2 l -1,2 -1,2 1,1 1,2 -1,1"
+         id="path248" />
+      <path
+         d="m 968,590 -2,1 v -2 l -1,-1 h 2 l 1,1 h 1 l -1,1"
+         id="path250" />
+      <path
+         d="m 967,596 h -1 l 1,-2 2,-1 3,-1 h 2 1 l -3,2 h -1 l -3,1 -1,1"
+         id="path252" />
+      <path
+         d="m 935,590 -2,1 -1,-1 -1,-2 4,-3 h 1 v 1 3 l -1,1"
+         id="path254" />
+      <path
+         d="m 929,588 -1,2 -2,-1 v -2 l 2,-1 h 1 v 2"
+         id="path256" />
+      <path
+         d="m 934,603 -1,1 h -2 l 1,-1 v -1 -1 l 2,1 v 1"
+         id="path258" />
+      <path
+         d="m 932,597 h -1 l -1,-1 -1,-1 1,-1 2,2 v 1"
+         id="path260" />
+      <path
+         d="m 964,571 2,1 h 1 2 v 2 h -2 l -3,1 h -1 l -2,-1 h -2 l -1,-1 2,-1 2,-1 h 2"
+         id="path262" />
+      <path
+         d="m 946,578 h -1 v -1 l 2,-2 h 3 l 3,-1 -1,2 -2,1 -4,1"
+         id="path264" />
+      <path
+         d="m 942,594 h -2 1 l 1,-1 2,-1 1,-1 2,1 h -2 l -3,2"
+         id="path266" />
+      <path
+         d="m 956,599 h -2 l -1,1 h -2 v -2 l 2,1 1,-1 v -1 l 1,1 1,1"
+         id="path268" />
+      <path
+         d="m 909,577 -2,1 v -2 l 1,-2 h 1 l 1,1 -1,2"
+         id="path270" />
+      <path
+         d="m 911,582 h -2 l 1,-1 -1,-1 1,-1 h 1 l 1,1 -1,2"
+         id="path272" />
+      <path
+         d="m 913,595 v 1 l -5,1 1,-1 v -1 l 1,1 1,-1 h 2"
+         id="path274" />
+      <path
+         d="m 922,578 v 3 h -1 v -1 -2 h 1"
+         id="path276" />
+      <path
+         d="m 923,573 -1,1 -1,-2 -2,-1 -1,-1 -1,-1 -1,-1 2,-1 2,2 h 2 v 1 l 1,2 v 1"
+         id="path278" />
+      <path
+         d="m 929,576 -1,2 -1,-1 -3,-1 v -1 l -1,-1 h 1 l 1,1 h 3 l 1,1"
+         id="path280" />
+      <path
+         d="m 917,591 -1,-1 v -1 h 1 l 1,2 h -1"
+         id="path282" />
+      <path
+         d="m 947,562 -2,2 -2,-2 v -1 l 1,-1 1,-1 v -1 l -3,-2 v -2 h 4 l 2,1 h 1 v 1 1 3 l -1,1 v 1 h -1"
+         id="path284" />
+      <path
+         d="m 955,538 -1,1 3,2 1,2 1,1 h -1 -1 l -1,-1 1,1 1,1 -2,1 h -2 l -5,-2 -1,-1 3,-2 h -2 l -2,2 -4,-1 -1,-1 1,-2 h 3 l 1,-1 h 2 v -1 l 4,-1 2,2"
+         id="path286" />
+      <path
+         d="m 938,513 -2,1 -3,-2 3,-1 1,1 h 1 v 1"
+         id="path288" />
+      <path
+         d="m 933,523 -1,1 -1,1 v 2 h -1 -1 v -1 -1 h -1 v 1 l -1,1 h -1 l -1,-1 v -1 l -1,-2 h 4 l 2,1 1,-1 v -1 h 2 v 1"
+         id="path290" />
+      <path
+         d="m 932,580 h -2 v -1 l 1,-1 2,1 -1,1"
+         id="path292" />
+      <path
+         d="m 913,587 h -1 -2 l 1,-2 h 1 1 v 1 1"
+         id="path294" />
+      <path
+         d="m 986,613 -1,1 h -1 v -1 -3 -1 -1 l 1,-1 1,-1 2,-2 6,-2 h 1 v 1 l -2,4 -2,2 1,1 -3,1 -3,2"
+         id="path296" />
+      <path
+         d="m 898,622 h 1 2 1 l 1,-1 h 2 v 1 l -1,1 h -1 1 l 1,1 h 2 v 1 l 1,1 h 1 2 l 2,-1 h 2 l 2,-1 6,1 2,1 h 5 l 4,1 h 2 l 3,-1 1,1 v 3 1 h 1 1 l 1,-1 3,-1 h 3 l 3,-2 h 1 l -1,1 v 2 l -1,2 v 1 l -2,1 h -3 l -4,-1 -5,1 -9,1 h -9 -2 v -1 -1 -1 l -3,-1 -3,-1 -10,-1 -3,-1 -4,1 h -1 l -1,-1 -1,-1 v -2 -3 l 1,-1 1,1 h 1 1 v -2 -1 l 1,1 v 2 h 2"
+         id="path298" />
+      <path
+         d="m 953,485 h 2 l 1,1 2,1 1,2 v 3 1 h -2 l -4,2 v 2 1 1 1 1 l -2,2 -2,1 -1,2 h -1 l -1,1 v -1 l -4,-2 -8,-1 -4,-1 h -1 l -4,-1 h -2 l -4,3 -3,-1 -3,-1 h -1 -3 l -3,3 -3,2 -3,-1 h -4 l -1,2 1,1 2,2 -1,1 1,1 1,1 h 3 l 4,1 1,2 2,2 -3,-1 -2,-2 h -2 l -3,-1 h -2 -2 v 1 l 2,2 2,1 1,1 1,2 v 1 h -1 l -3,-1 -4,-4 -5,-1 -1,1 1,2 1,1 5,3 h -1 l -6,-1 -1,-2 v -3 l -5,-2 -5,-2 -1,-2 1,-1 1,-1 h -3 l -1,1 -3,1 v 1 l 1,2 -1,2 -1,3 1,2 5,5 2,4 1,1 3,2 3,3 1,2 1,2 -2,2 h -2 l -1,-1 1,-2 v -1 l -3,-1 h -2 l -2,1 1,2 1,1 1,2 h 2 l -3,2 -3,1 h -3 -1 l -1,1 h 2 1 l 2,1 5,2 3,1 h 2 l 3,4 h 4 l 3,3 3,1 3,1 1,1 v 2 l 1,4 v 3 1 2 h -1 -1 l -2,-2 -3,-2 -3,-3 -1,-1 h -1 l -2,1 -5,1 -2,1 h -1 l -1,1 h 2 l 1,2 v 2 l 1,2 h 2 1 l 1,1 h 1 l 1,1 1,1 v 1 l -6,1 -1,1 h -1 l -1,-1 v -1 l -2,-1 -2,-1 h -2 l -1,-2 -1,1 v 4 l 2,2 4,6 1,4 v 1 3 l 1,3 1,2 h -1 l -1,-1 -2,-1 -3,-4 -1,-2 h -2 -2 l -3,5 v 3 l -1,-1 -1,-1 v -3 -1 l -3,-4 h -2 l -1,-2 -1,-1 h -1 l -2,1 v 2 2 l -1,1 -3,-3 -4,-4 v -3 l 3,-2 -1,-2 -2,-4 -4,-2 h -1 l -1,-3 -2,-1 -2,-1 v -1 l 4,-2 2,-4 h 1 l 2,1 3,-1 2,-2 2,-1 h 2 l 7,3 7,2 3,1 2,2 h 1 2 v -1 l -1,-1 h 2 3 l 1,-1 1,-1 -1,-1 h -1 -2 v -1 l -2,1 -2,-1 -1,-1 h -1 l -4,-1 -3,-3 -1,2 h -1 -3 l -5,-1 -4,1 h -2 -1 l -2,1 h -2 l -2,-2 -1,-1 v -1 2 l -1,1 -3,1 -1,-1 -1,-3 -2,-3 -3,-3 -2,-1 v -1 -1 l 3,-1 4,2 1,-1 h 1 l -1,-2 v -1 h -1 -1 -3 l -3,1 -1,-1 -1,-1 -2,-1 -3,-3 -3,-1 -3,-5 -2,-2 -2,-2 h 1 l 2,1 h 2 l 1,-1 v -1 l 1,-1 h 1 v -1 -1 l -1,-1 v -1 l 1,-1 h 1 l 1,-1 h 2 1 l 2,-1 v -1 -2 l 1,-1 1,-1 v -1 l 1,-1 2,-1 h 1 l 1,-2 1,-1 v -1 l -1,-1 -1,-2 v -1 h 3 1 l 4,-1 h 2 1 3 1 l 4,-1 3,-4 h 1 l 4,-1 h 1 1 l 3,1 h 2 l 3,-1 h 3 v -3 l 1,-1 h 2 1 2 3 l 2,-1 h 3 1 3 2 l 3,-1 2,-1 h 2 1 1 v -1 h 4 1 3 l 2,-1 2,2 v 1 h 1 l 3,2 1,-1 h 1 3 l 3,1 3,2 h 3 l 3,-1 h 2 l 2,-1 h 2 l 3,1 3,-1 1,-1 1,-1 v -2 l -1,-2 -1,-1 v -1 l 1,-1 h 2 l 3,1"
+         id="path300" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_34"
+       inkscape:label="Germany"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 579,355 -4,-1 -4,-2 h -1 -5 -1 v -1 h -1 -1 v 1 l -1,-1 -2,-1 h -1 -2 l -1,1 -1,1 1,1 2,-1 1,1 h -1 -1 l -1,1 h -1 -2 -3 -2 -4 -5 -1 -2 v -2 -2 l 1,-3 v -2 -2 l 1,-2 2,-2 1,-3 v -3 l 1,-2 2,-2 5,-4 v -2 h -1 l -2,-1 h -4 l -5,-1 h -2 l -1,-2 h -1 l -2,1 h -3 -2 -1 -1 v -1 l -1,-1 h -2 -1 v 1 h -1 -1 l -3,-3 -1,-1 -1,-1 -1,-1 -2,-1 h -1 v -1 l 1,-2 1,-1 v -1 h 1 l 1,-1 -1,-1 h -1 l -2,-1 -2,-1 -1,-1 -1,-1 -1,-1 v -2 -1 l 1,-2 5,-2 -1,-2 v -1 h -1 l -2,-1 -1,-1 2,-1 -2,-1 -1,-1 -2,-1 h -1 l 2,-4 -1,-1 h -1 l -2,-1 -1,-1 h 1 1 1 l 3,-2 1,-1 h -1 -1 v -1 l 2,-3 1,-1 v -1 -1 l -1,-1 -1,-1 v -1 l -1,-1 -3,-2 v -1 h 2 l 2,-1 1,-1 3,1 1,1 h 1 l 1,-1 h 2 l 5,-1 1,-1 v -1 l -2,-1 1,-1 1,-1 h 2 l 2,-2 1,-1 1,-2 v -1 h -1 l -1,-1 h -1 -2 -2 l -1,-1 v -1 l 1,-1 h -1 v -1 h 1 6 l 1,-1 v -2 l 1,-3 2,-2 v -5 -2 l -1,-1 -2,-1 v -2 l 1,-2 2,-2 2,-1 h 8 8 l 4,3 -2,2 3,1 h 1 v -2 l 1,-1 v -1 l 3,1 1,1 v 3 l 1,-4 -1,-2 1,-3 1,-1 1,-1 6,1 h 7 2 l 6,5 2,1 h 3 l -4,-1 -7,-6 h -2 -3 l -2,-1 -1,-1 -1,-1 v -5 l -1,-1 -2,-1 -1,1 h -2 v -2 -1 h 5 l 2,-1 v -2 l -1,-1 -2,-2 -3,-2 v -3 h 4 1 l 6,2 h 2 2 3 l 3,-1 1,1 h 1 1 l 3,1 2,1 1,1 v 2 l -2,2 -1,1 6,-1 v 1 l 1,1 h 4 l 8,2 5,-1 h 1 l 1,2 -1,2 -4,3 1,1 h 1 4 l 7,2 1,-1 5,-3 2,-1 h 7 l 2,-2 3,-1 1,-1 5,-3 h 4 l 3,1 h 3 l 3,3 6,3 h 6 l 3,3 1,4 1,1 2,1 h 5 v 1 l 1,2 v 1 l 3,6 v 2 l -1,2 -2,2 -2,1 -1,1 -1,1 3,2 6,3 2,3 -1,2 v 2 1 l 1,1 h 2 v 1 1 1 l 1,1 v 1 l -1,2 v 1 l -2,2 v 1 l 2,2 h 1 v 1 l -1,2 h 1 l 4,2 1,2 1,2 -1,4 -1,2 -2,3 -1,1 h -1 -2 l -1,-1 v -1 l -1,-1 v -1 h -1 l -3,-1 h -1 -1 l -1,1 1,1 2,1 -4,1 -2,1 h -3 l -2,1 -4,1 -3,1 h -1 l -1,2 h -1 -1 v -1 l -1,1 h -1 -1 l -2,2 h -3 l -1,1 v 1 h -1 -2 -2 -1 -2 l -2,1 -2,1 -2,1 -1,2 h -1 l -1,-1 -1,-1 -1,-1 h -1 v 1 l 1,2 h 1 v 1 l 1,1 1,1 3,1 1,1 1,2 v 1 l -1,1 -1,1 v 1 h 1 l 1,1 1,2 2,2 1,1 2,1 1,1 h 2 l 3,2 2,2 2,1 h 2 l 1,1 1,1 v 1 l 1,1 2,-1 3,2 2,2 1,1 v 2 1 1 l -2,1 h -1 l -4,-1 h -1 l -1,4 v 1 h -2 l -2,1 h -2 l -1,1 -4,1 -2,1 -1,1 v 1 l 2,2 2,2 v 2 l -1,1 v 1 h 1 1 1 v 1 2 2 h -1 -2 l -2,-1 -1,-1 h 1 l -1,-1 -2,-1 h -2 l -1,1 h -1 l -1,-1 h -2 l -2,-1 h -1 -1 l 1,2 h -1 l -10,1 -3,1 -3,1 h -1 l -1,1 -2,1 h -2 -1 -2 -2 l -2,-1 v -1 -1 h -3 -2 -4 -1 v 3 l -1,1 -2,1 -1,1 h -1 v -1 -1 h -1 -1 l -1,-1 v -1 l -1,-1 h -1 l -3,-1 -2,-1 -1,1 h -1 -2 -1"
+         id="path303" />
+      <path
+         d="m 672,203 1,1 -1,1 -3,-1 h -2 l -2,2 h -1 l -4,-2 v -1 -3 -1 l 1,-1 1,-1 2,-1 h 2 v 1 l 1,1 3,1 h 1 l -1,1 -1,1 1,1 2,1"
+         id="path305" />
+      <path
+         d="m 683,212 v 1 1 h -1 -2 -3 l -1,-1 1,-2 h -1 l -1,-1 v -1 l 4,2 4,1"
+         id="path307" />
+      <path
+         d="m 618,202 h -3 l -2,-1 h -1 l 1,-1 1,-1 3,1 1,2"
+         id="path309" />
+      <path
+         d="m 552,194 h -1 l 1,-3 2,-3 h 1 l -1,1 -1,2 6,1 h -1 -5 l -1,2"
+         id="path311" />
+      <path
+         d="m 558,195 -1,1 h -2 l -1,-1 1,-1 h 1 l 2,1"
+         id="path313" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_35"
+       inkscape:label="France"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 578,460 -1,4 1,1 h 1 v 1 l 1,9 -3,4 -1,1 v 4 1 l -1,2 -2,3 -2,2 -4,-2 -2,-1 -1,-1 -1,-1 h 1 l 1,-1 v -1 l -3,-1 h -1 v -1 l 1,-2 v -1 h -2 -1 v -1 l 1,-1 1,-1 v -1 h -2 l -1,-1 v -2 l 1,-1 h 1 l -1,-1 h -1 v -1 l 1,-1 2,-3 2,-1 4,-1 h 1 l 1,-1 1,-1 h 2 1 l 1,1 v -1 l 1,-1 -1,-1 1,-3 v -1 h 2 1 v 1 2 1"
+         id="path316" />
+      <path
+         d="m 537,354 -3,1 -1,1 -1,1 h -2 l -1,1 -2,-1 -1,-1 h -2 l -2,1 -1,1 v 1 h 1 1 v 1 h -1 v 1 l -3,2 -3,3 h -1 l -1,1 -3,1 -1,1 v 2 1 l -3,2 -3,2 -1,1 v 1 l -1,1 v 1 l 1,1 v 1 1 l -2,1 h -1 v 2 h 1 1 l 3,-1 2,-1 -1,-2 2,-1 2,-1 h 3 4 1 v 1 1 l 1,1 -1,3 2,1 1,1 1,1 1,1 v 1 l -2,1 -3,1 v 1 1 l 1,1 1,1 2,2 1,1 3,2 v 1 l -1,1 v 2 l -1,1 h -2 l -3,1 h -1 -2 l -1,1 v 1 l 1,1 1,1 v 1 l 1,1 2,1 h 1 1 1 v 3 l -1,1 -1,1 -1,1 -1,1 1,1 v 1 1 l 1,1 1,2 4,1 4,2 h 1 l 5,-1 h 1 l 1,1 v 1 l -1,1 -1,2 -2,1 v 1 1 1 h -1 -1 -1 v 1 l -2,1 h -2 l -7,5 -3,2 -1,1 -1,1 -2,2 h -1 l -5,1 -4,1 h -2 -5 l -3,-2 -6,-1 -2,-3 h -2 -2 -1 v -1 -1 h -2 -2 v 1 h -1 -1 v 1 h -2 l -2,-1 -5,-1 h -1 l -3,-1 h -1 l -1,-2 h -1 -1 -3 l -1,2 -2,1 -11,6 -3,2 -2,4 v 2 l 1,5 2,3 1,1 h -2 l -2,-1 h -2 -2 l -1,1 h -2 -1 l -1,1 v 1 h -2 l -4,-1 -4,-1 -2,1 h -2 -1 v -1 h -1 l -2,-1 -3,-1 1,-1 v -1 h -1 l -3,-1 h -1 -1 l -1,1 -2,-2 -1,-1 h -2 -2 l -2,-1 -6,-1 -1,-1 -1,1 -1,3 h -2 -3 -2 -1 l -1,-1 -6,1 h -1 l -1,-1 -1,-1 -2,-1 h -1 -2 -2 -1 -1 l -3,-2 -1,-1 h -2 -2 l -5,-1 -2,-1 -1,-1 -1,1 h -1 -1 l -1,-1 h 1 v -1 l 1,-1 v -1 l -2,-1 h -2 -1 l -2,-1 h -1 l -1,-1 v -1 l 4,-1 3,-3 3,-10 2,-12 2,-2 2,-1 -2,-1 -1,1 -1,1 2,-11 1,-4 1,-4 3,1 3,2 1,2 2,4 1,1 2,1 -1,-1 h -1 l -2,-7 -1,-2 -2,-1 -7,-4 -1,-2 h 2 l 2,1 v -1 h -1 v -3 l -1,-6 v -1 -2 h -2 -2 l -2,-1 -9,-3 -3,-4 -3,-3 v -1 -1 l 1,-3 -1,-1 -2,-1 -1,-1 1,-1 1,-1 h 2 2 l 3,1 h 1 l -5,-2 -8,1 h -2 l -2,-1 v -1 l 1,-1 1,-1 -1,-1 -2,-1 h -2 l -2,1 -1,-1 1,-1 -1,-1 h -1 l -3,1 -2,-1 -2,-1 h -2 l -2,-1 h -1 -1 l -2,-1 -9,-2 h -3 l -4,1 h -2 l -1,-1 -1,-3 -6,-1 1,-1 h 3 l 3,-1 1,-1 -3,-1 h -1 l -1,-1 -1,-1 h 1 1 2 4 l -2,-1 h -1 -1 -3 -1 -3 v -1 l -1,-1 1,-2 4,-2 11,-2 h 4 3 l 4,-1 2,-1 5,-1 5,1 5,4 2,2 6,-3 h 8 l 2,2 v -1 l 2,-2 1,1 1,1 h 8 l 2,-1 -3,-1 -2,-2 v -9 l -2,-2 -3,-4 -1,-3 h -1 l 1,-2 h 3 l 3,1 5,-1 h 2 v 2 l 1,3 1,1 1,1 h 4 l 4,1 h 6 l 7,1 4,-1 3,-1 6,-1 1,-1 h -4 l -3,-1 v -1 -1 l 1,-2 10,-4 7,-1 7,-2 3,-2 3,-2 1,-1 h 1 l -1,-1 v -10 l 1,-2 1,-1 2,-2 4,-1 12,-1 1,-1 1,1 v 1 l 1,1 -1,1 1,1 1,1 2,2 h 2 1 1 l 2,-1 h 2 l 1,1 h 1 l 1,2 v 1 l 1,1 1,1 h 3 l 3,1 h 1 l 1,3 h 1 1 2 2 2 l 3,2 -1,1 v 1 h 1 v 1 1 l -1,1 v 1 h 1 l 4,1 4,-1 3,-1 v -1 l 1,-1 1,-1 h 1 1 l -1,4 1,1 v 2 1 h 2 1 l 2,1 h 1 l 2,1 h 2 v 1 l 1,1 2,1 2,1 h 2 2 2 1 l 1,1 h 1 1 l 1,1 1,-1 h 1 l 2,-1 1,1 h 1 1 1 l 2,1 1,1 1,1 1,1 3,3 h 1 1 v -1 h 1 2 l 1,1 v 1 h 1 1 2 3 l 2,-1 h 1 l 1,2 h 2 l 5,1 h 4 l 2,1 h 1 v 2 l -5,4 -2,2 -1,2 v 3 l -1,3 -2,2 -1,2 v 2 2 l -1,3 v 2 2 h 2"
+         id="path318" />
+      <path
+         d="m 341,391 -1,2 -1,-1 -2,-2 -1,-1 v -1 l 3,1 2,2"
+         id="path320" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_36"
+       inkscape:label="Finland"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 812,70 h 1 1 l 2,1 1,1 h 1 l -2,2 h -1 v -1 l -1,1 h -1 v 2 h -6 -1 l -1,-3 v -1 h 1 1 v 1 h 2 v -1 -1 h -1 l -1,-1 1,-1 h 1 l 2,1 h 1"
+         id="path323" />
+      <path
+         d="m 804,74 h 1 -1 -1 v 1 h -1 l -1,-1 1,-2 h 2 v 2"
+         id="path325" />
+      <path
+         d="m 826,77 -1,1 h -1 l -1,-1 h -2 1 l 1,-1 h 2 l 1,1"
+         id="path327" />
+      <path
+         d="m 1036.0189,0 0,38.124819 L 1033,40 l -6,4 -2,1 -2,1 -5,3 -6,3 -6,2 -1,2 -2,1 h -3 l -1,1 -6,3 -8,5 -2,1 h -4 l -1,1 -5,-2 h -1 -3 l -2,1 -6,1 h -2 l -2,1 v -2 l 1,-1 1,-1 v -1 h -1 l -2,2 v 2 h -2 l -4,1 -4,-2 h -2 l 2,1 v 2 h -2 l -2,1 -2,1 h -1 l -1,-2 -3,1 -2,1 h -4 l -2,2 h -5 -2 l -6,1 -2,2 h -1 -2 l -8,1 -6,1 h -3 l -3,-1 -3,2 -3,1 -4,1 h -1 l 1,-1 2,-1 2,-1 v -2 h -1 -2 l -1,-1 -2,-3 h -1 l -1,1 v 2 h -1 l -1,1 h -1 -1 -4 l -1,-1 1,-1 -1,-1 1,-1 h 1 1 1 v -1 h -2 l 1,-2 v -1 l -1,1 -6,-1 -7,-2 h -2 l -1,-2 h -2 l -2,1 -2,-1 h -2 l -1,-1 v -2 -1 -2 l -1,-3 1,-2 1,-1 1,-1 1,-3 v -2 l -1,-1 v -1 h 2 l -1,-1 -1,-1 h 1 1 l 1,-1 -2,-1 v -1 l -1,-2 -2,-3 -3,-1 1,-3 1,-3 v -1 l -1,-1 -3,-2 -1,-2 -1,-2 1,-2 v -1 l 2,-1 5,-4 1,-2 h 4 L 847,9 846,8 V 7 l 6,-1 h 2 5 l 5,-2 -1,-1 -1,-2 h 1 1 -1 l 1,-1 h 1"
+         id="path329"
+         sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+      <path
+         d="m 856,70 h -1 l -3,-1 h 1 l -1,-1 1,-1 1,1 1,1 h -1 l 2,1"
+         id="path331" />
+      <path
+         d="m 839,6 h 2 l 1,-1 2,1 -1,1 h -1 -1 v 1 h -1 l -2,-1 -2,-2 h 3 v 1"
+         id="path333" />
+      <path
+         d="m 860,70 h 3 1 l 2,1 -3,1 v 1 h 1 v 1 h -2 -1 v -1 l -1,-1 h -2 l 1,-1 v -1 h 1"
+         id="path335" />
+      <path
+         d="m 844,66 v 1 h -2 -1 l -1,-1 -1,-2 h 1 l 1,1 3,1"
+         id="path337" />
+      <path
+         d="m 853,75 -3,1 v -1 -1 l 1,-1 h 2 v 2"
+         id="path339" />
+      <path
+         d="m 848,75 -2,1 -1,-1 2,-1 h 1 l 1,1 h -1"
+         id="path341" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_37"
+       inkscape:label="Estonia"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 975,133 h -3 l -4,-1 -1,-1 h -2 l -1,1 -7,1 h -1 l -4,-2 -2,-1 -4,-3 v -1 h -1 l -4,-1 -2,-1 h -1 -2 l -5,-3 h -2 v 1 h -1 -1 l -1,-1 -5,1 -1,1 h -2 l -7,1 -2,1 h -1 v -1 l 3,-4 1,-3 1,-1 v -2 h -3 -2 l -1,1 -1,1 h -3 -2 l -5,-2 -2,-1 v -2 l -3,-1 -1,-2 v -2 h 3 l 1,-1 h -3 -1 v -1 l -2,-2 2,-1 v -1 l -1,-1 1,-1 v -2 l 3,-1 3,-1 h 7 l -1,-2 h 3 l 4,-2 h 5 l 6,-1 h 13 l 2,-1 -1,-1 v -1 h 3 4 l 15,2 h 3 l 5,2 h 3 8 l 12,1 3,-1 v -1 l 1,1 2,1 v 1 h -2 v 1 h -1 l -1,1 h -1 l -1,2 -3,3 -3,2 -2,2 -1,1 -1,1 v 1 l 2,7 v 1 1 l -1,1 1,1 1,2 2,3 1,2 h 1 l 1,1 v 1 h -1 l -4,1 -1,1 -2,2 -1,1 v 1 l -1,1"
+         id="path344" />
+      <path
+         d="m 870,109 h 2 1 2 3 l 7,3 h 1 l -4,1 -1,1 h -2 -1 l -2,1 -3,2 h -5 l -3,1 -3,1 -1,2 -1,2 -2,1 h -2 v -1 -1 l 4,-2 1,-1 h -2 l -2,-1 -3,-1 -1,-1 h 1 l 1,-1 h 1 v -1 l -3,-3 h 2 1 l 2,1 2,-1 h 1 1 l 2,-2 h 3 l 2,-1 1,1"
+         id="path346" />
+      <path
+         d="m 877,104 -2,1 h -1 l -1,-1 -2,3 h -3 -1 v -1 l -1,-3 -3,-1 h -3 l -2,-1 h 9 l 1,-1 1,-2 h 2 1 v 1 l 1,1 h 4 l 1,2 1,2 h -2"
+         id="path348" />
+      <path
+         d="m 886,110 h -2 l -4,-1 1,-1 1,-1 4,1 1,2 h -1"
+         id="path350" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_38"
+       inkscape:label="Denmark"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 220,38 -1,1 -2,-1 -2,-1 -1,-1 h 1 1 3 l 1,1 v 1"
+         id="path353" />
+      <path
+         d="m 218,46 h 1 -1 -1 l -3,-2 -1,-2 h 1 l 3,1 v 1 l 1,1 v 1"
+         id="path355" />
+      <path
+         d="m 207,30 2,1 1,1 h -1 l -2,1 -1,-1 h -3 l -1,-2 h 2 2 1"
+         id="path357" />
+      <path
+         d="m 220,28 -1,3 h -1 l -1,-1 h -2 v 1 l 1,1 2,2 h -2 l -5,-3 -3,-4 4,-1 4,1 4,1"
+         id="path359" />
+      <path
+         d="m 225,28 -1,1 h -2 l -1,-1 v -1 -2 l 2,2 2,1"
+         id="path361" />
+      <path
+         d="m 647,172 v 2 l -1,1 h -1 -2 l -2,1 -2,1 v 2 l 1,1 3,1 v 2 l -2,1 -5,1 -1,3 1,2 v 1 l -1,2 -4,1 -3,-3 v -1 l -1,-2 v -1 l -1,-2 -4,-1 h -1 l -2,1 h -1 l -2,-3 v -3 l -1,-2 h -1 v -1 l -1,-1 h -1 l -1,-2 h 2 4 1 l 1,-1 3,-2 v -1 -1 h 4 l 1,1 v 2 2 h 2 l 1,1 1,-2 v -1 h 1 l 1,-2 -1,-1 h -1 l 4,-2 4,-2 h 2 l 3,1 h 2 1 l 1,1 -2,2 v 1 l 1,3"
+         id="path363" />
+      <path
+         d="m 584,193 h -1 -1 l -1,-1 -3,1 h -3 -2 -2 l -6,-2 h -1 -4 v -2 l -1,-1 -1,-2 h 2 v -4 l -1,-2 -6,-2 -5,-2 1,-7 1,-2 -2,-3 v -4 l 1,-7 h 1 1 l 5,1 h 1 l 2,1 1,1 1,-1 v -2 l 4,-2 2,-1 2,-1 1,1 2,1 v -2 l 1,-5 h -3 -3 l -2,3 -3,4 h -4 l -3,1 -2,-1 -2,-1 v -1 -1 l 4,-3 4,-3 h 4 l 3,-1 h 2 6 3 l 3,-2 5,-5 4,-2 6,-1 6,-3 h 2 l -3,2 v 1 l -1,1 2,3 v 1 3 l -2,2 -2,3 -1,1 v 4 4 l 2,2 h 2 8 l 1,1 1,1 -1,2 v 1 l -3,1 -3,1 h -1 l -3,-1 h -1 l -1,1 -2,5 -1,3 h -1 -1 -2 -3 l 2,1 1,1 v 1 h -3 l -2,2 -1,1 -2,1 -2,1 1,2 1,1 v 2 2 l -3,2 -2,1 h 3 l 2,1 h 1 l 1,1 -1,1 1,2"
+         id="path365" />
+      <path
+         d="m 604,176 1,1 1,2 2,3 -1,1 1,2 -1,1 -4,2 h -4 l -4,-1 -6,-2 -1,-1 -2,-3 v -3 l 3,-1 7,-1 h 1 l 2,1 h 2 l 2,-2 1,1"
+         id="path367" />
+      <path
+         d="m 620,192 4,1 h 2 2 l 1,1 v 2 l -2,1 h -2 -3 l -9,-3 v -3 -1 h 5 l 2,2"
+         id="path369" />
+      <path
+         d="m 606,195 h -1 l -1,-2 -1,-1 2,-1 1,-1 3,-2 1,-2 h 1 l -1,2 -3,6 -1,1"
+         id="path371" />
+      <path
+         d="m 646,190 h -1 -3 l -4,1 h -1 v -1 h 1 l 1,-1 h 1 v -1 h 1 2 l 1,1 h 1 l 1,1"
+         id="path373" />
+      <path
+         d="m 649,176 -2,1 h -1 v -2 h 1 v -1 h 1 v 1 l 1,1"
+         id="path375" />
+      <path
+         d="m 600,192 -1,1 -2,-1 -3,-2 h 1 l 2,1 h 2 l 2,1 h -1"
+         id="path377" />
+      <path
+         d="m 591,192 h -2 l -2,-1 h -2 l -1,-3 h 1 1 l 4,1 1,2 v 1"
+         id="path379" />
+      <path
+         d="m 603,172 h -2 v -2 l 1,-1 -1,-1 1,-1 2,2 v 1 l -1,1 v 1"
+         id="path381" />
+      <path
+         d="m 613,139 -1,1 -3,-1 1,-1 4,-1 h 2 l -3,1 v 1"
+         id="path383" />
+      <path
+         d="m 703,189 h -1 l -4,-1 -4,-1 v -3 l 2,-2 8,4 v 1 l -1,2"
+         id="path385" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_39"
+       inkscape:label="Czechia"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 786,311 h -1 l -1,1 h -1 -2 -2 l -1,1 -1,1 h -1 v 1 l -5,2 -1,1 v 1 1 l -1,1 v 1 h -3 v 1 h -1 l -1,1 -2,1 -3,1 h -3 -4 -3 -1 l -1,1 -2,3 -1,1 -1,-2 h -1 -2 l -1,-1 -3,-1 h -1 -1 l -2,1 h -1 -3 -4 l -5,-2 h -1 -2 l -2,-1 -4,-2 h -2 -2 l -1,1 h -1 v -1 h -2 -1 -1 v 3 l -1,2 h -2 -1 l -2,2 v 1 h -3 -2 -1 l -1,1 h -4 l -3,-1 -2,-2 h -1 l -2,-1 h -1 l -1,-1 -2,-2 -3,-2 -2,1 -1,-1 v -1 l -1,-1 -1,-1 h -2 l -2,-1 -2,-2 -3,-2 h -2 l -1,-1 -2,-1 -1,-1 -2,-2 -1,-2 -1,-1 h -1 v -1 l 1,-1 1,-1 v -1 l -1,-2 -1,-1 -3,-1 -1,-1 -1,-1 v -1 h -1 l -1,-2 v -1 h 1 l 1,1 1,1 1,1 h 1 l 1,-2 2,-1 2,-1 2,-1 h 2 1 2 2 1 v -1 l 1,-1 h 3 l 2,-2 h 1 1 l 1,-1 v 1 h 1 1 l 1,-2 h 1 l 3,-1 4,-1 2,-1 h 3 l 2,-1 4,-1 -2,-1 -1,-1 1,-1 h 1 1 l 3,1 h 1 v 1 l 1,1 v 1 l 1,1 h 2 1 l 1,-1 h 1 2 l 1,-1 -1,-2 h 1 3 l 2,1 1,2 h 1 l 1,1 1,1 h 1 l 4,1 h 2 l 2,1 h 2 1 v 1 l 1,1 1,-1 h 5 2 l 1,1 v 1 l -1,1 -2,1 h -1 v 1 1 h 1 1 l 1,1 3,2 2,3 h 1 1 1 l 1,-1 2,-1 h 1 l 2,-1 -2,-2 -1,-2 h 1 2 l 4,1 5,3 h 2 l 2,-1 h 2 l 1,-1 v 1 l 1,1 -1,1 -3,1 1,1 h 1 l 2,1 1,1 1,1 h 1 l 2,-1 h 1 1 1 l 2,1 1,1 h 1 1 4 l 1,1 v 1 l 1,2 4,3 1,2"
+         id="path388" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_40"
+       inkscape:label="Croatia"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 669,400 1,1 6,1 h 1 l 1,-1 v -1 l 2,1 h 2 3 2 l 1,-1 2,-2 v -1 h 1 1 v 1 l 1,1 2,1 1,1 h 1 2 l 1,-1 3,1 3,1 2,-1 v -1 l -1,-1 v -1 l 2,-1 -2,-1 v -1 l 4,-1 4,-1 v -1 l 1,-1 v -1 -2 l -2,-1 v -1 -1 h 1 1 l 2,-1 h 2 l 1,-1 2,-1 1,-1 h 1 3 1 l -1,-2 1,-1 h 1 v -1 l 2,1 h 2 2 l 4,2 2,2 2,2 2,1 3,1 2,2 1,1 2,1 3,1 h 2 v 1 l 2,1 2,1 h 4 6 l 1,1 h 1 l 2,-1 h 2 l 1,-1 2,-2 2,1 2,-1 h 1 1 l -1,1 -1,1 1,1 2,3 -1,1 1,1 2,1 h -1 v 1 2 l 2,1 4,1 1,1 h 1 l 1,1 -1,1 h -2 -2 l -1,-1 v 1 h -2 l 1,4 v 1 h -1 -1 v 1 l -2,1 -2,-1 -1,-1 v -1 l -1,-1 -2,-1 h -4 l -1,-1 h -2 -1 -2 -1 l -4,-1 -1,1 -1,1 h -2 l -2,-2 h -1 l -3,1 h -1 l -4,-1 h -1 -1 -2 l -5,-3 -2,2 h -6 l -2,1 -2,2 -1,1 h -2 l -2,-1 -2,-3 h -2 -2 -1 l -1,1 v 3 l -1,4 v 2 l 3,2 4,3 h 1 l 1,1 1,3 1,3 2,2 1,1 2,2 3,2 2,2 1,1 4,3 4,3 4,1 v 2 l 1,1 2,3 5,3 1,1 v 1 h -2 -1 l -4,-4 -5,-2 -5,-4 -7,-1 -4,-2 h -3 l -3,1 h -2 l -1,-1 -1,-1 v -1 -1 l -3,-1 -4,-2 -3,-2 -7,-6 -2,-2 h 2 1 l 1,-1 h 2 l 2,1 -2,-2 -2,-1 -7,-5 -2,-2 v -2 l 1,-4 -1,-2 -5,-3 -2,-2 -4,-1 h -2 l -1,1 v 3 l -3,4 -2,1 -1,2 h -2 -1 l -2,-3 -3,-3 v -1 -2 l -2,-5 1,-1"
+         id="path391" />
+      <path
+         d="m 737,456 5,1 3,-1 2,1 h 2 v 1 h -2 -2 -3 -3 l -1,-1 -1,-1"
+         id="path393" />
+      <path
+         d="m 750,453 h -2 -10 -3 l -3,-1 -1,-1 h 4 3 v 1 l 9,1 h 3"
+         id="path395" />
+      <path
+         d="m 740,450 h -3 -3 l -2,-1 1,-1 v -1 h 3 l 6,1 1,1 h -1 l -2,1"
+         id="path397" />
+      <path
+         d="m 706,432 v 1 l -3,-1 -1,-1 v -1 l 4,2"
+         id="path399" />
+      <path
+         d="m 697,412 h -3 -2 v -1 h -2 l -1,-1 -1,-1 2,-1 1,-1 2,1 1,2 h 1 l 2,2"
+         id="path401" />
+      <path
+         d="m 697,417 1,1 -3,-1 h -1 l -1,-1 v -1 h 1 1 l 2,2"
+         id="path403" />
+      <path
+         d="m 705,426 -1,1 -1,-1 -1,-1 -1,-1 -2,-1 -1,-1 -3,-3 v -1 l 1,1 2,1 3,2 2,2 3,2 h -1"
+         id="path405" />
+      <path
+         d="m 705,435 v 1 h -1 l -6,-5 v -1 l 2,1 5,4"
+         id="path407" />
+      <path
+         d="m 709,434 1,2 h -1 l -1,-1 -1,-1 h 2"
+         id="path409" />
+      <path
+         d="m 689,419 v 1 l -1,-1 -1,-2 -2,-3 v -1 l 1,-1 v -1 l -1,-3 h 1 l 1,2 v 1 l 2,1 v 2 4 1"
+         id="path411" />
+      <path
+         d="m 759,461 3,2 -9,-2 1,-1 h 1 l 4,1"
+         id="path413" />
+      <path
+         d="m 777,466 v 1 l 1,1 1,1 -4,-3 -4,-2 -7,-4 h -6 l -7,-3 -5,-1 2,-1 h 2 l 11,4 -1,-1 h 2 1 l 1,1 2,1 2,2 2,1 4,2 h 1 l 2,1"
+         id="path415" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_41"
+       inkscape:label="Bulgaria"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 990,479 h -3 -1 -1 -1 -2 l -1,1 h -1 l -2,-1 -2,-1 -2,-2 h -1 l -1,1 h -4 l -1,1 h -2 l -2,1 h -2 -2 -1 v 2 l -1,1 -4,1 -1,1 1,1 -3,-1 h -2 l -1,1 v 1 l 1,1 1,2 v 2 l -1,1 -1,1 -3,1 -3,-1 h -2 l -2,1 h -2 l -3,1 h -3 l -3,-2 -3,-1 h -3 -1 l -1,1 -3,-2 h -1 v -1 l -2,-2 -2,1 h -3 -1 -4 v 1 h -1 -1 -2 l -2,1 -3,1 h -2 -3 -1 -3 l -2,1 h -3 -2 l 1,-6 1,-2 v -1 h -1 l -1,-1 v -1 l -2,-4 h -1 l -2,-1 -3,-1 -1,-1 -4,-4 h 2 v -1 l 2,-2 v -1 l -1,-1 -1,-2 1,-2 -1,-1 1,-2 h 1 1 3 l 2,-3 h 1 l 2,-2 1,-1 v -1 l -2,-2 -1,-1 -1,-1 -2,-1 -3,-1 -1,-2 -1,-1 -1,-2 -1,-1 v -1 -2 -3 h 1 l 1,-1 3,-1 v -2 -1 h 1 l 1,-1 2,1 3,2 2,1 v 1 h -1 l -1,1 -1,1 -1,1 1,1 h 1 7 7 l 9,1 6,1 4,-1 9,2 8,1 h 7 l 4,-1 3,-1 3,-2 6,-3 6,-2 8,-1 6,-1 v 1 l 7,2 h 3 l 3,1 v 1 h 1 l 3,-1 2,2 2,2 4,1 h 3 l 1,1 4,-1 -1,6 -2,2 -3,-1 -4,1 -2,3 -2,1 -1,1 v 4 l -1,6 h -1 l -2,1 -6,5 4,1 1,1 3,4 3,3 1,2"
+         id="path418" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_42"
+       inkscape:label="Bosnia_and_Herz_"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 797,414 1,1 -1,1 -1,2 -1,2 -2,2 v 1 2 l -1,1 h 1 v 1 l 2,1 2,1 2,1 3,2 1,1 v 1 h -1 -2 -3 -1 l -1,1 3,2 3,3 v 2 l -1,1 h -1 -1 -2 -1 l -1,1 h -1 -1 -1 -1 -1 l -1,1 1,1 2,2 -1,1 -1,1 -1,-2 h -1 -1 l -2,2 -2,1 v 1 l -1,1 v 2 l -3,1 -1,1 1,2 v 2 l 2,2 v 1 h -1 l -1,1 v 1 h -1 l -2,-1 h -1 l -4,-2 -2,-1 -2,-2 -2,-1 -1,-1 h -1 -2 l -2,-1 h 2 v -1 l -1,-1 -5,-3 -2,-3 -1,-1 v -2 l -4,-1 -4,-3 -4,-3 -1,-1 -2,-2 -3,-2 -2,-2 -1,-1 -2,-2 -1,-3 -1,-3 -1,-1 h -1 l -4,-3 -3,-2 v -2 l 1,-4 v -3 l 1,-1 h 1 2 2 l 2,3 2,1 h 2 l 1,-1 2,-2 2,-1 h 6 l 2,-2 5,3 h 2 1 1 l 4,1 h 1 l 3,-1 h 1 l 2,2 h 2 l 1,-1 1,-1 4,1 h 1 2 1 2 l 1,1 h 4 l 2,1 1,1 v 1 l 1,1 2,1 2,-1 h 1 2 l 2,-1 2,1"
+         id="path421" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_43"
+       inkscape:label="Belgium"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 461,269 2,1 h 1 1 v -1 l 1,-1 h 1 1 l 1,1 h 1 l 3,-2 h 1 v 1 1 h 1 2 l 1,-1 h 1 1 v 1 l 1,1 2,2 h 2 3 1 1 v 1 l 2,1 h 3 l 1,1 h 1 v 1 l -2,2 v 1 1 l -2,1 v 1 l 1,1 h 1 l 1,1 h 2 2 1 l 2,1 1,1 2,1 -2,1 1,1 2,1 h 1 v 1 l 1,2 -5,2 -1,2 v 1 -1 h -1 -2 l -2,1 -1,2 -1,1 -1,1 v 1 l -1,1 v 1 l 2,1 2,2 -1,1 v 1 h -1 v 1 h -2 -2 -2 l -2,-1 -2,-1 -1,-1 v -1 h -2 l -2,-1 h -1 l -2,-1 h -1 -2 v -1 -2 l -1,-1 1,-4 h -1 -1 l -1,1 -1,1 v 1 l -3,1 -4,1 -4,-1 h -1 v -1 l 1,-1 v -1 -1 h -1 v -1 l 1,-1 -3,-2 h -2 -2 -2 -1 -1 l -1,-3 h -1 l -3,-1 h -3 l -1,-1 -1,-1 v -1 l -1,-2 h -1 l -1,-1 h -2 l -2,1 h -1 -1 -2 l -2,-2 -1,-1 -1,-1 1,-1 -1,-1 v -1 l -1,-1 10,-4 6,-2 h 3 v 2 h 1 v 1 h 1 l 1,-1 h 2 2 2 v 1 h 1 2 3 l 3,-2 1,-1 v -1"
+         id="path424" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_44"
+       inkscape:label="Belarus"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="M 1037.0924,266.94323 1036,267 l -4,1 h -4 -4 l -1,1 -3,1 -1,-1 -2,-2 -1,-2 -1,-1 h -1 -1 l -1,1 -1,1 h -2 l -1,1 -2,1 h -1 -1 l -1,-2 h -1 -3 l -3,-1 h -2 -1 -1 l -2,1 -3,-1 h -1 l -1,1 -1,1 h -1 v -2 h -2 -3 -3 -1 v -1 l -3,-3 h -2 -2 -4 l -5,-1 h -3 l -1,-1 h -3 l -7,-1 h -3 l -5,-1 h -7 -4 l -2,1 h -3 -4 -1 -3 l -3,1 h -1 l -1,2 -3,2 -4,2 -2,-1 h -2 -2 -1 -1 v 2 1 l -1,-3 v -2 l 1,-1 1,-1 -1,-2 1,-2 v -1 -1 h -1 l -2,-1 -1,-1 -3,-1 -3,-1 v -1 -1 l 2,-2 3,-2 h 1 l 8,-3 2,-1 v -1 -1 -2 l -1,-3 v -2 l -2,-3 -4,-8 -3,-7 h 2 4 3 2 1 2 l 2,-1 1,1 2,1 4,-1 3,-1 h 3 v -1 l 1,-2 1,-1 h 4 2 l 1,-1 2,-1 h 2 l 2,-1 h 1 l 1,2 h -1 l 1,1 h 1 2 2 v -1 -1 l -1,-1 -2,-1 h -1 -1 l 1,-1 1,-2 1,-2 h 1 v -1 -1 -2 l 2,-2 1,-2 3,-1 h 2 l 2,-1 1,-1 1,-1 v -1 h 1 7 l 1,-1 v -1 h 2 l 1,-1 h -1 l -1,-1 h -5 v -1 l 1,-2 1,-2 1,-2 v -1 h 4 l 1,-1 3,-2 h 2 6 2 1 2 1 l 1,-2 1,-1 5,-3 3,-1 h 2 l 3,2 h 1 l 2,-1 h 3 2 l 1,2 1,1 h 2 l 3,-1 2,-1 h 1 l 4,2 h 2 l 1,1 v 1 l -1,1 v 1 l 1,1 2,1 3,-2 h 1 2 l 1,-1 h 2 l 1,-1 3.0189,-0.008"
+         id="path427"
+         sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_45"
+       inkscape:label="Austria"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 579,361 2,-3 v -1 l -1,-1 -1,-1 h 1 2 1 l 1,-1 2,1 3,1 h 1 l 1,1 v 1 l 1,1 h 1 1 v 1 1 h 1 l 1,-1 2,-1 1,-1 v -3 h 1 4 2 3 v 1 1 l 2,1 h 2 2 1 2 l 2,-1 1,-1 h 1 l 3,-1 3,-1 10,-1 h 1 l -1,-2 h 1 1 l 2,1 h 2 l 1,1 h 1 l 1,-1 h 2 l 2,1 1,1 h -1 l 1,1 2,1 h 2 1 v -2 -2 -1 h -1 -1 -1 v -1 l 1,-1 v -2 l -2,-2 -2,-2 v -1 l 1,-1 2,-1 4,-1 1,-1 h 2 l 2,-1 h 2 v -1 l 1,-4 h 1 l 4,1 h 1 l 2,-1 v -1 -1 -2 h 1 l 2,1 h 1 l 2,2 3,1 h 4 l 1,-1 h 1 2 3 v -1 l 2,-2 h 1 2 l 1,-2 v -3 h 1 1 2 v 1 h 1 l 1,-1 h 2 2 l 4,2 2,1 h 2 1 l 5,2 h 4 3 1 l 2,-1 h 1 1 l 3,1 1,1 h 2 1 l 1,2 v 1 1 l -1,1 -1,1 v 1 l 3,4 2,3 v 1 l 2,1 -2,1 v 1 l -1,1 v 1 1 l 1,1 -2,1 h -3 -1 -1 l -3,-1 -1,-1 h -1 v 1 l -2,1 h -1 1 l 4,1 1,2 -1,1 v 1 l -1,1 h -2 -1 v 1 2 l -1,1 1,2 h 1 v 1 1 l -1,1 h -1 -2 l -1,1 -4,2 h -1 l -2,1 1,3 h -1 l -4,-1 -3,1 -2,1 h -2 -5 -5 l -1,1 h -2 -1 v 1 l -2,1 -1,1 -2,1 h -1 -1 -1 -1 l -4,-1 h -3 -2 l -2,-1 h -2 -2 -1 l -5,-1 h -3 -4 l -8,-2 h -2 -3 l -2,-1 h -2 l -2,-2 -1,-1 -3,-3 v -1 l 1,-1 v -1 l -5,1 -4,1 h -2 -1 -2 -3 l -4,1 h -2 l -2,2 -1,2 h -2 -2 -2 l -1,-2 h -3 -2 v -1 l -1,-1 -2,-1 -3,3 h -1 -4 l -2,-2 -1,-1 -2,-1 h -3 -1 l 1,-1 v -1 h -1 v -1 -1 h -1 v -1"
+         id="path430" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_46"
+       inkscape:label="Andorra"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 405,467 h -1 l -2,1 h -1 l -1,1 h -1 v -1 -1 -1 -1 l 1,-1 h 1 1 l 3,1 h 1 v 1 l -1,1"
+         id="path433" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_47"
+       inkscape:label="Algeria"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 558,591 v 1 1 l -2,1 -1,1 -2,3 -3,2 v 1 l 2,1 1,1 -1,4 -1,4 v 4 1 2 l 1,1 v 2 4 l 1,2 1,2 -2,3 -1,2 v 4 2 l -2,2 -1,2 -2,1 -2,1 -3,1 -2,4 -4,2 -1,1 v 3 3 l 1,2 2,4 H 331 l -2,-4 v -1 -2 -3 -4 l -2,-4 1,-1 1,-1 -1,-1 -1,-1 -1,-1 v -1 l 1,-2 v -1 l -3,-1 -4,-3 -2,-2 v -1 h 4 3 l 5,-2 4,-3 3,-1 3,-3 3,-2 4,-2 11,-4 h 1 l 4,1 3,-1 2,-1 2,-4 4,-2 5,-2 6,-2 4,-2 6,-2 16,-1 8,-1 h 6 l 5,-3 3,-1 h 12 l 6,-2 h 22 l 3,1 2,1 5,3 h 2 3 l 6,-3 8,-2 4,-1 2,-3 h 3 l 2,1 8,2 h 5 l 2,-1 -1,-3 5,1 4,1 4,3 3,1 5,-2 h 10"
+         id="path436"
+         sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+    </g>
+    <g
+       id="50m_cultural_—_ne_50m_admin_0_sovereignty_48"
+       inkscape:label="Albania"
+       style="fill:#fff3d9;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+      <path
+         d="m 797,481 v -1 l 1,-2 v -1 l -1,-2 -1,-1 1,-1 2,-2 1,-2 2,-2 1,-1 1,-2 h 1 1 v 1 2 l 1,1 2,-1 h 2 l 2,-1 1,1 2,2 1,2 h 3 l 1,1 2,1 1,1 1,4 v 2 1 h -1 l -1,4 v 2 1 l -1,1 1,3 v 1 1 l 2,4 1,1 h 1 l 1,3 v 1 l 3,-1 2,1 v 1 1 l 1,2 1,1 v 1 l -1,1 -1,2 h -1 l -2,1 -1,1 v 1 l -1,1 -1,1 v 2 1 l -2,1 h -1 -2 l -1,1 h -1 l -1,1 v 1 l 1,1 v 1 1 h -1 l -1,1 v 1 l -1,1 h -2 l -2,-1 h -1 v -2 l -1,-1 -2,-4 -9,-4 -1,-2 -1,-1 -1,-1 h 1 2 l -1,-2 -2,-3 v -1 l 1,-3 2,-3 v -4 -3 -2 -2 l 1,-3 1,-1 1,-1 v -3 l -3,-2 h -3"
+         id="path439" />
+    </g>
+  </g>
+<g
+   id="airports"
+   inkscape:groupmode="layer"
+   inkscape:label="Airports"
+   style="display:inline">
+  <!-- Istanbul, Turquie – Aéroport Istanbul (LTFM) -->
+  <g
+     id="airport_istanbul"
+     inkscape:label="Aéroport Istanbul (LTFM)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>LTFM</title>
+    <circle
+       cx="1008"
+       cy="501"
+       r="5" />
+  </g>
+  <!-- Berlin, Allemagne – Aéroport de Berlin‑Brandebourg Willy Brandt (EDDB) -->
+  <g
+     id="airport_berlin"
+     inkscape:label="Aéroport de Berlin‑Brandebourg Willy Brandt (EDDB)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>EDDB</title>
+    <circle
+       cx="663"
+       cy="243"
+       r="5" />
+  </g>
+  <!-- Bucarest, Roumanie – Aéroport international Henri‑Coandă (LROP) -->
+  <g
+     id="airport_bucarest"
+     inkscape:label="Aéroport international Henri‑Coandă (LROP)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>LROP</title>
+    <circle
+       cx="947"
+       cy="423"
+       r="5" />
+  </g>
+  <!-- Minsk, Biélorussie – Aéroport national Minsk (UMMS) -->
+  <g
+     id="airport_minsk"
+     inkscape:label="Aéroport national Minsk (UMMS)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>UMMS</title>
+    <circle
+       cx="684"
+       cy="298"
+       r="5" />
+  </g>
+  <!-- Casablanca, Maroc – Aéroport Mohammed V (GMMN) -->
+  <g
+     id="airport_casablanca"
+     inkscape:label="Aéroport Mohammed V (GMMN)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>GMMN</title>
+    <circle
+       cx="256"
+       cy="658"
+       r="5" />
+  </g>
+  <!-- Budapest, Hongrie – Aéroport international de Budapest‑Ferenc Liszt (LHBP) -->
+  <g
+     id="airport_budapest"
+     inkscape:label="Aéroport international de Budapest‑Ferenc Liszt (LHBP)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>LHBP</title>
+    <circle
+       cx="796"
+       cy="357"
+       r="5" />
+  </g>
+  <!-- Munich, Allemagne – Aéroport Franz‑Josef‑Strauss de Munich (EDDM) -->
+  <g
+     id="airport_munich"
+     inkscape:label="Aéroport Franz‑Josef‑Strauss de Munich (EDDM)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>EDDM</title>
+    <circle
+       cx="629"
+       cy="337"
+       r="5" />
+  </g>
+  <!-- Charleroi, Belgique – Aéroport de Bruxelles‑Sud‑Charleroi (EBBR) -->
+  <g
+     id="airport_charleroi"
+     inkscape:label="Aéroport de Bruxelles‑Sud‑Charleroi (EBBR)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>EBBR</title>
+    <circle
+       cx="466"
+       cy="290"
+       r="5" />
+  </g>
+  <!-- Chișinău, Moldavie – Aéroport international de Chișinău (LUKK) -->
+  <g
+     id="airport_chisinau"
+     inkscape:label="Aéroport international de Chișinău (LUKK)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>LUKK</title>
+    <circle
+       cx="1011"
+       cy="368"
+       r="5" />
+  </g>
+  <!-- Belgrade, Serbie – Aéroport Nikola Tesla de Belgrade (LYBE) -->
+  <g
+     id="airport_belgrade"
+     inkscape:label="Aéroport Nikola Tesla de Belgrade (LYBE)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>LYBE</title>
+    <circle
+       cx="818"
+       cy="416"
+       r="5" />
+  </g>
+  <!-- Sofia, Bulgarie – Aéroport de Sofia (LBSF) -->
+  <g
+     id="airport_sofia"
+     inkscape:label="Aéroport de Sofia (LBSF)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>LBSF</title>
+    <circle
+       cx="888"
+       cy="463"
+       r="5" />
+  </g>
+  <!-- Tirana, Albanie – Aéroport international de Tirana Nënë Tereza (TIA) -->
+  <g
+     id="airport_tirana"
+     inkscape:label="Aéroport international de Tirana Nënë Tereza (TIA)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>TIA</title>
+    <circle
+       cx="806"
+       cy="491"
+       r="5" />
+  </g>
+  <!-- Tallinn, Estonie – Aéroport de Tallinn‑Lennart Meri (EETN) -->
+  <g
+     id="airport_tallinn"
+     inkscape:label="Aéroport de Tallinn‑Lennart Meri (EETN)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>EETN</title>
+    <circle
+       cx="919"
+       cy="91"
+       r="5" />
+  </g>
+  <!-- Zagreb, Croatie – Aéroport de Zagreb‑Franjo Tuđman (LDZA) -->
+  <g
+     id="airport_zagreb"
+     inkscape:label="Aéroport de Zagreb‑Franjo Tuđman (LDZA)"
+     style="fill:#91522d;stroke:#232323;stroke-width:0.4;stroke-linejoin:round">
+    <title>LDZA</title>
+    <circle
+       cx="724"
+       cy="395"
+       r="5" />
+  </g>
+</g>
+
+  <!-- QGIS extent for clipping, eg in Inkscape -->
+  <g
+     id="qgisviewbox"
+     inkscape:groupmode="layer"
+     inkscape:label="qgisviewbox"
+     stroke="rgb(255,0,0)"
+     stroke-width="1"
+     fill="none" />
+</svg>
