@@ -183,52 +183,58 @@
             }
 
             try {
-                // 🔹 Vérification et normalisation de la date et de l'heure
-                const departureDateTimeStr = `${departureDate}T${departureTime}:00`;
-                const departureDateTime = new Date(departureDateTimeStr);
-
-                if (isNaN(departureDateTime.getTime())) {
-                    throw new Error(`Date ou heure de départ invalide : ${departureDateTimeStr}`);
-                }
-
-                // 🔹 Récupération de la distance entre les aéroports
+                // Récupération de la distance entre les aéroports
                 const distanceRes = await fetch(`/api/flight-distance?departure=${departureAirport}&arrival=${arrivalAirport}`);
                 if (!distanceRes.ok) throw new Error("Échec de la récupération de la distance");
                 const distanceData = await distanceRes.json();
                 const distance = distanceData.distance;
-                document.getElementById("flightDistance").innerText = `${distance} km`;
+                document.getElementById("flightDistance").innerText = distance;
 
-                // 🔹 Récupération de la durée du vol en minutes
+                // Récupération de la durée du vol en minutes
                 const durationRes = await fetch(`/api/flight-time?distance=${distance}`);
                 if (!durationRes.ok) throw new Error("Échec de la récupération du temps de vol");
                 const durationData = await durationRes.json();
-                const flightDuration = parseInt(durationData.duration, 10);
-                document.getElementById("flightDuration").innerText = `${flightDuration} minutes`;
+                const flightDuration = durationData.duration;
+                document.getElementById("flightDuration").innerText = flightDuration;
 
-                // 🔹 Calcul de l'heure d'arrivée en ajoutant la durée du vol
-                const arrivalDateTime = new Date(departureDateTime.getTime() + flightDuration * 60000); // Convertir minutes en ms
+                // Création d'un objet Date pour la date et l'heure de départ
+                const departureDateTime = new Date(`${departureDate}T${departureTime}:00`);
 
-                // 🔹 Format final pour l'affichage
-                const arrivalDateTimeFormatted = arrivalDateTime.toISOString().replace("T", " ").substring(0, 19);
+                if (isNaN(departureDateTime.getTime())) {
+                    throw new Error("Date ou heure de départ invalide");
+                }
 
-                // 🔹 Affichage dans l'interface utilisateur
-                document.getElementById("arrivalTime").innerText = arrivalDateTimeFormatted;
+                // Ajout de la durée du vol à l'heure de départ
+                departureDateTime.setMinutes(departureDateTime.getMinutes() + flightDuration);
 
-                // 🔹 Logs pour le débogage et la validation
+                // Formatage de la date et l'heure d'arrivée
+                const arrivalTimeFormatted = departureDateTime.toLocaleString("fr-FR", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit"
+                });
+
+                document.getElementById("arrivalTime").innerText = arrivalTimeFormatted;
+
+                // 📌 Console logs pour le suivi des détails du vol planifié
                 console.log("✈️ Détails du vol planifié :");
-                console.log(`🛫 Départ prévu : ${departureDateTime.toISOString().replace("T", " ").substring(0, 19)}`);
+                console.log(`🛫 Départ : ${departureDate} à ${departureTime}`);
                 console.log(`📍 Aéroport de départ ID : ${departureAirport}`);
                 console.log(`📍 Aéroport d'arrivée ID : ${arrivalAirport}`);
                 console.log(`📏 Distance estimée : ${distance} km`);
                 console.log(`⏳ Durée estimée : ${flightDuration} minutes`);
-                console.log(`🛬 Heure d’arrivée estimée : ${arrivalDateTimeFormatted}`);
+                console.log(`🛬 Heure d’arrivée estimée : ${arrivalTimeFormatted}`);
 
             } catch (err) {
-                console.error("❌ Erreur lors du calcul des détails du vol :", err);
+                console.error("❌ Erreur lors du calcul du vol :", err);
                 alert("Une erreur est survenue lors du calcul des détails du vol.");
             }
-        }
 
+
+        }
 
         function openFlightModal() {
             fetchAirports();
@@ -244,7 +250,6 @@
             const arrivalAirport = document.getElementById("arrivalAirport").value;
             const departureDate = document.getElementById("departureDate").value;
             const departureTime = document.getElementById("departureTime").value;
-            const arrivalTime = document.getElementById("arrivalTime").innerText;
 
             if (!departureAirport || !arrivalAirport || !departureDate || !departureTime) {
                 alert("Veuillez remplir tous les champs.");
@@ -252,22 +257,13 @@
             }
 
             try {
-                console.log("Données envoyées à l'API :", {
-                    departureAirport,
-                    arrivalAirport,
-                    departureTime: `${departureDate} ${departureTime}`,
-                    arrivalTime,
-                    flightDistance,
-                    flightDuration
-                });
                 const res = await fetch("/api/schedule-flight", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         departureAirport,
                         arrivalAirport,
-                        departureTime: `${departureDate}T${departureTime}:00`,
-                        arrivalTime
+                        departureTime: `${departureDate}T${departureTime}:00`
                     })
                 });
 

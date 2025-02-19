@@ -64,6 +64,10 @@ async function tickSimulation() {
   setTimeout(tickSimulation, tickInterval);
 }
 
+app.get("/api/simulated-time", (req, res) => {
+  res.json({ simulatedTime: simulatedTime.toISOString() });
+});
+
 /***************************************************************
  * Vérifie et assigne les vols en attente
  ***************************************************************/
@@ -81,26 +85,6 @@ async function processPendingFlights() {
     }
   } catch (err) {
     console.error("❌ Erreur lors de la gestion des vols en attente", err);
-  }
-}
-
-/***************************************************************
- * Logger les changements de statut
- ***************************************************************/
-async function logStatusChange(flightId, airplaneId, status) {
-  try {
-    const conn = await mysql.createConnection(dbConfig);
-    await conn.execute(
-      `INSERT INTO Flight_Status_Log (Flight_ID, Airplane_ID, Status, Updated_At) VALUES (?, ?, ?, NOW())`,
-      [flightId, airplaneId, status]
-    );
-    await conn.execute(`UPDATE Flights SET Status = ? WHERE Flight_ID = ?`, [
-      status,
-      flightId,
-    ]);
-    await conn.end();
-  } catch (err) {
-    console.error("❌ Erreur lors de la mise à jour du statut du vol", err);
   }
 }
 
@@ -156,9 +140,30 @@ app.post("/api/reset-db", async (req, res) => {
 });
 
 /***************************************************************
+ * Logger les changements de statut
+ ***************************************************************/
+async function logStatusChange(flightId, airplaneId, status) {
+  try {
+    const conn = await mysql.createConnection(dbConfig);
+    await conn.execute(
+      `INSERT INTO Flight_Status_Log (Flight_ID, Airplane_ID, Status, Updated_At) VALUES (?, ?, ?, NOW())`,
+      [flightId, airplaneId, status]
+    );
+    await conn.execute(`UPDATE Flights SET Status = ? WHERE Flight_ID = ?`, [
+      status,
+      flightId,
+    ]);
+    await conn.end();
+  } catch (err) {
+    console.error("❌ Erreur lors de la mise à jour du statut du vol", err);
+  }
+}
+
+/***************************************************************
  * API Express - Routes
  ***************************************************************/
 
+// Route pour récupérer l'heure simulée
 app.get("/api/simulated-time", (req, res) => {
   res.json({ simulatedTime: simulatedTime.toISOString() });
 });
@@ -206,7 +211,7 @@ app.get("/api/airports", async (req, res) => {
   }
 });
 
-/* app.get("/api/get-flight-distance", async (req, res) => {
+app.get("/api/get-flight-distance", async (req, res) => {
   const { departure, arrival } = req.query;
   try {
     const conn = await mysql.createConnection(dbConfig);
@@ -220,7 +225,7 @@ app.get("/api/airports", async (req, res) => {
     console.error("Erreur calcul distance", err);
     res.status(500).json({ error: "Erreur calcul distance" });
   }
-}); */
+});
 
 app.get("/api/get-flight-time", async (req, res) => {
   const { distance, airplane } = req.query;
@@ -235,6 +240,34 @@ app.get("/api/get-flight-time", async (req, res) => {
   } catch (err) {
     console.error("Erreur calcul temps vol", err);
     res.status(500).json({ error: "Erreur calcul temps vol" });
+  }
+});
+
+app.post("/api/plan-flight", async (req, res) => {
+  const {
+    departureAirportId,
+    arrivalAirportId,
+    airplaneId,
+    distance,
+    flightTime,
+  } = req.body;
+  try {
+    const conn = await mysql.createConnection(dbConfig);
+    await conn.execute(
+      `INSERT INTO Flights (Flight_Number, Departure_Airport_ID, Arrival_Airport_ID, Departure_Time, Arrival_Time, Status)
+             VALUES (?, ?, ?, NOW(), DATE_ADD(NOW(), INTERVAL ? MINUTE), 'Scheduled')`,
+      [
+        `FL${Math.floor(Math.random() * 10000)}`,
+        departureAirportId,
+        arrivalAirportId,
+        flightTime,
+      ]
+    );
+    await conn.end();
+    res.json({ message: "Vol planifié avec succès !" });
+  } catch (err) {
+    console.error("Erreur planification vol", err);
+    res.status(500).json({ error: "Erreur planification vol" });
   }
 });
 
@@ -292,11 +325,33 @@ app.post("/api/schedule-flight", async (req, res) => {
     return res.status(400).json({ error: "Données incomplètes" });
   }
 
-  let conn;
   try {
-    conn = await pool.getConnection();
+    const conn = await mysql.createConnection(dbConfig);
+    await conn.execute(
+      "INSERT INTO Flights (Flight_Number, Departure_Airport_ID, Arrival_Airport_ID, Departure_Time, Status, Priority) VALUES (?, ?, ?, ?, 'Scheduled', 0)",
+      [
+        `FL${Math.floor(1000 + Math.random() * 9000)}`,
+        departureAirport,
+        arrivalAirport,
+        departureTime,
+      ]
+    );
+    await conn.end();
 
-    // 1️⃣ Calcul de la distance entre les aéroports
+    res.json({ message: "Vol planifié avec succès" });
+  } catch (err) {
+    console.error("Erreur planification vol", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post("/api/schedule-flight", async (req, res) => {
+  const { departureAirport, arrivalAirport, departureTime } = req.body;
+
+  try {
+    const conn = await mysql.createConnection(dbConfig);
+
+    // Calcul de la distance
     const [distanceResult] = await conn.execute(
       "SELECT airline_DB_V3.Get_Flight_Distance(?, ?) AS distance",
       [departureAirport, arrivalAirport]
@@ -309,7 +364,7 @@ app.post("/api/schedule-flight", async (req, res) => {
         .json({ error: "Impossible de calculer la distance." });
     }
 
-    // 2️⃣ Sélection d’un avion disponible
+    // Sélection d'un avion disponible
     const [airplaneResult] = await conn.execute(
       "SELECT Airplane_ID FROM Airplanes WHERE Status = 'IDLE' LIMIT 1"
     );
@@ -319,7 +374,7 @@ app.post("/api/schedule-flight", async (req, res) => {
       return res.status(400).json({ error: "Aucun avion disponible." });
     }
 
-    // 3️⃣ Calcul du temps de vol en fonction de la distance et de l'avion
+    // Calcul du temps de vol
     const [flightTimeResult] = await conn.execute(
       "SELECT airline_DB_V3.Get_Flight_Time(?, ?) AS flightTime",
       [distance, airplaneId]
@@ -332,40 +387,32 @@ app.post("/api/schedule-flight", async (req, res) => {
         .json({ error: "Impossible de calculer la durée du vol." });
     }
 
-    // 4️⃣ Calcul de l’heure d’arrivée
+    // Calcul de l'heure d'arrivée
     const departureDateTime = new Date(departureTime);
-    departureDateTime.setMinutes(
-      departureDateTime.getMinutes() + parseInt(flightTime)
-    );
-
+    departureDateTime.setMinutes(departureDateTime.getMinutes() + flightTime);
     const arrivalTime = departureDateTime
       .toISOString()
       .slice(0, 19)
       .replace("T", " ");
 
-    console.log("📅 Heure d'arrivée calculée :", arrivalTime);
-
-    // 5️⃣ Insérer le vol dans la base de données avec `Arrival_Time`
+    // Insérer le vol dans la base de données avec `Arrival_Time`
     await conn.execute(
-      `INSERT INTO Flights (Flight_Number, Departure_Airport_ID, Arrival_Airport_ID, Departure_Time, Arrival_Time, Airplane_ID, Status, Priority)
-       VALUES (?, ?, ?, ?, ?, ?, 'Scheduled', 0)`,
+      `INSERT INTO Flights (Flight_Number, Departure_Airport_ID, Arrival_Airport_ID, Departure_Time, Arrival_Time, Status, Priority)
+             VALUES (?, ?, ?, ?, ?, 'Scheduled', 0)`,
       [
         `FL${Math.floor(1000 + Math.random() * 9000)}`,
         departureAirport,
         arrivalAirport,
         departureTime,
         arrivalTime,
-        airplaneId,
       ]
     );
 
-    conn.release();
-    res.json({ message: "✈️ Vol planifié avec succès !" });
+    await conn.end();
+    res.json({ message: "Vol planifié avec succès !" });
   } catch (err) {
     console.error("❌ Erreur lors de la planification du vol :", err);
     res.status(500).json({ error: "Erreur lors de la planification du vol." });
-  } finally {
-    if (conn) conn.release(); // Assurer la fermeture de la connexion même en cas d'erreur
   }
 });
 
