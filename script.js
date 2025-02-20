@@ -7,10 +7,8 @@ async function updateData() {
       timeData.simulatedTime
     ).toLocaleTimeString();
 
-    // Met à jour la liste des vols
+    // Met à jour les vols et les avions
     await fetchFlights();
-
-    // Met à jour la liste des avions
     await fetchAirplanes();
   } catch (err) {
     console.error("❌ Erreur lors de la récupération des données", err);
@@ -22,45 +20,31 @@ async function fetchAirplanes() {
     const res = await fetch("/api/airplanes");
     const airplanes = await res.json();
 
-    const airplanesTable = document
-      .getElementById("airplanesTable")
-      .querySelector("tbody");
-    airplanesTable.innerHTML = airplanes
-      .map(
-        (airplane) => `
-            <tr>
-                <td>${airplane.airplaneId}</td>
-                <td>${airplane.model}</td>
-                <td>${airplane.capacity}</td>
-                <td>${airplane.cruisingSpeed} km/h</td>
-                <td>${airplane.location}</td>
-                <td>${airplane.registration}</td>
-                <td>${airplane.status}</td>
-            </tr>
-        `
-      )
-      .join("");
+    // Nettoyage des colonnes avant de les remplir
+    const columns = {
+      IDLE: document.getElementById("idle"),
+      Scheduled: document.getElementById("scheduled"),
+      "In-Flight": document.getElementById("in-flight"),
+      "On-Ground": document.getElementById("on-ground"),
+    };
+
+    // Réinitialiser les colonnes en conservant le titre
+    Object.values(columns).forEach((column) => {
+      column.innerHTML = column.querySelector("h2").outerHTML;
+    });
+
+    airplanes.forEach((airplane) => {
+      const div = document.createElement("div");
+      div.className = "airplane";
+      div.textContent = `✈️ ${airplane.registration} (${airplane.model})`;
+      div.onclick = () => showFlightDetails(airplane);
+
+      if (columns[airplane.status]) {
+        columns[airplane.status].appendChild(div);
+      }
+    });
   } catch (err) {
     console.error("❌ Erreur lors de la récupération des avions", err);
-  }
-}
-
-async function fetchAirports() {
-  try {
-    const res = await fetch("/api/airports");
-    const airports = await res.json();
-    const departureSelect = document.getElementById("departureAirport");
-    const arrivalSelect = document.getElementById("arrivalAirport");
-
-    departureSelect.innerHTML = airports
-      .map(
-        (a) =>
-          `<option value="${a.Airport_ID}">${a.Name} (${a.OACI_Code})</option>`
-      )
-      .join("");
-    arrivalSelect.innerHTML = departureSelect.innerHTML;
-  } catch (err) {
-    console.error("Erreur lors de la récupération des aéroports", err);
   }
 }
 
@@ -90,6 +74,36 @@ async function fetchFlights() {
   }
 }
 
+function showFlightDetails(airplane) {
+  document.getElementById("planeInfo").textContent = airplane.registration;
+  document.getElementById("flightId").textContent =
+    airplane.flightId || "Aucun";
+  document.getElementById("departure").textContent = airplane.departure || "-";
+  document.getElementById("arrival").textContent = airplane.arrival || "-";
+  document.getElementById("flightStatus").textContent = airplane.status;
+
+  document.getElementById("flightDetails").classList.add("active");
+}
+
+async function fetchAirports() {
+  try {
+    const res = await fetch("/api/airports");
+    const airports = await res.json();
+    const departureSelect = document.getElementById("departureAirport");
+    const arrivalSelect = document.getElementById("arrivalAirport");
+
+    departureSelect.innerHTML = airports
+      .map(
+        (a) =>
+          `<option value="${a.Airport_ID}">${a.Name} (${a.OACI_Code})</option>`
+      )
+      .join("");
+    arrivalSelect.innerHTML = departureSelect.innerHTML;
+  } catch (err) {
+    console.error("Erreur lors de la récupération des aéroports", err);
+  }
+}
+
 async function calculateFlightDetails() {
   const departureAirport = document.getElementById("departureAirport").value;
   const arrivalAirport = document.getElementById("arrivalAirport").value;
@@ -107,7 +121,6 @@ async function calculateFlightDetails() {
   }
 
   try {
-    // 🔹 Vérification et normalisation de la date et de l'heure
     const departureDateTimeStr = `${departureDate}T${departureTime}:00`;
     const departureDateTime = new Date(departureDateTimeStr);
 
@@ -117,7 +130,6 @@ async function calculateFlightDetails() {
       );
     }
 
-    // 🔹 Logs
     console.log("✈️ Détails du vol planifié :");
     console.log(
       `🛫 Départ prévu : ${departureDateTime
@@ -165,9 +177,8 @@ async function scheduleFlight() {
       arrivalAirport,
       departureTime: `${departureDate} ${departureTime}`,
       arrivalTime,
-      flightDistance,
-      flightDuration,
     });
+
     const res = await fetch("/api/schedule-flight", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -191,7 +202,20 @@ async function scheduleFlight() {
 }
 
 async function resetDatabase() {
-  alert("Réinitialisation de la base non encore implémentée !");
+  try {
+    const statusText = document.getElementById("status");
+    statusText.textContent = "⏳ Réinitialisation en cours...";
+
+    const res = await fetch("/api/reset-db", { method: "POST" });
+    const data = await res.json();
+    statusText.textContent = `✅ ${data.message}`;
+
+    fetchAirplanes();
+  } catch (error) {
+    document.getElementById("status").textContent =
+      "❌ Erreur lors de la réinitialisation.";
+    console.error("Erreur :", error);
+  }
 }
 
 setInterval(updateData, 5000);

@@ -16,7 +16,7 @@ const dbConfig = {
 
 let timeStep = 10; // Minutes avancées par tick
 const tickInterval = 5000; // 5 secondes réelles
-let simulatedTime = new Date("2025-02-15T07:00:00");
+let simulatedTime = Date.now(); // new Date("2025-02-15T07:00:00");
 
 const app = express();
 app.use(express.json());
@@ -67,8 +67,11 @@ async function initializeAirplaneWorkers() {
  * Simulation du temps
  ***************************************************************/
 async function tickSimulation() {
-  simulatedTime = new Date(simulatedTime.getTime() + timeStep * 60 * 1000);
-  console.log(`🕒 Heure simulée mise à jour: ${simulatedTime.toISOString()}`);
+  simulatedTime += timeStep * 60 * 1000; // Ajoute `timeStep` minutes en millisecondes
+  console.log(
+    `🕒 Heure simulée mise à jour: ${new Date(simulatedTime).toISOString()}`
+  );
+
   await processPendingFlights();
   setTimeout(tickSimulation, tickInterval);
 }
@@ -233,7 +236,7 @@ app.post("/api/reset-db", async (req, res) => {
  ***************************************************************/
 
 app.get("/api/simulated-time", (req, res) => {
-  res.json({ simulatedTime: simulatedTime.toISOString() });
+  res.json({ simulatedTime: new Date(simulatedTime).toISOString() });
 });
 
 // Route pour récupérer la liste des vols en cours

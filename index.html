@@ -62,6 +62,74 @@
     </style>
 </head>
 
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Airline Simulator</title>
+    <script src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .status-column {
+            width: 22%;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 1.2em;
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .airplane {
+            background: #e6f7ff;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .airplane:hover {
+            background: #cceeff;
+        }
+
+        .details {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .details.active {
+            display: block;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
 <body>
     <h1>Airline Simulator Dashboard</h1>
 
@@ -72,63 +140,30 @@
     <button onclick="openFlightModal()">📅 Planifier un Vol</button>
     <p id="status"></p>
 
-    <h2>Vols en cours</h2>
-    <table id="flightsTable">
-        <thead>
-            <tr>
-                <th>Flight ID</th>
-                <th>Numéro</th>
-                <th>Départ</th>
-                <th>Arrivée</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-
-    <h2>Avions</h2>
-    <table id="airplanesTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Modèle</th>
-                <th>Capacité</th>
-                <th>Vitesse de croisière</th>
-                <th>Emplacement actuel</th>
-                <th>Immatriculation</th>
-                <th>Statut</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-
-
-    <!-- Modal de planification des vols -->
-    <div id="flightModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeFlightModal()">&times;</span>
-            <h2>Planifier un vol</h2>
-
-            <label for="departureAirport">Départ :</label>
-            <select id="departureAirport"></select>
-
-            <label for="arrivalAirport">Arrivée :</label>
-            <select id="arrivalAirport"></select>
-
-            <label for="departureDate">Date de départ :</label>
-            <input type="date" id="departureDate">
-
-            <label for="departureTime">Heure de départ :</label>
-            <input type="time" id="departureTime">
-
-            <p>Distance estimée : <span id="flightDistance">-</span> km</p>
-            <p>Durée estimée : <span id="flightDuration">-</span> minutes</p>
-            <p>Heure d’arrivée estimée : <span id="arrivalTime">-</span></p>
-
-            <button onclick="calculateFlightDetails()">Calculer durée et arrivée</button>
-            <button onclick="scheduleFlight()">Planifier</button>
-            <button onclick="closeFlightModal()">Annuler</button>
+    <!-- Conteneur des avions organisés par statut -->
+    <div class="container">
+        <div class="status-column" id="idle">
+            <h2>🛑 Dispo</h2>
         </div>
+        <div class="status-column" id="scheduled">
+            <h2>📅 Planifié</h2>
+        </div>
+        <div class="status-column" id="in-flight">
+            <h2>✈️ En vol</h2>
+        </div>
+        <div class="status-column" id="on-ground">
+            <h2>🛬 Atterri</h2>
+        </div>
+    </div>
+
+    <!-- Zone des détails du vol -->
+    <div id="flightDetails" class="details">
+        <h2>Détails du vol</h2>
+        <p><strong>Avion :</strong> <span id="planeInfo"></span></p>
+        <p><strong>Vol :</strong> <span id="flightId"></span></p>
+        <p><strong>Départ :</strong> <span id="departure"></span></p>
+        <p><strong>Arrivée :</strong> <span id="arrival"></span></p>
+        <p><strong>Statut :</strong> <span id="flightStatus"></span></p>
     </div>
 
     <script>
