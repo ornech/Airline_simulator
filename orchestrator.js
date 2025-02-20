@@ -24,7 +24,6 @@ app.use(express.static(path.join(__dirname)));
 
 const airplaneWorkers = new Map();
 const flightQueue = [];
-const airplaneStatus = new Map(); // Stocke le dernier état des avions
 
 /***************************************************************
  * Initialisation des Workers Avions
@@ -59,7 +58,6 @@ async function initializeAirplaneWorkers() {
     });
 
     airplaneWorkers.set(airplane.Airplane_ID, worker);
-    airplaneStatus.set(airplane.Airplane_ID, airplane.Status || "IDLE");
   });
 
   console.log(`🚀 ${airplanes.length} avions initialisés.`);
@@ -86,10 +84,6 @@ async function processPendingFlights() {
        FROM Flights WHERE Airplane_ID IS NULL AND Status = 'Scheduled' ORDER BY Departure_Time ASC`
     );
     await conn.end();
-
-    for (const flight of flights) {
-      await assignNextFlight(flight);
-    }
   } catch (err) {
     console.error("❌ Erreur lors de la gestion des vols en attente", err);
   }
@@ -113,34 +107,6 @@ async function logStatusChange(flightId, airplaneId, status) {
   } catch (err) {
     console.error("❌ Erreur lors de la mise à jour du statut du vol", err);
   }
-}
-
-/***************************************************************
- * Vérifie les avions disponibles et assigne un vol
- ***************************************************************/
-async function assignNextFlight(flight) {
-  if (!flight || !flight.Flight_ID) {
-    console.error(
-      "❌ Erreur: Flight_ID invalide ou vol non défini dans assignNextFlight."
-    );
-    return;
-  }
-
-  for (const [airplaneId, status] of airplaneStatus.entries()) {
-    if (status === "IDLE") {
-      const worker = airplaneWorkers.get(airplaneId);
-      if (worker) {
-        console.log(
-          `📡 Envoi du vol #${flight.Flight_ID} à l’avion #${airplaneId}`
-        );
-        worker.postMessage({ type: "START_FLIGHT", flight });
-        return;
-      }
-    }
-  }
-
-  console.log(`❌ Aucun avion disponible pour le vol #${flight.Flight_ID}`);
-  flightQueue.push(flight.Flight_ID);
 }
 
 app.post("/api/reset-db", async (req, res) => {
@@ -302,85 +268,27 @@ app.post("/api/schedule-flight", async (req, res) => {
   if (!departureAirport || !arrivalAirport || !departureTime) {
     return res.status(400).json({ error: "Données incomplètes" });
   }
+  const flightNumber = `FL${Math.floor(1000 + Math.random() * 9000)}`;
 
-  let conn;
   try {
-    conn = await pool.getConnection();
-
-    // 1️⃣ Calcul de la distance entre les aéroports
-    const [distanceResult] = await conn.execute(
-      "SELECT airline_DB_V3.Get_Flight_Distance(?, ?) AS distance",
-      [departureAirport, arrivalAirport]
-    );
-    const distance = distanceResult[0]?.distance;
-
-    if (!distance) {
-      return res
-        .status(400)
-        .json({ error: "Impossible de calculer la distance." });
-    }
-
-    // 2️⃣ Sélection d’un avion disponible
-    const [airplaneResult] = await conn.execute(
-      "SELECT Airplane_ID FROM Airplanes WHERE Status = 'IDLE' LIMIT 1"
-    );
-    const airplaneId = airplaneResult[0]?.Airplane_ID;
-
-    if (!airplaneId) {
-      return res.status(400).json({ error: "Aucun avion disponible." });
-    }
-
-    // 3️⃣ Calcul du temps de vol en fonction de la distance et de l'avion
-    const [flightTimeResult] = await conn.execute(
-      "SELECT airline_DB_V3.Get_Flight_Time(?, ?) AS flightTime",
-      [distance, airplaneId]
-    );
-    const flightTime = flightTimeResult[0]?.flightTime;
-
-    if (!flightTime) {
-      return res
-        .status(400)
-        .json({ error: "Impossible de calculer la durée du vol." });
-    }
-
-    // 4️⃣ Calcul de l’heure d’arrivée
-    const departureDateTime = new Date(departureTime);
-    departureDateTime.setMinutes(
-      departureDateTime.getMinutes() + parseInt(flightTime)
-    );
-
-    const arrivalTime = departureDateTime
-      .toISOString()
-      .slice(0, 19)
-      .replace("T", " ");
-
-    console.log("📅 Heure d'arrivée calculée :", arrivalTime);
-
-    // 5️⃣ Insérer le vol dans la base de données avec `Arrival_Time`
+    const conn = await mysql.createConnection(dbConfig);
     await conn.execute(
-      `INSERT INTO Flights (Flight_Number, Departure_Airport_ID, Arrival_Airport_ID, Departure_Time, Arrival_Time, Airplane_ID, Status, Priority)
-       VALUES (?, ?, ?, ?, ?, ?, 'Scheduled', 0)`,
-      [
-        `FL${Math.floor(1000 + Math.random() * 9000)}`,
-        departureAirport,
-        arrivalAirport,
-        departureTime,
-        arrivalTime,
-        airplaneId,
-      ]
+      `INSERT INTO Flights (Flight_Number, Departure_Airport_ID, Arrival_Airport_ID, Departure_Time, Status, Priority) 
+       VALUES (?, ?, ?, ?, 'Scheduled', 0)`,
+      [flightNumber, departureAirport, arrivalAirport, departureTime]
+    );
+    await conn.end();
+    console.log(
+      `✈️ Vol ${flightNumber} Scheduled 🕒:${departureTime} 🛫 ${departureAirport} -> 🛬${arrivalAirport}`
     );
 
-    conn.release();
     res.json({ message: "✈️ Vol planifié avec succès !" });
   } catch (err) {
-    console.error("❌ Erreur lors de la planification du vol :", err);
-    res.status(500).json({ error: "Erreur lors de la planification du vol." });
-  } finally {
-    if (conn) conn.release(); // Assurer la fermeture de la connexion même en cas d'erreur
+    console.error("❌ Erreur planification du vol", err);
+    res.status(500).json({ error: "Erreur planification du vol." });
   }
 });
 
-// Route pour récupérer les données des avions
 app.get("/api/airplanes", async (req, res) => {
   try {
     const conn = await mysql.createConnection(dbConfig);
@@ -389,8 +297,10 @@ app.get("/api/airplanes", async (req, res) => {
     );
     await conn.end();
 
-    // Mise à jour dynamique de airplaneData à chaque requête
+    // Réinitialiser airplaneData avant de le remplir à nouveau
     airplaneData.clear();
+
+    // Remplir airplaneData avec les informations des avions
     airplanes.forEach((airplane) => {
       airplaneData.set(airplane.Airplane_ID, {
         airplaneId: airplane.Airplane_ID,
@@ -399,11 +309,13 @@ app.get("/api/airplanes", async (req, res) => {
         cruisingSpeed: airplane.Cruising_Speed,
         location: airplane.Current_Location,
         registration: airplane.Registration,
-        status: airplane.Status || "IDLE", // Status par défaut
+        status: airplane.Status || "IDLE", // Statut par défaut
       });
     });
 
-    // Construction de la réponse avec la dernière version des données
+    console.log("💬 /api/airplanes exécutée");
+
+    // Construction de la réponse avec les données mises à jour
     const response = Array.from(airplaneData.values()).map((airplane) => ({
       airplaneId: airplane.airplaneId,
       model: airplane.model,
@@ -411,9 +323,10 @@ app.get("/api/airplanes", async (req, res) => {
       cruisingSpeed: airplane.cruisingSpeed,
       location: airplane.location,
       registration: airplane.registration,
-      status: airplaneStatus.get(airplane.airplaneId) || airplane.status,
+      status: airplane.status,
     }));
 
+    // Envoi de la réponse au client
     res.json(response);
   } catch (err) {
     console.error("❌ Erreur lors de la récupération des avions :", err);
@@ -439,6 +352,40 @@ app.get("/api/airplane/:id", (req, res) => {
     ...airplaneInfo,
     status: status, // Récupère le dernier statut connu
   });
+});
+
+// ERoute qui modifie un avion et met à jour airplaneData
+app.post("/api/airplane/update/:id", async (req, res) => {
+  const airplaneId = parseInt(req.params.id, 10);
+  const columnName = Object.keys(req.body)[0]; // Récupère la première clé (colonne)
+  const value = req.body[columnName]; // Récupère la valeur associée à la colonne
+  let query = `UPDATE Airplanes SET ${columnName} = "${value}" WHERE Airplane_ID = ${airplaneId}`;
+
+  try {
+    const conn = await mysql.createConnection(dbConfig);
+    // Met à jour le statut de l'avion dans la base de données
+    // const query = `UPDATE Airplanes SET ${columnName} = ? WHERE Airplane_ID = ?`;
+    await conn.execute(query, [value, airplaneId]);
+
+    await conn.end();
+
+    // Met à jour airplaneData avec les nouvelles informations
+    if (airplaneData.has(airplaneId)) {
+      const airplaneInfo = airplaneData.get(airplaneId);
+      airplaneData.set(airplaneId, {
+        ...airplaneInfo,
+        status: status || "IDLE",
+      });
+    }
+
+    res.json({ message: "Statut mis à jour avec succès" });
+  } catch (err) {
+    console.error("❌ Erreur lors de la mise à jour de l'avion :", err);
+    console.error("[SQL] :", query);
+    res
+      .status(500)
+      .json({ error: "Erreur lors de la mise à jour de l'avion." });
+  }
 });
 
 /***************************************************************

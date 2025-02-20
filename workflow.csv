@@ -1,0 +1,28 @@
+Étape,Statut,IRL,Table les () indique la source,Autres actions
+1️) Création,Scheduled,Le vol est planifié,"INSERT INTO Flights
+Flight_Number (auto)
+Status = Sheduled
+Priority = 0
+Departure_Airport_ID (modal)
+Arrival_Airport_ID (modal)
+Departure_Time (modal)",Log dans Debug_Log
+2️) Acceptation du vol,On-Time,Un avion accepte le vol.,"UPDATE Flights
+Airplane_ID (worker)
+Arrival_Time (worker)
+Status → Planned
+
+UPDATE Airplanes
+Status →Scheduled","✅ L’orchestrateur loggue l’acceptation.
+Calcule de l’heure d’arrivé"
+3️) 45 min avant le départ,Boarding,Début de l'embarquement.,"UPDATE Flights
+Status → Boarding",✅ Le worker envoie un message à l’orchestrateur.
+4️) À l’heure du départ,In-Flight,Décollage de l’avion.,"UPDATE Flights
+Status → In-Flight",✅ Le worker envoie un message à l’orchestrateur.
+5️) 20 min avant l’atterrissage,Approaching,L’avion commence son approche.,"UPDATE Flights
+Status → Approaching",✅ Le worker envoie un message à l’orchestrateur.
+6️) À l’atterrissage,On-Ground,L’avion atterrit.,"UPDATE Flights
+Status → On-Ground",✅ Le worker envoie un message à l’orchestrateur.
+7) 20 min après l’atterrissage,Completed,Débarquement des passagers,"UPDATE Flights
+Status → Completed",✅ Le worker envoie un message à l’orchestrateur.
+8) 20 min après l’atterrissage,Completed / IDLE,Débarquement des passagers,"UPDATE Airplanes
+Status →IDLE",✅ Le worker envoie un message à l’orchestrateur.
