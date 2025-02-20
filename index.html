@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Airline Simulator</title>
+    <script src="script.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -84,16 +85,22 @@
         <tbody></tbody>
     </table>
 
-    <h2>Statut des avions</h2>
+    <h2>Avions</h2>
     <table id="airplanesTable">
         <thead>
             <tr>
-                <th>Avion ID</th>
+                <th>ID</th>
+                <th>Modèle</th>
+                <th>Capacité</th>
+                <th>Vitesse de croisière</th>
+                <th>Emplacement actuel</th>
+                <th>Immatriculation</th>
                 <th>Statut</th>
             </tr>
         </thead>
         <tbody></tbody>
     </table>
+
 
     <!-- Modal de planification des vols -->
     <div id="flightModal" class="modal">
@@ -123,172 +130,7 @@
         </div>
     </div>
 
-    <script>
-        async function updateData() {
-            try {
-                const resTime = await fetch("/api/simulated-time");
-                const timeData = await resTime.json();
-                document.getElementById("simTime").innerText = new Date(timeData.simulatedTime).toLocaleTimeString();
 
-                const resFlights = await fetch("/api/flights");
-                const flights = await resFlights.json();
-                const flightsTable = document.getElementById("flightsTable").querySelector("tbody");
-                flightsTable.innerHTML = flights.map(flight => `
-                    <tr>
-                        <td>${flight.Flight_ID}</td>
-                        <td>${flight.Flight_Number}</td>
-                        <td>${flight.Departure_Airport_ID}</td>
-                        <td>${flight.Arrival_Airport_ID}</td>
-                        <td>${flight.Status}</td>
-                    </tr>
-                `).join("");
-
-                const resAirplanes = await fetch("/api/airplanes-status");
-                const airplanes = await resAirplanes.json();
-                const airplanesTable = document.getElementById("airplanesTable").querySelector("tbody");
-                airplanesTable.innerHTML = airplanes.map(airplane => `
-                    <tr>
-                        <td>${airplane.Airplane_ID}</td>
-                        <td>${airplane.Status}</td>
-                    </tr>
-                `).join("");
-            } catch (err) {
-                console.error("❌ Erreur lors de la récupération des données", err);
-            }
-        }
-
-        async function fetchAirports() {
-            try {
-                const res = await fetch("/api/airports");
-                const airports = await res.json();
-                const departureSelect = document.getElementById("departureAirport");
-                const arrivalSelect = document.getElementById("arrivalAirport");
-
-                departureSelect.innerHTML = airports.map(a => `<option value="${a.Airport_ID}">${a.Name} (${a.OACI_Code})</option>`).join("");
-                arrivalSelect.innerHTML = departureSelect.innerHTML;
-            } catch (err) {
-                console.error("Erreur lors de la récupération des aéroports", err);
-            }
-        }
-
-        async function calculateFlightDetails() {
-            const departureAirport = document.getElementById("departureAirport").value;
-            const arrivalAirport = document.getElementById("arrivalAirport").value;
-            const departureDate = document.getElementById("departureDate").value;
-            const departureTime = document.getElementById("departureTime").value;
-
-            if (!departureAirport || !arrivalAirport || !departureDate || !departureTime) {
-                alert("Veuillez remplir tous les champs.");
-                return;
-            }
-
-            try {
-                // 🔹 Vérification et normalisation de la date et de l'heure
-                const departureDateTimeStr = `${departureDate}T${departureTime}:00`;
-                const departureDateTime = new Date(departureDateTimeStr);
-
-                if (isNaN(departureDateTime.getTime())) {
-                    throw new Error(`Date ou heure de départ invalide : ${departureDateTimeStr}`);
-                }
-
-                // 🔹 Récupération de la distance entre les aéroports
-                const distanceRes = await fetch(`/api/flight-distance?departure=${departureAirport}&arrival=${arrivalAirport}`);
-                if (!distanceRes.ok) throw new Error("Échec de la récupération de la distance");
-                const distanceData = await distanceRes.json();
-                const distance = distanceData.distance;
-                document.getElementById("flightDistance").innerText = `${distance} km`;
-
-                // 🔹 Récupération de la durée du vol en minutes
-                const durationRes = await fetch(`/api/flight-time?distance=${distance}`);
-                if (!durationRes.ok) throw new Error("Échec de la récupération du temps de vol");
-                const durationData = await durationRes.json();
-                const flightDuration = parseInt(durationData.duration, 10);
-                document.getElementById("flightDuration").innerText = `${flightDuration} minutes`;
-
-                // 🔹 Calcul de l'heure d'arrivée en ajoutant la durée du vol
-                const arrivalDateTime = new Date(departureDateTime.getTime() + flightDuration * 60000); // Convertir minutes en ms
-
-                // 🔹 Format final pour l'affichage
-                const arrivalDateTimeFormatted = arrivalDateTime.toISOString().replace("T", " ").substring(0, 19);
-
-                // 🔹 Affichage dans l'interface utilisateur
-                document.getElementById("arrivalTime").innerText = arrivalDateTimeFormatted;
-
-                // 🔹 Logs pour le débogage et la validation
-                console.log("✈️ Détails du vol planifié :");
-                console.log(`🛫 Départ prévu : ${departureDateTime.toISOString().replace("T", " ").substring(0, 19)}`);
-                console.log(`📍 Aéroport de départ ID : ${departureAirport}`);
-                console.log(`📍 Aéroport d'arrivée ID : ${arrivalAirport}`);
-                console.log(`📏 Distance estimée : ${distance} km`);
-                console.log(`⏳ Durée estimée : ${flightDuration} minutes`);
-                console.log(`🛬 Heure d’arrivée estimée : ${arrivalDateTimeFormatted}`);
-
-            } catch (err) {
-                console.error("❌ Erreur lors du calcul des détails du vol :", err);
-                alert("Une erreur est survenue lors du calcul des détails du vol.");
-            }
-        }
-
-
-        function openFlightModal() {
-            fetchAirports();
-            document.getElementById("flightModal").style.display = "block";
-        }
-
-        function closeFlightModal() {
-            document.getElementById("flightModal").style.display = "none";
-        }
-
-        async function scheduleFlight() {
-            const departureAirport = document.getElementById("departureAirport").value;
-            const arrivalAirport = document.getElementById("arrivalAirport").value;
-            const departureDate = document.getElementById("departureDate").value;
-            const departureTime = document.getElementById("departureTime").value;
-            const arrivalTime = document.getElementById("arrivalTime").innerText;
-
-            if (!departureAirport || !arrivalAirport || !departureDate || !departureTime) {
-                alert("Veuillez remplir tous les champs.");
-                return;
-            }
-
-            try {
-                console.log("Données envoyées à l'API :", {
-                    departureAirport,
-                    arrivalAirport,
-                    departureTime: `${departureDate} ${departureTime}`,
-                    arrivalTime,
-                    flightDistance,
-                    flightDuration
-                });
-                const res = await fetch("/api/schedule-flight", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        departureAirport,
-                        arrivalAirport,
-                        departureTime: `${departureDate}T${departureTime}:00`,
-                        arrivalTime
-                    })
-                });
-
-                if (res.ok) {
-                    alert("Vol planifié avec succès !");
-                    closeFlightModal();
-                } else {
-                    alert("Erreur lors de la planification du vol.");
-                }
-            } catch (err) {
-                console.error("Erreur lors de la planification du vol", err);
-            }
-        }
-
-        async function resetDatabase() {
-            alert("Réinitialisation de la base non encore implémentée !");
-        }
-
-        setInterval(updateData, 5000);
-        updateData();
-    </script>
 </body>
 
 </html>

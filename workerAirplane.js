@@ -11,7 +11,12 @@ const dbConfig = {
 let simulatedTime = new Date(); // Heure simulée reçue de l'orchestrateur
 let currentFlight = null; // Stocke les détails du vol en cours
 
-// Fonction pour mettre à jour la base de données
+// Log au démarrage du worker
+//console.log(
+//  `👷 Worker initialisé pour l'avion #${workerData.airplaneId} - Status: ${workerData.status}`
+//);
+
+// Mise à jour du statut du vol en cours
 async function updateFlightStatus(flight, newStatus) {
   if (!flight || !flight.Flight_ID) {
     console.error(
