@@ -137,18 +137,19 @@ app.get("/api/airplane/:id", (req, res) => {
   });
 });
 
-// Exemple d'une route qui modifie un avion et met à jour airplaneData
+// ERoute qui modifie un avion et met à jour airplaneData
 app.post("/api/airplane/update/:id", async (req, res) => {
   const airplaneId = parseInt(req.params.id, 10);
-  const { status } = req.body;
+  const columnName = Object.keys(req.body)[0]; // Récupère la première clé (colonne)
+  const value = req.body[columnName]; // Récupère la valeur associée à la colonne
+  let query = `UPDATE Airplanes SET ${columnName} = "${value}" WHERE Airplane_ID = ${airplaneId}`;
 
   try {
     const conn = await mysql.createConnection(dbConfig);
     // Met à jour le statut de l'avion dans la base de données
-    await conn.execute(
-      "UPDATE Airplanes SET Status = ? WHERE Airplane_ID = ?",
-      [status, airplaneId]
-    );
+    // const query = `UPDATE Airplanes SET ${columnName} = ? WHERE Airplane_ID = ?`;
+    await conn.execute(query, [value, airplaneId]);
+
     await conn.end();
 
     // Met à jour airplaneData avec les nouvelles informations
@@ -163,6 +164,7 @@ app.post("/api/airplane/update/:id", async (req, res) => {
     res.json({ message: "Statut mis à jour avec succès" });
   } catch (err) {
     console.error("❌ Erreur lors de la mise à jour de l'avion :", err);
+    console.error("[SQL] :", query);
     res
       .status(500)
       .json({ error: "Erreur lors de la mise à jour de l'avion." });
