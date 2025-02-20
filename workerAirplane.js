@@ -95,12 +95,14 @@ async function calculateAndUpdateArrivalTime(flightId) {
       .slice(0, 19)
       .replace("T", " ");
 
-    console.log(`📅 Calcul Arrival_Time pour vol #${flightId}: ${arrivalTime}`);
-
     // Envoyer la mise à jour via l'API flight/update/:id
-    await axios.post(`http://localhost:3000/api/flight/update/${flightId}`, {
+    await axios.post(`/api/flight/update/${flightId}`, {
       Arrival_Time: arrivalTime,
     });
+
+    console.log(
+      `💬 Avion #${airplaneId}: Arrival_Time pour vol #${flightId}: ${arrivalTime}`
+    );
   } catch (err) {
     console.error(
       `❌ Erreur lors du calcul de Arrival_Time pour vol #${flightId}`,
@@ -177,7 +179,8 @@ async function updateAirplaneStatus(airplaneId, newStatus) {
       [newStatus, airplaneId]
     );
     await conn.end();
-    console.log(`🛫 Avion #${airplaneId} → Nouveau statut: ${newStatus}`);
+
+    console.log(`💬 Avion #${airplaneId} → Nouveau statut: ${newStatus}`);
   } catch (err) {
     console.error(`❌ Erreur mise à jour avion #${airplaneId}:`, err);
   }
@@ -188,8 +191,13 @@ async function updateAirplaneStatus(airplaneId, newStatus) {
  ***************************************************************/
 parentPort.on("message", async (msg) => {
   if (msg.type === "START_FLIGHT") {
-    await processFlight(msg.flight);
-  } else if (msg.type === "TIME_UPDATE") {
-    simulatedTime = new Date(msg.simulatedTime);
+    const flightId = msg.flightId;
+    console.log(
+      `✈️ Worker avion #${workerData.airplaneId} prend en charge le vol #${flightId}`
+    );
+
+    // Mise à jour en base de données
+    await updateFlightStatus(flightId, "Scheduled");
+    await updateAirplaneStatus(workerData.airplaneId, "Scheduled");
   }
 });

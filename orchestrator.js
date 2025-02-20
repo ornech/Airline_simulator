@@ -76,7 +76,7 @@ async function tickSimulation() {
 /***************************************************************
  * Vérifie et assigne les vols en attente
  ***************************************************************/
-async function processPendingFlights() {
+async function processPendingFlights1111() {
   try {
     const conn = await mysql.createConnection(dbConfig);
     const [flights] = await conn.execute(
@@ -87,6 +87,75 @@ async function processPendingFlights() {
   } catch (err) {
     console.error("❌ Erreur lors de la gestion des vols en attente", err);
   }
+}
+
+/***************************************************************
+ * Envoie d'une demande de vol à un avion IDLE et situé à l’aéroport de départ
+ ***************************************************************/
+function assignFlightToWorker(airplaneId, flightId) {
+  const worker = airplaneWorkers.get(airplaneId);
+  if (!worker) {
+    console.error(`❌ Aucun worker trouvé pour l'avion #${airplaneId}`);
+    return;
+  }
+
+  console.log(
+    `📢 Envoi de la mission au worker de l'avion #${airplaneId} pour le vol #${flightId}`
+  );
+
+  // Envoie un message au worker pour qu'il prenne en charge le vol
+  worker.postMessage({ type: "START_FLIGHT", flightId });
+}
+
+/***************************************************************
+ * appel à findAvailableAirplane pour chaque vol en attente.
+ ***************************************************************/
+async function processPendingFlights() {
+  try {
+    const conn = await mysql.createConnection(dbConfig);
+
+    // Récupérer les vols qui n'ont pas encore d'avion assigné
+    const [flights] = await conn.execute(
+      `SELECT Flight_ID, Departure_Airport_ID 
+       FROM Flights 
+       WHERE Airplane_ID IS NULL 
+       AND Status = 'Pending' 
+       ORDER BY Departure_Time ASC`
+    );
+
+    await conn.end();
+
+    for (const flight of flights) {
+      console.log(
+        `🔍 Tentative d'assignation d'un avion au vol #${flight.Flight_ID}`
+      );
+      await findAvailableAirplane(
+        flight.Flight_ID,
+        flight.Departure_Airport_ID
+      );
+    }
+  } catch (err) {
+    console.error("❌ Erreur lors de la gestion des vols en attente", err);
+  }
+}
+
+/***************************************************************
+ * Recherche un avion IDLE et situé à l’aéroport de départ
+ ***************************************************************/
+async function findAvailableAirplane(flightId, departureAirport) {
+  for (const [airplaneId, airplane] of airplaneData) {
+    if (airplane.status === "IDLE" && airplane.location === departureAirport) {
+      console.log(
+        `✅ Avion #${airplaneId} disponible pour le vol #${flightId}`
+      );
+
+      // Envoyer un message au worker pour lui affecter le vol
+      assignFlightToWorker(airplaneId, flightId);
+      return;
+    }
+  }
+
+  console.log(`⚠️ Aucun avion disponible pour le vol #${flightId}`);
 }
 
 /***************************************************************
@@ -274,12 +343,12 @@ app.post("/api/schedule-flight", async (req, res) => {
     const conn = await mysql.createConnection(dbConfig);
     await conn.execute(
       `INSERT INTO Flights (Flight_Number, Departure_Airport_ID, Arrival_Airport_ID, Departure_Time, Status, Priority) 
-       VALUES (?, ?, ?, ?, 'Scheduled', 0)`,
+       VALUES (?, ?, ?, ?, 'Pending', 0)`,
       [flightNumber, departureAirport, arrivalAirport, departureTime]
     );
     await conn.end();
     console.log(
-      `✈️ Vol ${flightNumber} Scheduled 🕒:${departureTime} 🛫 ${departureAirport} -> 🛬${arrivalAirport}`
+      `✈️ Vol ${flightNumber} Pending 🕒:${departureTime} 🛫 ${departureAirport} -> 🛬${arrivalAirport}`
     );
 
     res.json({ message: "✈️ Vol planifié avec succès !" });
@@ -290,6 +359,7 @@ app.post("/api/schedule-flight", async (req, res) => {
 });
 
 app.get("/api/airplanes", async (req, res) => {
+  // Dédiée à l'intérogation des état des avions
   try {
     const conn = await mysql.createConnection(dbConfig);
     const [airplanes] = await conn.execute(
@@ -312,8 +382,6 @@ app.get("/api/airplanes", async (req, res) => {
         status: airplane.Status || "IDLE", // Statut par défaut
       });
     });
-
-    console.log("💬 /api/airplanes exécutée");
 
     // Construction de la réponse avec les données mises à jour
     const response = Array.from(airplaneData.values()).map((airplane) => ({
