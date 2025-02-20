@@ -68,8 +68,9 @@
     <h2>Heure simulée: <span id="simTime">Chargement...</span></h2>
 
     <h2>Actions</h2>
-    <button onclick="resetDatabase()">🔄 Réinitialiser la Base de Données</button>
+    <button id="resetBtn">🔄 Réinitialiser la base de données</button>
     <button onclick="openFlightModal()">📅 Planifier un Vol</button>
+    <p id="status"></p>
 
     <h2>Vols en cours</h2>
     <table id="flightsTable">
@@ -130,7 +131,21 @@
         </div>
     </div>
 
+    <script>
+        document.getElementById("resetBtn").addEventListener("click", async () => {
+            const statusText = document.getElementById("status");
+            statusText.textContent = "⏳ Réinitialisation en cours...";
 
+            try {
+                const response = await fetch("/api/reset-db", { method: "POST" });
+                const data = await response.json();
+                statusText.textContent = `✅ ${data.message}`;
+            } catch (error) {
+                statusText.textContent = "❌ Erreur lors de la réinitialisation.";
+                console.error("Erreur :", error);
+            }
+        });
+    </script>
 </body>
 
 </html>

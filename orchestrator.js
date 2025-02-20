@@ -178,6 +178,33 @@ async function logStatusChange(flightId, airplaneId, status) {
   }
 }
 
+/***************************************************************
+ * Réinitialisation de la base de données
+ ***************************************************************/
+async function resetDatabase() {
+  try {
+    const conn = await mysql.createConnection(dbConfig);
+
+    console.log("[Orchestrator] 🔄 Réinitialisation de la base de données...");
+
+    // Suppression des vols
+    await conn.execute("DELETE FROM Flight_Status_Log");
+    await conn.execute("DELETE FROM Flights");
+
+    // Réinitialisation des avions
+    await conn.execute("UPDATE Airplanes SET Status = 'IDLE'");
+
+    await conn.end();
+
+    console.log("[Orchestrator] ✅ Base de données réinitialisée !");
+  } catch (err) {
+    console.error(
+      "[Orchestrator] ❌ Erreur lors de la réinitialisation de la DB",
+      err
+    );
+  }
+}
+
 app.post("/api/reset-db", async (req, res) => {
   try {
     const conn = await mysql.createConnection(dbConfig);
@@ -454,6 +481,14 @@ app.post("/api/airplane/update/:id", async (req, res) => {
       .status(500)
       .json({ error: "Erreur lors de la mise à jour de l'avion." });
   }
+});
+
+/***************************************************************
+ * RESET DATABASE
+ ***************************************************************/
+app.post("/api/reset-db", async (req, res) => {
+  await resetDatabase();
+  res.json({ message: "Base de données réinitialisée avec succès !" });
 });
 
 /***************************************************************
